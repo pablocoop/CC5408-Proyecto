@@ -4,3 +4,14 @@ Integrantes:
  - Aldo Luna
  - Valentina Ramírez
  - Pablo Osorio
+
+
+# Assets
+
+Los assets utilizados en el proyecto son los siguientes:
+
+- https://pixel-poem.itch.io/dungeon-assetpuck
+
+- https://sscary.itch.io/the-adventurer-male
+
+- https://pop-shop-packs.itch.io/cats-pixel-asset-pack
