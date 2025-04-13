@@ -36,9 +36,9 @@ position = Vector2(580, 633)
 shape = SubResource("RectangleShape2D_sgp6g")
 
 [node name="Skeleton2" parent="." instance=ExtResource("2_0wfyh")]
-position = Vector2(84, 81)
+position = Vector2(59, 81)
 scale = Vector2(4, 4)
 
 [node name="Skeleton" parent="." instance=ExtResource("1_o5qli")]
-position = Vector2(1015, 379)
+position = Vector2(1071, 562)
 scale = Vector2(4, 4)

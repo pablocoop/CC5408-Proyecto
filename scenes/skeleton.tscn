@@ -9,10 +9,6 @@
 [ext_resource type="Texture2D" uid="uid://ev4hsvmt4rtq" path="res://assets/Enemy_Animations_Set/enemies-skeleton1_movement.png" id="6_rjsi3"]
 [ext_resource type="Texture2D" uid="uid://3cvdtc3uobq3" path="res://assets/Enemy_Animations_Set/enemies-skeleton1_take_damage.png" id="7_3nhjk"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_i0f3v"]
-radius = 5.0
-height = 14.0
-
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5uy6h"]
 radius = 9.0
 height = 20.0
@@ -331,19 +327,32 @@ _data = {
 &"take_damage": SubResource("Animation_otmr2")
 }
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_i0f3v"]
+radius = 5.0
+height = 14.0
+
 [node name="Skeleton" type="CharacterBody2D"]
 script = ExtResource("1_w4hcs")
 
 [node name="Pivot" type="Node2D" parent="."]
 position = Vector2(2, -5)
+scale = Vector2(-1, 1)
 
 [node name="Sprite2D" type="Sprite2D" parent="Pivot"]
 texture = ExtResource("5_7e1v2")
 hframes = 9
 
+[node name="Hurtbox" type="Area2D" parent="Pivot"]
+position = Vector2(-2, 5)
+script = ExtResource("3_i0f3v")
+metadata/_custom_type_script = "uid://bo7j00nia4cku"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pivot/Hurtbox"]
+shape = SubResource("CapsuleShape2D_5uy6h")
+
 [node name="RayCast2D" type="RayCast2D" parent="Pivot"]
 position = Vector2(-2, 5)
-target_position = Vector2(11, 0)
+target_position = Vector2(10, 0)
 
 [node name="Hitbox" type="Area2D" parent="Pivot"]
 script = ExtResource("3_haw2w")
@@ -351,14 +360,6 @@ metadata/_custom_type_script = "uid://cpdtcih6dhwuq"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Pivot/Hitbox"]
 position = Vector2(-3, 6)
-shape = SubResource("CapsuleShape2D_i0f3v")
-
-[node name="Hurtbox" type="Area2D" parent="."]
-script = ExtResource("3_i0f3v")
-metadata/_custom_type_script = "uid://bo7j00nia4cku"
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
-shape = SubResource("CapsuleShape2D_5uy6h")
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
 tree_root = SubResource("AnimationNodeStateMachine_nenq2")
