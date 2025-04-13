@@ -1,30 +1,52 @@
 extends RigidBody2D
 
-@export var max_speed = 800
-@export var moving = false
+signal ball_stopped
+signal ball_relaunched
+
+@export var launch_speed = 1200
+var was_moving := false
+
 @onready var hitbox: Hitbox = $Hitbox
 
 
 func _ready():
 	hitbox.damage_dealt.connect(_on_damage_dealt)
 	# Simula fricción
-	linear_damp = 0.35
+	linear_damp = 0.8
 	# Asegura random distinto cada vez
 	randomize()
  
 func _physics_process(delta: float) -> void:
-	
-	if Input.is_action_just_pressed("attack") and !moving:
+	# Lanzar bola si se ataca estando detenida
+	if Input.is_action_just_pressed("attack") and !was_moving:
 		var angle = position.direction_to(get_global_mouse_position()).angle()
-		#var angle = randf_range(0, TAU)
 		var direction = Vector2.RIGHT.rotated(angle).normalized()
-		linear_velocity = direction * max_speed
-		moving = true
-	# Si la velocidad es muy baja, consideramos que se detuvo
-	#Debug.log(linear_velocity.length())
-	if moving and linear_velocity.length() < 20:  # Puedes ajustar el umbral
-		moving = false
+		linear_velocity = direction * launch_speed
+
+		# Fuerza el cambio a estado "en movimiento"
+		if !was_moving:
+			was_moving = true
+			ball_relaunched.emit()
+
+	# Detectar si se detuvo
+	if linear_velocity.length() < 15:
+		if was_moving:
+			was_moving = false
+			ball_stopped.emit()
+	else:
+		if !was_moving:
+			was_moving = true
+			ball_relaunched.emit()
+			
 		
 func _on_damage_dealt(target_position: Vector2):
 	var direction = global_position - target_position
 	linear_velocity = direction.normalized() * linear_velocity.length()
+
+func _on_area_entered(area: Area2D) -> void:
+	var hitbox = area as Hitbox
+	if hitbox:
+		# Rebote inverso: opuesto a la dirección actual
+		if linear_velocity.length() > 0:
+			linear_velocity = -linear_velocity.normalized() * linear_velocity.length()
+			ball_relaunched.emit()

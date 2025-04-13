@@ -11,6 +11,10 @@ Integrantes:
 
 ### Player
 
+### Ball
+
+La pelota es un objeto que se mueve en el mapa y puede ser atacada por el jugador. Cuando es atacada por el jugador, esta se redireccionará en la dirección opuesta a la que se encontraba antes de ser atacada. Cuando la pelota se encuentra fuera de movimiento, se entrará en un estado de pausa momentaneo hasta que el jugador vuelva a golpearla. Dentro de este estado, las entidades presentes dejarán de moverse y reproducirán la animación "idle".
+
 ### Enemy
 
 Los enemigos interactúan con la pelota recibiendo daño e impulso al contacto directo, excepto cuando no poseen retroceso en los golpes. Los enemigos pueden atacar directamente al jugador, en cuyo caso se le aplicará el retroceso, y se le dará el daño correspondiente.  
