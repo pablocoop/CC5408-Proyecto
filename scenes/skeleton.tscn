@@ -10,8 +10,12 @@
 [ext_resource type="Texture2D" uid="uid://3cvdtc3uobq3" path="res://assets/Enemy_Animations_Set/enemies-skeleton1_take_damage.png" id="7_3nhjk"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5uy6h"]
-radius = 9.0
-height = 20.0
+radius = 7.13241
+height = 18.2648
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_i0f3v"]
+radius = 5.0
+height = 16.0
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_w4hcs"]
 animation = &"attack"
@@ -49,13 +53,11 @@ switch_mode = 2
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_2iffn"]
 switch_mode = 2
 
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_w4hcs"]
-switch_mode = 2
-advance_mode = 2
-
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_haw2w"]
 switch_mode = 2
-advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_i0f3v"]
+switch_mode = 2
 
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_nenq2"]
 states/End/position = Vector2(1179, 127)
@@ -70,7 +72,7 @@ states/movement/node = SubResource("AnimationNodeAnimation_haw2w")
 states/movement/position = Vector2(475, 127)
 states/take_damage/node = SubResource("AnimationNodeAnimation_i0f3v")
 states/take_damage/position = Vector2(323, 48)
-transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_xwavj"), "idle", "movement", SubResource("AnimationNodeStateMachineTransition_xrus2"), "idle", "take_damage", SubResource("AnimationNodeStateMachineTransition_7e1v2"), "movement", "idle", SubResource("AnimationNodeStateMachineTransition_ghshk"), "movement", "attack", SubResource("AnimationNodeStateMachineTransition_e85v8"), "idle", "attack", SubResource("AnimationNodeStateMachineTransition_f63t1"), "movement", "take_damage", SubResource("AnimationNodeStateMachineTransition_v6rpr"), "attack", "idle", SubResource("AnimationNodeStateMachineTransition_6yhqa"), "attack", "movement", SubResource("AnimationNodeStateMachineTransition_2iffn"), "take_damage", "idle", SubResource("AnimationNodeStateMachineTransition_w4hcs"), "take_damage", "movement", SubResource("AnimationNodeStateMachineTransition_haw2w")]
+transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_xwavj"), "idle", "movement", SubResource("AnimationNodeStateMachineTransition_xrus2"), "idle", "take_damage", SubResource("AnimationNodeStateMachineTransition_7e1v2"), "movement", "idle", SubResource("AnimationNodeStateMachineTransition_ghshk"), "movement", "attack", SubResource("AnimationNodeStateMachineTransition_e85v8"), "idle", "attack", SubResource("AnimationNodeStateMachineTransition_f63t1"), "movement", "take_damage", SubResource("AnimationNodeStateMachineTransition_v6rpr"), "attack", "idle", SubResource("AnimationNodeStateMachineTransition_6yhqa"), "attack", "movement", SubResource("AnimationNodeStateMachineTransition_2iffn"), "take_damage", "movement", SubResource("AnimationNodeStateMachineTransition_haw2w"), "take_damage", "idle", SubResource("AnimationNodeStateMachineTransition_i0f3v")]
 
 [sub_resource type="Animation" id="Animation_c4w8v"]
 length = 0.001
@@ -327,10 +329,6 @@ _data = {
 &"take_damage": SubResource("Animation_otmr2")
 }
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_i0f3v"]
-radius = 5.0
-height = 16.0
-
 [node name="Skeleton" type="CharacterBody2D"]
 script = ExtResource("1_w4hcs")
 
@@ -362,6 +360,9 @@ metadata/_custom_type_script = "uid://cpdtcih6dhwuq"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Pivot/Hitbox"]
 position = Vector2(-3, 6)
 
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_i0f3v")
+
 [node name="AnimationTree" type="AnimationTree" parent="."]
 tree_root = SubResource("AnimationNodeStateMachine_nenq2")
 anim_player = NodePath("../AnimationPlayer")
@@ -370,6 +371,3 @@ anim_player = NodePath("../AnimationPlayer")
 libraries = {
 &"": SubResource("AnimationLibrary_xwavj")
 }
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CapsuleShape2D_i0f3v")
