@@ -79,6 +79,45 @@ states/take_damage/node = SubResource("AnimationNodeAnimation_rwooq")
 states/take_damage/position = Vector2(271, 42)
 transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_im1o5"), "idle", "movement", SubResource("AnimationNodeStateMachineTransition_fpqu1"), "movement", "take_damage", SubResource("AnimationNodeStateMachineTransition_1gp2t"), "idle", "take_damage", SubResource("AnimationNodeStateMachineTransition_btm3c"), "idle", "attack", SubResource("AnimationNodeStateMachineTransition_te8wh"), "movement", "attack", SubResource("AnimationNodeStateMachineTransition_y8ldo"), "take_damage", "idle", SubResource("AnimationNodeStateMachineTransition_mfb8j"), "take_damage", "movement", SubResource("AnimationNodeStateMachineTransition_3rk3w"), "movement", "idle", SubResource("AnimationNodeStateMachineTransition_b21dj"), "attack", "movement", SubResource("AnimationNodeStateMachineTransition_5pe0i"), "attack", "idle", SubResource("AnimationNodeStateMachineTransition_kcd7h")]
 
+[sub_resource type="Animation" id="Animation_n5bqh"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Pivot/Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("1_tme36")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Pivot/Sprite2D:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [15]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Pivot/Sprite2D:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
 [sub_resource type="Animation" id="Animation_lsagd"]
 resource_name = "attack"
 length = 1.5
@@ -118,45 +157,6 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]
-}
-
-[sub_resource type="Animation" id="Animation_n5bqh"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Pivot/Sprite2D:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("1_tme36")]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Pivot/Sprite2D:hframes")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [15]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Pivot/Sprite2D:frame")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
 }
 
 [sub_resource type="Animation" id="Animation_ycfjr"]
