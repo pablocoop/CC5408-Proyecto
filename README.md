@@ -15,3 +15,6 @@ Los assets utilizados en el proyecto son los siguientes:
 - https://sscary.itch.io/the-adventurer-male
 
 - https://pop-shop-packs.itch.io/cats-pixel-asset-pack
+
+- https://opengameart.org/content/bouncing-ball-guy
+
