@@ -6,8 +6,8 @@ func _ready() -> void:
 	
 func _on_area_entered(area: Area2D) -> void:
 	var hitbox = area as Hitbox
-	if hitbox:
-		if owner.has_method("take_damage"):
-			owner.take_damage(hitbox.damage)
-			hitbox.damage_dealt.emit()
+	if hitbox and owner.has_method("take_damage"):
+		var from_direction = owner.global_position - hitbox.global_position
+		owner.take_damage(hitbox.damage, from_direction)
+		hitbox.damage_dealt.emit(owner.global_position)
 	

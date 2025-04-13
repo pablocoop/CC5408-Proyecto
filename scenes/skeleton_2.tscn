@@ -1,6 +1,6 @@
 [gd_scene load_steps=38 format=3 uid="uid://c26uakq0r85nf"]
 
-[ext_resource type="Script" uid="uid://bn7d0ugg8iqyb" path="res://scenes/skeleton_2.gd" id="1_hnfra"]
+[ext_resource type="Script" uid="uid://ce0ollls82mlt" path="res://scenes/skeleton.gd" id="1_62e87"]
 [ext_resource type="Texture2D" uid="uid://bem8cwrrwwma8" path="res://assets/Enemy_Animations_Set/enemies-skeleton2_attack.png" id="1_tme36"]
 [ext_resource type="Script" uid="uid://bo7j00nia4cku" path="res://components/hurtbox.gd" id="2_hnfra"]
 [ext_resource type="Texture2D" uid="uid://dhyp8fkrnubps" path="res://assets/Enemy_Animations_Set/enemies-skeleton1_death.png" id="3_62e87"]
@@ -381,7 +381,7 @@ radius = 4.0
 height = 16.0
 
 [node name="Skeleton2" type="CharacterBody2D"]
-script = ExtResource("1_hnfra")
+script = ExtResource("1_62e87")
 
 [node name="Pivot" type="Node2D" parent="."]
 
