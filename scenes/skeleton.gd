@@ -7,6 +7,7 @@ var current_health := max_health
 var is_taking_damage = false
 var is_dead := false
 var is_invulnerable := false
+var is_paused := false
 
 @onready var animation_tree: AnimationTree = $AnimationTree
 @onready var playback = animation_tree.get("parameters/playback")
@@ -18,12 +19,14 @@ var is_invulnerable := false
 
 func _ready() -> void:
 	animation_tree.active = true
+	add_to_group("enemies")
 
 func _physics_process(delta: float) -> void:
-	if is_dead or is_invulnerable:
+	if is_paused:
+		playback.travel("idle")
 		return
 		
-	if is_taking_damage:
+	if is_dead or is_invulnerable or is_taking_damage:
 		return  # no moverse ni reproducir "movement" durante la animación de daño
 		
 	velocity.x = move_toward(velocity.x, max_speed * pivot.scale.x, acceleration * delta)
@@ -82,3 +85,9 @@ func start_invulnerability():
 
 	is_invulnerable = false
 	hurtbox.monitoring = true
+	
+func pause_enemy():
+	is_paused = true
+
+func resume_enemy():
+	is_paused = false
