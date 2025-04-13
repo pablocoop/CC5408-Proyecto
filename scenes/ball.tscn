@@ -1,0 +1,35 @@
+[gd_scene load_steps=7 format=3 uid="uid://dfau8rmohhg3e"]
+
+[ext_resource type="Script" uid="uid://cy7qoi8yfe5a0" path="res://scenes/ball.gd" id="1_4dx81"]
+[ext_resource type="Texture2D" uid="uid://bi3hjh363bjf2" path="res://assets/BallGuy/ballguy.png" id="1_cxlvu"]
+[ext_resource type="Script" uid="uid://cpdtcih6dhwuq" path="res://components/hitbox.gd" id="4_eew57"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_4dx81"]
+rough = true
+bounce = 1.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_fwo8l"]
+radius = 6.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4dx81"]
+radius = 7.0
+
+[node name="Ball" type="RigidBody2D"]
+physics_material_override = SubResource("PhysicsMaterial_4dx81")
+gravity_scale = 0.0
+script = ExtResource("1_4dx81")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, 11)
+texture = ExtResource("1_cxlvu")
+hframes = 28
+
+[node name="Hitbox" type="Area2D" parent="."]
+script = ExtResource("4_eew57")
+metadata/_custom_type_script = "uid://cpdtcih6dhwuq"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+shape = SubResource("CircleShape2D_fwo8l")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_4dx81")

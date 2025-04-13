@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=4 uid="uid://delp7q8e1ntpa"]
+[gd_scene load_steps=7 format=4 uid="uid://delp7q8e1ntpa"]
 
 [ext_resource type="Texture2D" uid="uid://yh5f3crpm4io" path="res://assets/2D Pixel Dungeon Asset Pack/character and tileset/Dungeon_Tileset.png" id="1_o5qli"]
 [ext_resource type="PackedScene" uid="uid://cjo28e2ythbpe" path="res://scenes/skeleton.tscn" id="2_sugp2"]
 [ext_resource type="PackedScene" uid="uid://c26uakq0r85nf" path="res://scenes/skeleton_2.tscn" id="3_jyhfs"]
+[ext_resource type="PackedScene" uid="uid://dfau8rmohhg3e" path="res://scenes/ball.tscn" id="4_jyhfs"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0wfyh"]
 texture = ExtResource("1_o5qli")
@@ -410,3 +411,6 @@ scale = Vector2(4, 4)
 [node name="Skeleton2" parent="." instance=ExtResource("3_jyhfs")]
 position = Vector2(86, 81)
 scale = Vector2(4, 4)
+
+[node name="Ball" parent="." instance=ExtResource("4_jyhfs")]
+position = Vector2(534, 322)
