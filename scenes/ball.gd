@@ -13,7 +13,8 @@ func _ready():
 func _physics_process(delta: float) -> void:
 	
 	if Input.is_action_just_pressed("attack") and !moving:
-		var angle = randf_range(0, TAU)
+		var angle = position.direction_to(get_global_mouse_position()).angle()
+		#var angle = randf_range(0, TAU)
 		var direction = Vector2.RIGHT.rotated(angle).normalized()
 		linear_velocity = direction * max_speed
 		moving = true
