@@ -5,6 +5,25 @@ Integrantes:
  - Valentina Ramírez
  - Pablo Osorio
 
+# Development
+
+## Entities
+
+### Player
+
+### Enemy
+
+Los enemigos interactúan con la pelota recibiendo daño e impulso al contacto directo, excepto cuando no poseen retroceso en los golpes. Los enemigos pueden atacar directamente al jugador, en cuyo caso se le aplicará el retroceso, y se le dará el daño correspondiente.  
+
+* Skeleton: Existen varios tipos de Skeletons, caracterizados por no poseer retroceso en los golpes y cada uno posee sus propios sprites y las siguientes animaciones:
+
+  - Idle
+  - Movement
+  - Attack
+  - Take damage
+  - Death
+
+
 
 # Assets
 
