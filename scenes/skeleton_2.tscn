@@ -393,18 +393,18 @@ hframes = 15
 [node name="RayCast2D" type="RayCast2D" parent="Pivot"]
 target_position = Vector2(10, 0)
 
+[node name="Hurtbox" type="Area2D" parent="Pivot"]
+script = ExtResource("2_hnfra")
+metadata/_custom_type_script = "uid://bo7j00nia4cku"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pivot/Hurtbox"]
+shape = SubResource("CapsuleShape2D_yxnco")
+
 [node name="Hitbox" type="Area2D" parent="Pivot"]
 script = ExtResource("3_baxx2")
 metadata/_custom_type_script = "uid://cpdtcih6dhwuq"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Pivot/Hitbox"]
-
-[node name="Hurtbox" type="Area2D" parent="."]
-script = ExtResource("2_hnfra")
-metadata/_custom_type_script = "uid://bo7j00nia4cku"
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
-shape = SubResource("CapsuleShape2D_yxnco")
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
 tree_root = SubResource("AnimationNodeStateMachine_561qj")

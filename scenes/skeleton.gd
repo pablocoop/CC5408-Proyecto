@@ -13,6 +13,7 @@ func _ready() -> void:
 	animation_tree.active = true
 
 func _physics_process(delta: float) -> void:
+	playback.travel("movement")
 	velocity.x = move_toward(velocity.x, max_speed * pivot.scale.x, acceleration * delta)
 	move_and_slide()
 	if ray_cast_2d.is_colliding():
