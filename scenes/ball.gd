@@ -2,9 +2,11 @@ extends RigidBody2D
 
 @export var max_speed = 800
 @export var moving = false
+@onready var hitbox: Hitbox = $Hitbox
+
 
 func _ready():
-	# Desactivar gravedad para top-down
+	hitbox.damage_dealt.connect(_on_damage_dealt)
 	# Simula fricción
 	linear_damp = 0.35
 	# Asegura random distinto cada vez
@@ -22,3 +24,7 @@ func _physics_process(delta: float) -> void:
 	#Debug.log(linear_velocity.length())
 	if moving and linear_velocity.length() < 20:  # Puedes ajustar el umbral
 		moving = false
+		
+func _on_damage_dealt(target_position: Vector2):
+	var direction = global_position - target_position
+	linear_velocity = direction.normalized() * linear_velocity.length()
