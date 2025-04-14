@@ -54,6 +54,11 @@ run={
 ]
 }
 
+[layer_names]
+
+2d_physics/layer_17="Proxi_area"
+2d_physics/layer_18="Proxi_check"
+
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0

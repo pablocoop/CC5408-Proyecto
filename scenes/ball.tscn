@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://dfau8rmohhg3e"]
+[gd_scene load_steps=8 format=3 uid="uid://dfau8rmohhg3e"]
 
 [ext_resource type="Script" uid="uid://cy7qoi8yfe5a0" path="res://scenes/ball.gd" id="1_4dx81"]
 [ext_resource type="Texture2D" uid="uid://bi3hjh363bjf2" path="res://assets/BallGuy/ballguy.png" id="1_cxlvu"]
@@ -13,6 +13,8 @@ radius = 6.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_4dx81"]
 radius = 7.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_f7cbr"]
 
 [node name="Ball" type="RigidBody2D"]
 physics_material_override = SubResource("PhysicsMaterial_4dx81")
@@ -33,3 +35,13 @@ shape = SubResource("CircleShape2D_fwo8l")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_4dx81")
+
+[node name="ProximityArea" type="Area2D" parent="."]
+collision_layer = 65537
+collision_mask = 131073
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ProximityArea"]
+shape = SubResource("CircleShape2D_f7cbr")
+debug_color = Color(0.764726, 0.448963, 0, 0.42)
+metadata/_edit_lock_ = true
