@@ -5,6 +5,8 @@ extends CharacterBody2D
 @export var acceleration = 900
 @export var max_health := 10
 var current_health := max_health
+var is_running := false
+@export var run_multiplier := 1.5
 
 var input: Vector2
 var playback: AnimationNodeStateMachinePlayback
@@ -21,7 +23,12 @@ func _process(delta: float) -> void:
 	
 func _physics_process(delta: float) -> void:
 	input = Input.get_vector("move_left", "move_right", "move_up", "move_down")
-	velocity = input * speed
+	
+	is_running = Input.is_action_pressed("run")
+	
+	var current_speed = speed * run_multiplier if is_running else speed
+	velocity = input * current_speed
+	
 	move_and_slide()
 	_select_animation()
 	_update_animation_parameters()
@@ -38,9 +45,13 @@ func _physics_process(delta: float) -> void:
 		#velocity.x = direction_x * speed
 	#else:
 		#velocity.x = move_toward(velocity.x, 0, speed)
+
+
 func _select_animation() -> void:
 	if velocity == Vector2.ZERO:
 		playback.travel("idle")
+	elif is_running:
+		playback.travel("running")	
 	else:
 		playback.travel("walking")
 	
@@ -49,6 +60,7 @@ func _update_animation_parameters() -> void:
 		return
 	animation_tree["parameters/idle/blend_position"] = input
 	animation_tree["parameters/walking/blend_position"] = input
+	animation_tree["parameters/running/blend_position"] = input
 
 func _input(event: InputEvent) -> void:
 	pass
