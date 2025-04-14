@@ -358,7 +358,8 @@ script = ExtResource("3_haw2w")
 metadata/_custom_type_script = "uid://cpdtcih6dhwuq"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Pivot/Hitbox"]
-position = Vector2(-3, 6)
+position = Vector2(0.132406, -0.963301)
+debug_color = Color(0.311415, 0.626461, 7.70092e-07, 0.42)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_i0f3v")

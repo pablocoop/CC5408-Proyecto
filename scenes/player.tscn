@@ -1,4 +1,4 @@
-[gd_scene load_steps=62 format=3 uid="uid://b66xtdsj4jkeg"]
+[gd_scene load_steps=63 format=3 uid="uid://b66xtdsj4jkeg"]
 
 [ext_resource type="Script" uid="uid://20gqeq084edk" path="res://scenes/player.gd" id="1_g2els"]
 [ext_resource type="Texture2D" uid="uid://bch6ixobikwmg" path="res://assets/Cats Download/blue_3.png" id="2_qhqgy"]
@@ -1382,6 +1382,10 @@ states/walking/node = SubResource("AnimationNodeBlendSpace2D_pf23h")
 states/walking/position = Vector2(521, 100)
 graph_offset = Vector2(0, -190.518)
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qlg0r"]
+radius = 17.0
+height = 60.0
+
 [node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("animation_tree")]
 script = ExtResource("1_g2els")
 animation_tree = NodePath("AnimationTree")
@@ -1412,3 +1416,11 @@ anim_player = NodePath("../AnimationPlayer")
 parameters/idle/blend_position = Vector2(-0.00460124, 0.993808)
 parameters/running/blend_position = Vector2(0.118068, -0.80805)
 parameters/walking/blend_position = Vector2(0, 0)
+
+[node name="ProximityCheck" type="Area2D" parent="."]
+collision_layer = 131073
+collision_mask = 65537
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ProximityCheck"]
+shape = SubResource("CapsuleShape2D_qlg0r")
+debug_color = Color(0.47451, 0.45098, 0.972549, 0.172549)

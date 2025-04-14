@@ -1,3 +1,4 @@
+class_name Ball
 extends RigidBody2D
 
 signal ball_stopped
@@ -5,6 +6,7 @@ signal ball_relaunched
 
 @export var launch_speed = 1200
 var was_moving := false
+var player_nearby := false
 
 @onready var hitbox: Hitbox = $Hitbox
 
@@ -15,10 +17,13 @@ func _ready():
 	linear_damp = 0.8
 	# Asegura random distinto cada vez
 	randomize()
+	
+func set_player_nearby(value: bool) -> void:
+	player_nearby = value
  
 func _physics_process(delta: float) -> void:
 	# Lanzar bola si se ataca estando detenida
-	if Input.is_action_just_pressed("attack") and !was_moving:
+	if Input.is_action_just_pressed("attack") and !was_moving and player_nearby:
 		var angle = position.direction_to(get_global_mouse_position()).angle()
 		var direction = Vector2.RIGHT.rotated(angle).normalized()
 		linear_velocity = direction * launch_speed

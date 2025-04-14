@@ -1,5 +1,10 @@
+class_name Player
 extends CharacterBody2D
 
+signal proximity_entered(ball)
+signal proximity_exited(ball)
+
+@onready var proximity_check: Area2D = $ProximityCheck
 
 @export var speed = 400
 @export var acceleration = 900
@@ -17,6 +22,20 @@ var playback: AnimationNodeStateMachinePlayback
 
 func _ready() -> void:
 	playback = animation_tree["parameters/playback"]
+	proximity_check.area_entered.connect(_on_area_entered)
+	proximity_check.area_exited.connect(_on_area_exited)
+	proximity_entered.connect(func(ball): ball.set_player_nearby(true))
+	proximity_exited.connect(func(ball): ball.set_player_nearby(false))
+	
+func _on_area_entered(area: Area2D) -> void:
+	var ball = area.get_parent() as Ball
+	if ball and ball.has_method("set_player_nearby"):
+		proximity_entered.emit(ball)
+
+func _on_area_exited(area: Area2D) -> void:
+	var ball = area.get_parent() as Ball
+	if ball and ball.has_method("set_player_nearby"):
+		proximity_exited.emit(ball)
 
 func _process(delta: float) -> void:
 	pass
@@ -32,19 +51,6 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 	_select_animation()
 	_update_animation_parameters()
-	# Movimiento vertical
-	#var direction_y := Input.get_axis("move_up", "move_down")
-	#if direction_y:
-		#velocity.y = direction_y * speed
-	#else:
-		#velocity.y = move_toward(velocity.y, 0, speed)
-		#
-	## Movimiento horizontal
-	#var direction_x := Input.get_axis("move_left", "move_right")
-	#if direction_x:
-		#velocity.x = direction_x * speed
-	#else:
-		#velocity.x = move_toward(velocity.x, 0, speed)
 
 
 func _select_animation() -> void:
