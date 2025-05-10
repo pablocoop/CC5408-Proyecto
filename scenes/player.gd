@@ -18,8 +18,6 @@ var playback: AnimationNodeStateMachinePlayback
 
 @export var animation_tree: AnimationTree
 
-
-
 func _ready() -> void:
 	playback = animation_tree["parameters/playback"]
 	proximity_check.area_entered.connect(_on_area_entered)
@@ -38,15 +36,17 @@ func _on_area_exited(area: Area2D) -> void:
 		proximity_exited.emit(ball)
 
 func _process(delta: float) -> void:
-	pass
+	var real_delta = delta / Engine.time_scale
+	animation_tree.advance(real_delta)
 	
 func _physics_process(delta: float) -> void:
+	var real_delta = delta / Engine.time_scale
 	input = Input.get_vector("move_left", "move_right", "move_up", "move_down")
-	
 	is_running = Input.is_action_pressed("run")
 	
 	var current_speed = speed * run_multiplier if is_running else speed
-	velocity = input * current_speed
+	var direction = input.normalized()
+	velocity = direction * current_speed * real_delta / delta  # Compensar el slowdown
 	
 	move_and_slide()
 	_select_animation()

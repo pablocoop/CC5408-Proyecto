@@ -540,3 +540,7 @@ collision_mask = 5
 position = Vector2(532, 255)
 collision_layer = 2
 collision_mask = 5
+speed = 400
+acceleration = 900
+max_health = 10
+run_multiplier = 1.5
