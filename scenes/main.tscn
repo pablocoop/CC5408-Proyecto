@@ -13,11 +13,12 @@ position = Vector2(248, 22)
 
 [node name="Player" parent="." instance=ExtResource("6_tefeu")]
 position = Vector2(572, 255)
+collision_layer = 2
+collision_mask = 5
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 
 [node name="Ball" parent="." instance=ExtResource("4_jyhfs")]
 position = Vector2(1312, 246)
-collision_layer = 5
+collision_layer = 8
 collision_mask = 5
-
