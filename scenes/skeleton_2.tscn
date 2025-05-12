@@ -382,6 +382,7 @@ height = 16.0
 
 [node name="Skeleton2" type="CharacterBody2D"]
 script = ExtResource("1_62e87")
+max_health = 1148
 
 [node name="Pivot" type="Node2D" parent="."]
 

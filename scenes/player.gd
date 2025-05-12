@@ -5,6 +5,7 @@ signal proximity_entered(ball)
 signal proximity_exited(ball)
 
 @onready var proximity_check: Area2D = $ProximityCheck
+@onready var magic_attack = $MagicAttack
 
 @export var speed = 400
 @export var acceleration = 900
@@ -31,16 +32,22 @@ func _on_area_entered(area: Area2D) -> void:
 	var ball = area.get_parent() as Ball
 	if ball and ball.has_method("set_player_nearby"):
 		proximity_entered.emit(ball)
+		
 
 func _on_area_exited(area: Area2D) -> void:
+	
 	var ball = area.get_parent() as Ball
 	if ball and ball.has_method("set_player_nearby"):
 		proximity_exited.emit(ball)
 
-func _process(delta: float) -> void:
-	pass
 	
 func _physics_process(delta: float) -> void:
+	if Input.is_action_just_pressed("attack"):
+		magic_attack.emitting =true
+		
+	if Input.is_action_just_pressed("reset"):
+		global_position= Vector2(500,320)
+		
 	input = Input.get_vector("move_left", "move_right", "move_up", "move_down")
 	
 	is_running = Input.is_action_pressed("run")

@@ -67,14 +67,15 @@ func take_damage(damage: float, from_direction: Vector2) -> void:
 		
 func flash_red() -> void:
 	modulate = Color(1, 0.7, 0.7)
-	await get_tree().create_timer(0.1).timeout
+	await get_tree().create_timer(0.7).timeout
 	modulate = Color(1, 1, 1)
 	
 func start_invulnerability():
 	var flash_timer := 0.0
 	var flash_duration := 0.5  # duración total de la invulnerabilidad (en segundos)
 	var flash_interval := 0.2  # tiempo entre parpadeos
-	hurtbox.monitoring = false
+	hurtbox.set_deferred("monitoring",false)
+	
 
 	while flash_timer < flash_duration:
 		visible = false

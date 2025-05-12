@@ -1,11 +1,11 @@
-[gd_scene load_steps=63 format=3 uid="uid://b66xtdsj4jkeg"]
+[gd_scene load_steps=65 format=3 uid="uid://b66xtdsj4jkeg"]
 
 [ext_resource type="Script" uid="uid://20gqeq084edk" path="res://scenes/player.gd" id="1_g2els"]
 [ext_resource type="Texture2D" uid="uid://bch6ixobikwmg" path="res://assets/Cats Download/blue_3.png" id="2_qhqgy"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_dqkch"]
-radius = 5.5
-height = 23.0
+radius = 9.5
+height = 19.0
 
 [sub_resource type="Animation" id="Animation_qhqgy"]
 length = 0.001
@@ -1380,11 +1380,19 @@ states/running/node = SubResource("AnimationNodeBlendSpace2D_4r5pv")
 states/running/position = Vector2(679, 100)
 states/walking/node = SubResource("AnimationNodeBlendSpace2D_pf23h")
 states/walking/position = Vector2(521, 100)
-graph_offset = Vector2(0, -190.518)
+graph_offset = Vector2(74, 9.48199)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qlg0r"]
-radius = 17.0
-height = 60.0
+radius = 71.0
+height = 142.0
+
+[sub_resource type="Curve" id="Curve_g2els"]
+_data = [Vector2(0.0246914, 1), 0.0, 0.0, 0, 0, Vector2(0.436214, 0.842697), 0.0, 0.0, 0, 0, Vector2(0.8107, 0.11236), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Gradient" id="Gradient_qhqgy"]
+offsets = PackedFloat32Array(0, 0.456221, 0.861751)
+colors = PackedColorArray(1, 1, 1, 1, 0.537011, 0.537011, 0.537011, 1, 1, 1, 1, 1)
 
 [node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("animation_tree")]
 script = ExtResource("1_g2els")
@@ -1392,6 +1400,7 @@ animation_tree = NodePath("AnimationTree")
 metadata/_edit_lock_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+self_modulate = Color(0.601223, 0.601223, 0.601223, 1)
 position = Vector2(1.4, 0)
 scale = Vector2(3, 3)
 texture = ExtResource("2_qhqgy")
@@ -1403,7 +1412,6 @@ metadata/_edit_lock_ = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 scale = Vector2(2, 2)
 shape = SubResource("CapsuleShape2D_dqkch")
-metadata/_edit_lock_ = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -1422,5 +1430,30 @@ collision_layer = 131073
 collision_mask = 65537
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ProximityCheck"]
+position = Vector2(-1, 1)
 shape = SubResource("CapsuleShape2D_qlg0r")
 debug_color = Color(0.47451, 0.45098, 0.972549, 0.172549)
+
+[node name="MagicAttack" type="CPUParticles2D" parent="."]
+position = Vector2(-1, 0)
+emitting = false
+amount = 273
+lifetime = 0.78
+one_shot = true
+speed_scale = 5.0
+explosiveness = 1.0
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 140.0
+initial_velocity_max = 174.24
+angular_velocity_min = -338.18
+angular_velocity_max = 305.46
+radial_accel_min = -100.0
+radial_accel_max = -100.0
+damping_min = 81.061
+damping_max = 81.061
+scale_amount_min = 7.58
+scale_amount_max = 7.58
+scale_amount_curve = SubResource("Curve_g2els")
+color = Color(0.938657, 0.282194, 0.925472, 1)
+color_ramp = SubResource("Gradient_qhqgy")
