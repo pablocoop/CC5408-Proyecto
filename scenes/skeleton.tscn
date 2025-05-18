@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://cjo28e2ythbpe"]
+[gd_scene load_steps=36 format=3 uid="uid://cjo28e2ythbpe"]
 
 [ext_resource type="Script" uid="uid://ce0ollls82mlt" path="res://scenes/skeleton.gd" id="1_w4hcs"]
 [ext_resource type="Texture2D" uid="uid://csjtti0yis826" path="res://assets/Enemy_Animations_Set/enemies-skeleton1_idle.png" id="2_haw2w"]
@@ -12,6 +12,10 @@
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5uy6h"]
 radius = 7.13241
 height = 18.2648
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_haw2w"]
+radius = 7.0
+height = 18.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_i0f3v"]
 radius = 5.0
@@ -359,6 +363,7 @@ metadata/_custom_type_script = "uid://cpdtcih6dhwuq"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Pivot/Hitbox"]
 position = Vector2(0.132406, -0.963301)
+shape = SubResource("CapsuleShape2D_haw2w")
 debug_color = Color(0.311415, 0.626461, 7.70092e-07, 0.42)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

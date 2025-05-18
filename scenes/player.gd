@@ -12,6 +12,12 @@ signal proximity_exited(ball)
 var current_health := max_health
 var is_running := false
 @export var run_multiplier := 1.5
+@onready var texture_progress_bar: TextureProgressBar = $HealthBar/TextureProgressBar
+var is_taking_damage = false
+var is_dead := false
+var is_invulnerable := false
+var is_paused := false
+@onready var hurtbox: Hurtbox = $Hurtbox
 
 var input: Vector2
 var playback: AnimationNodeStateMachinePlayback
@@ -70,3 +76,41 @@ func _update_animation_parameters() -> void:
 
 func _input(event: InputEvent) -> void:
 	pass
+	
+	
+
+func take_damage(damage: float, from_direction: Vector2) -> void:
+	if is_dead:
+		return
+
+	current_health -= damage
+
+	if current_health > 0:
+		is_taking_damage = true
+		Debug.log("auch! pero sigo vivo")
+
+		# Rebote: aplica una pequeña fuerza pero no excesiva
+		#velocity = from_direction.normalized() * (max_speed * 0.5)
+		
+		is_invulnerable = true
+		start_invulnerability()
+		flash_red()
+		await get_tree().create_timer(0.5).timeout  # duración de animación
+		velocity = Vector2.ZERO  # Detener el impulso tras el rebote
+		is_taking_damage = false
+	else:
+		is_dead = true
+		Debug.log("auch! he muerto!")
+		flash_red()
+		queue_free()
+		
+func flash_red() -> void:
+	modulate = Color(1, 0.7, 0.7)
+	await get_tree().create_timer(0.1).timeout
+	modulate = Color(1, 1, 1)
+	
+func start_invulnerability():
+	hurtbox.monitoring = false
+	is_invulnerable = false
+	hurtbox.monitoring = true
+			

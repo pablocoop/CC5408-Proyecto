@@ -1,7 +1,9 @@
-[gd_scene load_steps=63 format=3 uid="uid://b66xtdsj4jkeg"]
+[gd_scene load_steps=66 format=3 uid="uid://b66xtdsj4jkeg"]
 
 [ext_resource type="Script" uid="uid://20gqeq084edk" path="res://scenes/player.gd" id="1_g2els"]
 [ext_resource type="Texture2D" uid="uid://bch6ixobikwmg" path="res://assets/Cats Download/blue_3.png" id="2_qhqgy"]
+[ext_resource type="Script" uid="uid://bo7j00nia4cku" path="res://components/hurtbox.gd" id="3_qhqgy"]
+[ext_resource type="Script" uid="uid://b4biuqxkvk28o" path="res://components/health_component.gd" id="4_dqkch"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_dqkch"]
 radius = 5.5
@@ -1378,10 +1380,13 @@ graph_offset = Vector2(0, -190.518)
 radius = 17.0
 height = 60.0
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_tuyoq"]
+radius = 12.0
+height = 50.0
+
 [node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("animation_tree")]
 script = ExtResource("1_g2els")
 animation_tree = NodePath("AnimationTree")
-metadata/_edit_lock_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(1.4, 0)
@@ -1390,12 +1395,10 @@ texture = ExtResource("2_qhqgy")
 hframes = 32
 vframes = 17
 frame = 32
-metadata/_edit_lock_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 scale = Vector2(2, 2)
 shape = SubResource("CapsuleShape2D_dqkch")
-metadata/_edit_lock_ = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -1416,3 +1419,16 @@ collision_mask = 65537
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ProximityCheck"]
 shape = SubResource("CapsuleShape2D_qlg0r")
 debug_color = Color(0.47451, 0.45098, 0.972549, 0.172549)
+
+[node name="Hurtbox" type="Area2D" parent="." node_paths=PackedStringArray("health_component")]
+script = ExtResource("3_qhqgy")
+health_component = NodePath("../HealthComponent")
+metadata/_custom_type_script = "uid://bo7j00nia4cku"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
+shape = SubResource("CapsuleShape2D_tuyoq")
+debug_color = Color(0.952061, 0.153469, 0.402488, 0.42)
+
+[node name="HealthComponent" type="Node" parent="."]
+script = ExtResource("4_dqkch")
+metadata/_custom_type_script = "uid://b4biuqxkvk28o"
