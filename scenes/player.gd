@@ -19,6 +19,9 @@ var is_invulnerable := false
 var is_paused := false
 @onready var hurtbox: Hurtbox = $Hurtbox
 
+@onready var health_bar: ProgressBar = %HealthBar
+@onready var health_component: HealthComponent = $HealthComponent
+
 var input: Vector2
 var playback: AnimationNodeStateMachinePlayback
 
@@ -30,6 +33,11 @@ func _ready() -> void:
 	proximity_check.area_exited.connect(_on_area_exited)
 	proximity_entered.connect(func(ball): ball.set_player_nearby(true))
 	proximity_exited.connect(func(ball): ball.set_player_nearby(false))
+	
+	health_component.health_changed.connect(_on_health_changed)
+	health_bar.value = health_component.health
+	health_bar.max_value = health_component.max_health
+	health_component.died.connect(death)
 	
 func _on_area_entered(area: Area2D) -> void:
 	var ball = area.get_parent() as Ball
@@ -96,7 +104,6 @@ func take_damage(damage: float, from_direction: Vector2) -> void:
 		start_invulnerability()
 		flash_red()
 		await get_tree().create_timer(0.5).timeout  # duración de animación
-		velocity = Vector2.ZERO  # Detener el impulso tras el rebote
 		is_taking_damage = false
 	else:
 		is_dead = true
@@ -114,3 +121,9 @@ func start_invulnerability():
 	is_invulnerable = false
 	hurtbox.monitoring = true
 			
+
+func _on_health_changed(value:float) -> void:
+	health_bar.value = value
+	
+func death() -> void:
+	queue_free()

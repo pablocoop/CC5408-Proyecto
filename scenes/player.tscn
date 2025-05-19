@@ -1,4 +1,4 @@
-[gd_scene load_steps=66 format=3 uid="uid://b66xtdsj4jkeg"]
+[gd_scene load_steps=68 format=3 uid="uid://b66xtdsj4jkeg"]
 
 [ext_resource type="Script" uid="uid://20gqeq084edk" path="res://scenes/player.gd" id="1_g2els"]
 [ext_resource type="Texture2D" uid="uid://bch6ixobikwmg" path="res://assets/Cats Download/blue_3.png" id="2_qhqgy"]
@@ -1384,6 +1384,12 @@ height = 60.0
 radius = 12.0
 height = 50.0
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dqkch"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qlg0r"]
+bg_color = Color(0.783501, 0.188486, 0.166144, 1)
+
 [node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("animation_tree")]
 script = ExtResource("1_g2els")
 animation_tree = NodePath("AnimationTree")
@@ -1432,3 +1438,21 @@ debug_color = Color(0.952061, 0.153469, 0.402488, 0.42)
 [node name="HealthComponent" type="Node" parent="."]
 script = ExtResource("4_dqkch")
 metadata/_custom_type_script = "uid://b4biuqxkvk28o"
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer"]
+offset_right = 269.0
+offset_bottom = 59.0
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="HealthBar" type="ProgressBar" parent="CanvasLayer/MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_styles/background = SubResource("StyleBoxFlat_dqkch")
+theme_override_styles/fill = SubResource("StyleBoxFlat_qlg0r")
+show_percentage = false
