@@ -1,4 +1,4 @@
-[gd_scene load_steps=68 format=3 uid="uid://b66xtdsj4jkeg"]
+[gd_scene load_steps=70 format=3 uid="uid://b66xtdsj4jkeg"]
 
 [ext_resource type="Script" uid="uid://20gqeq084edk" path="res://scenes/player.gd" id="1_g2els"]
 [ext_resource type="Texture2D" uid="uid://bch6ixobikwmg" path="res://assets/Cats Download/blue_3.png" id="2_qhqgy"]
@@ -1388,7 +1388,13 @@ height = 50.0
 bg_color = Color(0, 0, 0, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qlg0r"]
-bg_color = Color(0.783501, 0.188486, 0.166144, 1)
+bg_color = Color(0.67952, 0.200027, 0.240616, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tuyoq"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fjrip"]
+bg_color = Color(0, 0.425659, 0.846315, 1)
 
 [node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("animation_tree")]
 script = ExtResource("1_g2els")
@@ -1455,4 +1461,14 @@ layout_mode = 2
 size_flags_vertical = 1
 theme_override_styles/background = SubResource("StyleBoxFlat_dqkch")
 theme_override_styles/fill = SubResource("StyleBoxFlat_qlg0r")
+show_percentage = false
+
+[node name="StaminaBar" type="ProgressBar" parent="CanvasLayer"]
+unique_name_in_owner = true
+offset_left = 16.0
+offset_top = 43.0
+offset_right = 253.0
+offset_bottom = 70.0
+theme_override_styles/background = SubResource("StyleBoxFlat_tuyoq")
+theme_override_styles/fill = SubResource("StyleBoxFlat_fjrip")
 show_percentage = false
