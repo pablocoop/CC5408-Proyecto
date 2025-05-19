@@ -19,9 +19,24 @@ var is_invulnerable := false
 var is_paused := false
 @onready var hurtbox: Hurtbox = $Hurtbox
 
+# Barra de vida
 @onready var health_bar: ProgressBar = %HealthBar
 @onready var health_component: HealthComponent = $HealthComponent
 
+# Barra de stamina
+var stamina = 4
+var max_stamina = 4
+@onready var stamina_bar: ProgressBar = %StaminaBar
+@export var stamina_decrease_interval := 0.5  # cada 0.5s se descuenta 1
+@export var stamina_recover_interval := 0.2  # cada 0.2s se recupera 1
+@export var stamina_recover_delay := 1.0     # espera 1s tras dejar de correr
+@export var stamina_per_tick := 1
+
+var stamina_timer := 0.0
+var recovering_stamina := false
+var stamina_recover_timer := 0.0
+var stamina_locked := false  # impide correr si no hay stamina suficiente
+# otros
 var input: Vector2
 var playback: AnimationNodeStateMachinePlayback
 
@@ -38,6 +53,9 @@ func _ready() -> void:
 	health_bar.value = health_component.health
 	health_bar.max_value = health_component.max_health
 	health_component.died.connect(death)
+	
+	stamina_bar.value = stamina
+	stamina_bar.max_value = max_stamina
 	
 func _on_area_entered(area: Area2D) -> void:
 	var ball = area.get_parent() as Ball
@@ -56,7 +74,7 @@ func _process(delta: float) -> void:
 func _physics_process(delta: float) -> void:
 	var real_delta = delta / Engine.time_scale
 	input = Input.get_vector("move_left", "move_right", "move_up", "move_down")
-	is_running = Input.is_action_pressed("run")
+	is_running = Input.is_action_pressed("run") and not stamina_locked and stamina > 0
 	
 	var current_speed = speed * run_multiplier if is_running else speed
 	var direction = input.normalized()
@@ -65,7 +83,34 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 	_select_animation()
 	_update_animation_parameters()
+	
+		# Lógica de gasto de stamina al correr
+	if is_running and input != Vector2.ZERO and stamina > 0:
+		stamina_timer += real_delta
+		stamina_recover_timer = 0.0
+		recovering_stamina = false
 
+		if stamina_timer >= stamina_decrease_interval:
+			stamina_timer = 0.0
+			stamina = max(stamina - stamina_per_tick, 0)
+			stamina_bar.value = stamina
+			
+			if stamina <= 0:
+				is_running = false  # ya no puede correr si no tiene stamina
+	else:
+		# Comenzar recuperación después de un retardo
+		stamina_recover_timer += real_delta
+		if stamina_recover_timer >= stamina_recover_delay:
+			recovering_stamina = true
+	
+	# Recuperación progresiva de stamina
+	if recovering_stamina and stamina < max_stamina:
+		stamina_timer += real_delta
+		if stamina_timer >= stamina_recover_interval:
+			stamina_timer = 0.0
+			stamina += stamina_per_tick
+			stamina = min(stamina, max_stamina)
+			stamina_bar.value = stamina
 
 func _select_animation() -> void:
 	if velocity == Vector2.ZERO:
