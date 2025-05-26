@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://20gqeq084edk" path="res://scenes/player.gd" id="1_g2els"]
 [ext_resource type="Texture2D" uid="uid://bch6ixobikwmg" path="res://assets/Cats Download/blue_3.png" id="2_qhqgy"]
 [ext_resource type="Script" uid="uid://bo7j00nia4cku" path="res://components/hurtbox.gd" id="3_qhqgy"]
-[ext_resource type="Script" uid="uid://b4biuqxkvk28o" path="res://components/health_component.gd" id="4_dqkch"]
+[ext_resource type="Script" path="res://components/health_component.gd" id="4_dqkch"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_dqkch"]
 radius = 5.5
@@ -1443,7 +1443,6 @@ debug_color = Color(0.952061, 0.153469, 0.402488, 0.42)
 
 [node name="HealthComponent" type="Node" parent="."]
 script = ExtResource("4_dqkch")
-metadata/_custom_type_script = "uid://b4biuqxkvk28o"
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
