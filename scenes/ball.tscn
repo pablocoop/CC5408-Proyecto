@@ -5,7 +5,7 @@
 [ext_resource type="Script" uid="uid://cpdtcih6dhwuq" path="res://components/hitbox.gd" id="4_eew57"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_4dx81"]
-rough = true
+friction = 0.0
 bounce = 1.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_fwo8l"]
@@ -19,14 +19,18 @@ radius = 7.0
 [node name="Ball" type="RigidBody2D"]
 physics_material_override = SubResource("PhysicsMaterial_4dx81")
 gravity_scale = 0.0
+lock_rotation = true
+linear_damp = 0.2
 script = ExtResource("1_4dx81")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(0, 11)
+position = Vector2(0, 22)
+scale = Vector2(2, 2)
 texture = ExtResource("2_f7cbr")
 hframes = 28
 
 [node name="Hitbox" type="Area2D" parent="."]
+scale = Vector2(1.5, 1.5)
 script = ExtResource("4_eew57")
 metadata/_custom_type_script = "uid://cpdtcih6dhwuq"
 
@@ -34,9 +38,11 @@ metadata/_custom_type_script = "uid://cpdtcih6dhwuq"
 shape = SubResource("CircleShape2D_fwo8l")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(1.5, 1.5)
 shape = SubResource("CircleShape2D_4dx81")
 
 [node name="ProximityArea" type="Area2D" parent="."]
+scale = Vector2(1.5, 1.5)
 collision_layer = 65537
 collision_mask = 131073
 metadata/_edit_lock_ = true

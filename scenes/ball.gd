@@ -9,7 +9,7 @@ signal ball_speed_changed(slow_motion_factor: float)
 @export var min_time_scale := 0.2
 @export var speed_threshold := 100.0  # Velocidad a partir de la cual el mundo empieza a ralentizarse
 
-@export var launch_speed = 1200
+@export var launch_speed = 1700
 var was_moving := false
 var player_nearby := false
 
@@ -29,10 +29,10 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("attack") and player_nearby:
 		var angle = position.direction_to(get_global_mouse_position()).angle()
 		var direction = Vector2.RIGHT.rotated(angle).normalized()
-		linear_velocity = direction * launch_speed
-
+		#linear_velocity = direction * launch_speed
+		apply_central_impulse(direction*launch_speed)
 		# Limitar velocidad al valor máximo
-		linear_velocity = linear_velocity.limit_length(launch_speed)
+		#linear_velocity = linear_velocity.limit_length(launch_speed)
 		
 		if !was_moving:
 			was_moving = true

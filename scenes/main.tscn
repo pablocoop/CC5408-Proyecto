@@ -22,3 +22,13 @@ collision_mask = 5
 position = Vector2(1312, 246)
 collision_layer = 8
 collision_mask = 5
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+position = Vector2(104, -2)
+polygon = PackedVector2Array(-1, -12, 2680, -31, 2665, 79, 22, 67)
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="StaticBody2D"]
+position = Vector2(102, 467)
+polygon = PackedVector2Array(-1, -12, 2684, -1, 2665, 79, 22, 67)
