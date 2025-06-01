@@ -1378,6 +1378,8 @@ states/walking/position = Vector2(521, 100)
 graph_offset = Vector2(0, -190.518)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_tuyoq"]
+radius = 12.0
+height = 50.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dqkch"]
 bg_color = Color(0, 0, 0, 1)
@@ -1433,7 +1435,6 @@ health_component = NodePath("../HealthComponent")
 metadata/_custom_type_script = "uid://bo7j00nia4cku"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
-position = Vector2(0, -1)
 shape = SubResource("CapsuleShape2D_tuyoq")
 debug_color = Color(0.952061, 0.153469, 0.402488, 0.42)
 
