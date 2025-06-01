@@ -343,6 +343,8 @@ script = ExtResource("1_w4hcs")
 
 [node name="Hurtbox" type="Area2D" parent="Pivot"]
 position = Vector2(-0.132406, -0.0366993)
+collision_layer = 4
+collision_mask = 11
 script = ExtResource("3_i0f3v")
 metadata/_custom_type_script = "uid://bo7j00nia4cku"
 
@@ -361,6 +363,8 @@ hframes = 9
 
 [node name="Hitbox" type="Area2D" parent="Pivot"]
 position = Vector2(-0.132406, 0.963301)
+collision_layer = 4
+collision_mask = 10
 script = ExtResource("3_haw2w")
 metadata/_custom_type_script = "uid://cpdtcih6dhwuq"
 
