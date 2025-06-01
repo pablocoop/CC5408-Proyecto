@@ -1,10 +1,10 @@
 class_name Player
 extends CharacterBody2D
 
-signal proximity_entered(ball)
-signal proximity_exited(ball)
+#signal proximity_entered(ball)
+#signal proximity_exited(ball)
 
-@onready var proximity_check: Area2D = $ProximityCheck
+#@onready var proximity_check: Area2D = $ProximityCheck
 
 @export var speed = 400
 @export var acceleration = 900
@@ -18,6 +18,15 @@ var is_dead := false
 var is_invulnerable := false
 var is_paused := false
 @onready var hurtbox: Hurtbox = $Hurtbox
+
+# Golpear la pelota
+@onready var attack_hitbox: Hitbox = $AttackHitbox
+@onready var attack_hitbox_shape: CollisionShape2D = $AttackHitbox/CollisionShape2D
+
+@export var attack_duration := 0.1
+@export var attack_cooldown := 0.1
+var can_attack := true
+var facing_direction := Vector2.DOWN  # Dirección inicial por defecto
 
 # Barra de vida
 @onready var health_bar: ProgressBar = %HealthBar
@@ -42,12 +51,14 @@ var playback: AnimationNodeStateMachinePlayback
 
 @export var animation_tree: AnimationTree
 
+
+
 func _ready() -> void:
 	playback = animation_tree["parameters/playback"]
-	proximity_check.area_entered.connect(_on_area_entered)
-	proximity_check.area_exited.connect(_on_area_exited)
-	proximity_entered.connect(func(ball): ball.set_player_nearby(true))
-	proximity_exited.connect(func(ball): ball.set_player_nearby(false))
+	#proximity_check.area_entered.connect(_on_area_entered)
+	#proximity_check.area_exited.connect(_on_area_exited)
+	#proximity_entered.connect(func(ball): ball.set_player_nearby(true))
+	#proximity_exited.connect(func(ball): ball.set_player_nearby(false))
 	
 	health_component.health_changed.connect(_on_health_changed)
 	health_bar.value = health_component.health
@@ -57,19 +68,18 @@ func _ready() -> void:
 	stamina_bar.value = stamina
 	stamina_bar.max_value = max_stamina
 	
-func _on_area_entered(area: Area2D) -> void:
-	var ball = area.get_parent() as Ball
-	if ball and ball.has_method("set_player_nearby"):
-		proximity_entered.emit(ball)
 
-func _on_area_exited(area: Area2D) -> void:
-	var ball = area.get_parent() as Ball
-	if ball and ball.has_method("set_player_nearby"):
-		proximity_exited.emit(ball)
 
 func _process(delta: float) -> void:
 	var real_delta = delta / Engine.time_scale
 	animation_tree.advance(real_delta)
+	
+	# Ajustar posición de la hitbox como antes
+	attack_hitbox.global_position = global_position + facing_direction * 32
+
+	# Rotar visualmente el sprite del ataque
+	var angle = facing_direction.angle()
+	attack_hitbox.get_node("Sprite2D").rotation = angle
 	
 func _physics_process(delta: float) -> void:
 	var real_delta = delta / Engine.time_scale
@@ -80,6 +90,12 @@ func _physics_process(delta: float) -> void:
 	var direction = input.normalized()
 	velocity = direction * current_speed * real_delta / delta  # Compensar el slowdown
 	
+	
+	if Input.is_action_just_pressed("attack"):
+		_attack()
+	
+	if input != Vector2.ZERO:
+		facing_direction = input.normalized()
 	move_and_slide()
 	_select_animation()
 	_update_animation_parameters()
@@ -169,6 +185,26 @@ func start_invulnerability():
 
 func _on_health_changed(value:float) -> void:
 	health_bar.value = value
+
+func _attack():
+	if not can_attack:
+		return
+		
+	can_attack = false
+	is_invulnerable = true 	### DEVUG ONLY
+	start_invulnerability() # DEVUG ONLY
+	attack_hitbox.monitoring = true
+	attack_hitbox_shape.disabled = false
+	attack_hitbox.get_node("Sprite2D").visible = true 
+
+	await get_tree().create_timer(attack_duration).timeout
+	attack_hitbox.monitoring = false
+	attack_hitbox_shape.disabled = true  # Desactivar colisión visual
+	attack_hitbox.get_node("Sprite2D").visible = false 
+	is_invulnerable = false # DEVUG ONLY
+	await get_tree().create_timer(attack_cooldown).timeout
+	can_attack = true
 	
 func death() -> void:
 	queue_free()
+	

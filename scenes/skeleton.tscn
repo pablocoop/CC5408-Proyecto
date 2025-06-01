@@ -334,6 +334,8 @@ _data = {
 }
 
 [node name="Skeleton" type="CharacterBody2D"]
+collision_layer = 4
+collision_mask = 11
 script = ExtResource("1_w4hcs")
 
 [node name="Pivot" type="Node2D" parent="."]
