@@ -28,6 +28,12 @@ var is_paused := false
 var can_attack := true
 var facing_direction := Vector2.DOWN  # Dirección inicial por defecto
 
+# Knockback
+var knockback_vector := Vector2.ZERO
+var knockback_timer := 0.0
+@export var knockback_duration := 0.2
+@export var knockback_force := 1200.0
+
 # Barra de vida
 @onready var health_bar: ProgressBar = %HealthBar
 @onready var health_component: HealthComponent = $HealthComponent
@@ -68,6 +74,9 @@ func _ready() -> void:
 	stamina_bar.value = stamina
 	stamina_bar.max_value = max_stamina
 	
+	#DEV: Borrar sprite de ataque
+	attack_hitbox.get_node("Sprite2D").visible = true 
+	
 
 
 func _process(delta: float) -> void:
@@ -96,6 +105,15 @@ func _physics_process(delta: float) -> void:
 	
 	if input != Vector2.ZERO:
 		facing_direction = input.normalized()
+		
+	if knockback_timer > 0:
+		velocity = knockback_vector
+		knockback_timer -= delta
+	else:
+		#var direction = input.normalized()
+		velocity = direction * current_speed * real_delta / delta
+		
+		
 	move_and_slide()
 	_select_animation()
 	_update_animation_parameters()
@@ -149,28 +167,31 @@ func _input(event: InputEvent) -> void:
 	
 
 func take_damage(damage: float, from_direction: Vector2) -> void:
-	if is_dead:
+	if is_dead or is_invulnerable:
 		return
 
-	current_health -= damage
+	# Reducir la salud desde el componente
+	health_component.health -= damage
 
-	if current_health > 0:
+	if health_component.health > 0:
 		is_taking_damage = true
 		Debug.log("auch! pero sigo vivo")
 
-		# Rebote: aplica una pequeña fuerza pero no excesiva
-		#velocity = from_direction.normalized() * (max_speed * 0.5)
-		
+		# Aplicar knockback
+		knockback_vector = -from_direction.normalized() * knockback_force
+		knockback_timer = knockback_duration
+
 		is_invulnerable = true
 		start_invulnerability()
 		flash_red()
-		await get_tree().create_timer(0.5).timeout  # duración de animación
+		await get_tree().create_timer(0.5).timeout
 		is_taking_damage = false
 	else:
 		is_dead = true
 		Debug.log("auch! he muerto!")
 		flash_red()
 		queue_free()
+
 		
 func flash_red() -> void:
 	modulate = Color(1, 0.7, 0.7)
