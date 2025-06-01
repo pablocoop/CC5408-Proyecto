@@ -2,8 +2,7 @@ extends CharacterBody2D
 
 @export var max_speed = 250
 @export var acceleration = 900
-@export var max_health := 3
-var current_health := max_health
+@onready var health_component: HealthComponent = $HealthComponent
 var is_taking_damage = false
 var is_dead := false
 var is_invulnerable := false
@@ -20,6 +19,7 @@ var is_paused := false
 func _ready() -> void:
 	animation_tree.active = true
 	add_to_group("enemies")
+	health_component.died.connect(death)
 
 func _physics_process(delta: float) -> void:
 	if is_paused:
@@ -37,25 +37,22 @@ func _physics_process(delta: float) -> void:
 		pivot.scale.x *= -1
 
 func take_damage(damage: float, from_direction: Vector2) -> void:
-	if is_dead:
+	if is_dead or is_invulnerable:
 		return
 
-	current_health -= damage
+	health_component.health -= damage
 
-	if current_health > 0:
+	if health_component.health > 0:
 		is_taking_damage = true
 		Debug.log("auch! pero sigo vivo")
 
-		# Rebote: aplica una pequeña fuerza pero no excesiva
-		#velocity = from_direction.normalized() * (max_speed * 0.5)
-
-		playback.travel("take_damage")
+		playback.start("take_damage")  # En vez de travel()
 		
 		is_invulnerable = true
 		start_invulnerability()
 		flash_red()
-		await get_tree().create_timer(0.5).timeout  # duración de animación
-		velocity = Vector2.ZERO  # Detener el impulso tras el rebote
+		await get_tree().create_timer(0.5).timeout
+		velocity = Vector2.ZERO
 		is_taking_damage = false
 	else:
 		is_dead = true
@@ -91,3 +88,9 @@ func pause_enemy():
 
 func resume_enemy():
 	is_paused = false
+	
+func death() -> void:
+	is_dead = true
+	playback.travel("death")
+	await get_tree().create_timer(1.5).timeout
+	queue_free()
