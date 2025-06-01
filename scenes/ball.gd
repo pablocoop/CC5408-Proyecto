@@ -16,6 +16,9 @@ var player_nearby := false
 @onready var hitbox: Hitbox = $Hitbox
 var has_moved := false  # Variable que indica si la pelota ha sido lanzada
 
+@onready var hurtbox: Area2D = $Hurtbox
+
+
 func _ready():
 	hitbox.damage_dealt.connect(_on_damage_dealt)
 	linear_damp = 0.8
@@ -25,19 +28,22 @@ func set_player_nearby(value: bool) -> void:
 	player_nearby = value
  
 func _physics_process(delta: float) -> void:
+	
+	#OLD
 	# Lanzar bola si se ataca estando detenida o en movimiento
-	if Input.is_action_just_pressed("attack") and player_nearby:
-		var angle = position.direction_to(get_global_mouse_position()).angle()
-		var direction = Vector2.RIGHT.rotated(angle).normalized()
-		#linear_velocity = direction * launch_speed
-		apply_central_impulse(direction*launch_speed)
-		# Limitar velocidad al valor máximo
-		#linear_velocity = linear_velocity.limit_length(launch_speed)
-		
-		if !was_moving:
-			was_moving = true
-			has_moved = true  # Marca que la pelota se ha movido
-			ball_relaunched.emit()
+	#if Input.is_action_just_pressed("attack") and player_nearby:
+		#var angle = position.direction_to(get_global_mouse_position()).angle()
+		#var direction = Vector2.RIGHT.rotated(angle).normalized()
+		##linear_velocity = direction * launch_speed
+		#apply_central_impulse(direction*launch_speed)
+		## Limitar velocidad al valor máximo
+		##linear_velocity = linear_velocity.limit_length(launch_speed)
+		#
+		#if !was_moving:
+			#was_moving = true
+			#has_moved = true  # Marca que la pelota se ha movido
+			#ball_relaunched.emit()
+
 
 	if linear_velocity.length() < 15:
 		if was_moving:
@@ -51,15 +57,35 @@ func _physics_process(delta: float) -> void:
 	_emit_slow_motion_factor()
 
 func _on_damage_dealt(target_position: Vector2):
+	print("¡La pelota fue golpeada!")
 	var direction = global_position - target_position
-	linear_velocity = direction.normalized() * linear_velocity.length()
+	linear_velocity = direction.normalized() * launch_speed
+	ball_relaunched.emit()
 
 func _on_area_entered(area: Area2D) -> void:
 	var hitbox = area as Hitbox
 	if hitbox:
-		if linear_velocity.length() > 0:
-			linear_velocity = -linear_velocity.normalized() * linear_velocity.length()
-			ball_relaunched.emit()
+		var is_attack_hitbox = hitbox.name == "AttackHitbox"
+		var impulse_strength = launch_speed * 1.5 if is_attack_hitbox else launch_speed * 0.5
+		
+		var source_node = hitbox.get_parent()
+		var movement_direction = Vector2.ZERO
+
+		# Si el nodo tiene una propiedad velocity o facing_direction, la usamos
+		if source_node.has_variable("velocity"):
+			movement_direction = source_node.velocity.normalized()
+		elif source_node.has_variable("facing_direction"):
+			movement_direction = source_node.facing_direction.normalized()
+
+		# Dirección del impulso combinada con movimiento del jugador
+		var collision_direction = (global_position - area.global_position).normalized()
+		var final_direction = (collision_direction + movement_direction).normalized()
+
+		linear_velocity = final_direction * impulse_strength
+
+		var mensaje = "💥 Golpe fuerte con movimiento" if is_attack_hitbox else "🐾 Golpe débil con movimiento"
+		print(mensaje)
+		ball_relaunched.emit()
 
 func _emit_slow_motion_factor():
 	var speed = linear_velocity.length()
