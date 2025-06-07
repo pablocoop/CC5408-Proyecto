@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://delp7q8e1ntpa"]
+[gd_scene load_steps=6 format=3 uid="uid://delp7q8e1ntpa"]
 
 [ext_resource type="Script" uid="uid://clfn5icg575c5" path="res://scenes/main.gd" id="1_tbgi4"]
 [ext_resource type="PackedScene" uid="uid://bjv7ltgvfcm0e" path="res://scenes/level_0.tscn" id="2_tbgi4"]
 [ext_resource type="PackedScene" uid="uid://dfau8rmohhg3e" path="res://scenes/ball.tscn" id="4_jyhfs"]
+[ext_resource type="PackedScene" uid="uid://hco1haupmfr8" path="res://ui/pause_menu.tscn" id="5_tbgi4"]
 [ext_resource type="PackedScene" uid="uid://b66xtdsj4jkeg" path="res://scenes/player.tscn" id="6_tefeu"]
 
 [node name="Main" type="Node2D"]
@@ -29,3 +30,7 @@ polygon = PackedVector2Array(-1, -12, 2680, -31, 2665, 79, 22, 67)
 [node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="StaticBody2D"]
 position = Vector2(102, 467)
 polygon = PackedVector2Array(-1, -12, 2684, -1, 2665, 79, 22, 67)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("5_tbgi4")]
