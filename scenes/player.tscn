@@ -9,7 +9,7 @@
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_dqkch"]
 radius = 7.0
-height = 24.0
+height = 21.0
 
 [sub_resource type="Animation" id="Animation_qhqgy"]
 length = 0.001
