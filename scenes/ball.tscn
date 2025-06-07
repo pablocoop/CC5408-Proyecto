@@ -22,6 +22,7 @@ radius = 7.0
 collision_layer = 8
 physics_material_override = SubResource("PhysicsMaterial_4dx81")
 gravity_scale = 0.0
+sleeping = true
 lock_rotation = true
 linear_damp = 0.2
 script = ExtResource("1_4dx81")
