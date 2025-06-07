@@ -1,0 +1,141 @@
+[gd_scene load_steps=4 format=3 uid="uid://b87myl15pkqgh"]
+
+[ext_resource type="Theme" uid="uid://dftfdeuhv8jr3" path="res://fonts/pixelfond.tres" id="1_ed0b0"]
+[ext_resource type="Script" uid="uid://dvgrtfsje7ma8" path="res://ui/credits.gd" id="2_74u3g"]
+[ext_resource type="Script" uid="uid://crupvnjonxyo6" path="res://ui/rich_text_label.gd" id="2_orljq"]
+
+[node name="credits" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("1_ed0b0")
+script = ExtResource("2_74u3g")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_ed0b0")
+theme_override_font_sizes/bold_italics_font_size = 50
+theme_override_font_sizes/italics_font_size = 50
+theme_override_font_sizes/mono_font_size = 50
+theme_override_font_sizes/normal_font_size = 50
+theme_override_font_sizes/bold_font_size = 50
+bbcode_enabled = true
+text = "[center]
+[wave amp=50]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Credits"
+fit_content = true
+scroll_active = false
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_ed0b0")
+theme_override_font_sizes/bold_italics_font_size = 50
+theme_override_font_sizes/italics_font_size = 50
+theme_override_font_sizes/mono_font_size = 50
+theme_override_font_sizes/normal_font_size = 50
+theme_override_font_sizes/bold_font_size = 50
+bbcode_enabled = true
+text = "[center]
+[wave amp=50]
+[font_size=90]Purrrcatory Escape[/font_size]"
+fit_content = true
+scroll_active = false
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("2_orljq")
+
+[node name="RichTextLabel3" type="RichTextLabel" parent="VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_ed0b0")
+theme_override_font_sizes/bold_italics_font_size = 50
+theme_override_font_sizes/italics_font_size = 50
+theme_override_font_sizes/mono_font_size = 50
+theme_override_font_sizes/normal_font_size = 50
+theme_override_font_sizes/bold_font_size = 50
+bbcode_enabled = true
+text = "[center]
+[wave amp=50]
+[font_size=75]✨😼⚔️[/font_size]
+
+by insert name here ! 
+[font_size=35]valgguk, pablocoop, Aldo431[/font_size]"
+fit_content = true
+scroll_active = false
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RichTextLabel4" type="RichTextLabel" parent="VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_ed0b0")
+theme_override_font_sizes/bold_italics_font_size = 50
+theme_override_font_sizes/italics_font_size = 50
+theme_override_font_sizes/mono_font_size = 50
+theme_override_font_sizes/normal_font_size = 50
+theme_override_font_sizes/bold_font_size = 50
+bbcode_enabled = true
+text = "[center]
+[shake]
+
+
+
+[font_size=35]
+cats-pixel-asset-pack
+by Pop Shop Packs
+
+dungeon-assetpuck 
+by Pixel_Poem
+
+cellar-tileset-16x16-pixelart
+by ELV Games
+
+bouncing-ball-guy
+by deiphiz
+
+DUNGEON.mode
+by datagoblin
+
+[/font_size]"
+fit_content = true
+scroll_active = false
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Back" type="Button" parent="."]
+layout_mode = 0
+offset_left = 19.0
+offset_top = 21.0
+offset_right = 169.0
+offset_bottom = 65.0
+theme_override_font_sizes/font_size = 40
+text = "Back"
