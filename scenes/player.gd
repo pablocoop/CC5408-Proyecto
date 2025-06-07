@@ -80,6 +80,8 @@ func _ready() -> void:
 	
 	#DEV: Borrar sprite de ataque
 	attack_hitbox.get_node("Sprite2D").visible = false 
+	attack_hitbox.monitoring = false
+	attack_hitbox_shape.disabled = true  # Desactivar colisión visual
 	
 
 

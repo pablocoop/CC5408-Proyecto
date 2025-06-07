@@ -48,7 +48,7 @@ func take_damage(damage: float, from_direction: Vector2) -> void:
 		Debug.log("🔥 Skeleton recibió daño:", damage)
 
 		# Aplica un knockback más leve que al jugador
-		velocity = from_direction.normalized() * 300.0  # Ajusta a gusto
+		velocity = from_direction.normalized() * 200.0  # Ajusta a gusto
 
 		playback.start("take_damage")
 		
@@ -75,7 +75,7 @@ func flash_red() -> void:
 	
 func start_invulnerability():
 	var flash_timer := 0.0
-	var flash_duration := 0.5  # duración total de la invulnerabilidad (en segundos)
+	var flash_duration := 0.3  # duración total de la invulnerabilidad (en segundos)
 	var flash_interval := 0.2  # tiempo entre parpadeos
 	hurtbox.monitoring = false
 
