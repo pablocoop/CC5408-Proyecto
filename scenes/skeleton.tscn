@@ -20,7 +20,7 @@ height = 18.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_i0f3v"]
 radius = 4.0
-height = 16.0
+height = 14.0
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_w4hcs"]
 animation = &"attack"
@@ -375,6 +375,7 @@ shape = SubResource("CapsuleShape2D_haw2w")
 debug_color = Color(0.311415, 0.626461, 7.70092e-07, 0.42)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 1)
 shape = SubResource("CapsuleShape2D_i0f3v")
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
