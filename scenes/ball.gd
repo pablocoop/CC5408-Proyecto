@@ -21,6 +21,7 @@ var has_moved := false  # Variable que indica si la pelota ha sido lanzada
 
 func _ready():
 	hitbox.damage_dealt.connect(_on_damage_dealt)
+	add_to_group("ball")
 	linear_damp = 0.8
 	randomize()
 	
@@ -56,17 +57,35 @@ func _physics_process(delta: float) -> void:
 			
 	_emit_slow_motion_factor()
 
+
 func _on_damage_dealt(target_position: Vector2):
 	print("¡La pelota fue golpeada!")
 	var direction = global_position - target_position
 	linear_velocity = direction.normalized() * launch_speed
 	ball_relaunched.emit()
+	
+func take_damage(damage: float, from_direction: Vector2) -> void:
+	print("¡La pelota fue golpeada con daño!")
+	_on_damage_dealt(from_direction)
 
 func _on_area_entered(area: Area2D) -> void:
 	var hitbox = area as Hitbox
 	if hitbox:
 		var is_attack_hitbox = hitbox.name == "AttackHitbox"
-		var impulse_strength = launch_speed * 1.5 if is_attack_hitbox else launch_speed * 0.5
+		var impulse_strength = 1
+		var final_direction: Vector2
+		if is_attack_hitbox:
+			impulse_strength = launch_speed * 0.2  # Golpe fuerte del ataque
+		else:
+			impulse_strength = launch_speed * 2  # Rebote débil por colisión
+			
+		if hitbox.has_method("get_direction"):
+			final_direction = hitbox.get_direction()
+		else:
+			# Fallback si no tiene dirección definida
+			var collision_direction = (global_position - area.global_position).normalized()
+			final_direction = collision_direction
+
 		
 		var source_node = hitbox.get_parent()
 		var movement_direction = Vector2.ZERO
@@ -79,13 +98,16 @@ func _on_area_entered(area: Area2D) -> void:
 
 		# Dirección del impulso combinada con movimiento del jugador
 		var collision_direction = (global_position - area.global_position).normalized()
-		var final_direction = (collision_direction + movement_direction).normalized()
 
 		linear_velocity = final_direction * impulse_strength
 
 		var mensaje = "💥 Golpe fuerte con movimiento" if is_attack_hitbox else "🐾 Golpe débil con movimiento"
 		print(mensaje)
 		ball_relaunched.emit()
+		
+		hitbox.monitoring = false
+		await get_tree().create_timer(0.1).timeout
+		hitbox.monitoring = true
 
 func _emit_slow_motion_factor():
 	var speed = linear_velocity.length()

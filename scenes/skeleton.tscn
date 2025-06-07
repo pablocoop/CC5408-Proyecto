@@ -341,11 +341,12 @@ script = ExtResource("1_w4hcs")
 
 [node name="Pivot" type="Node2D" parent="."]
 
-[node name="Hurtbox" type="Area2D" parent="Pivot"]
+[node name="Hurtbox" type="Area2D" parent="Pivot" node_paths=PackedStringArray("health_component")]
 position = Vector2(-0.132406, -0.0366993)
 collision_layer = 4
-collision_mask = 11
+collision_mask = 8
 script = ExtResource("3_i0f3v")
+health_component = NodePath("../../HealthComponent")
 metadata/_custom_type_script = "uid://bo7j00nia4cku"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Pivot/Hurtbox"]
@@ -387,4 +388,6 @@ libraries = {
 
 [node name="HealthComponent" type="Node" parent="."]
 script = ExtResource("9_i0f3v")
+health = 3.0
+max_health = 3.0
 metadata/_custom_type_script = "uid://b4biuqxkvk28o"

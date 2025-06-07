@@ -26,7 +26,8 @@ func _physics_process(delta: float) -> void:
 		playback.travel("idle")
 		return
 		
-	if is_dead or is_invulnerable or is_taking_damage:
+	if is_dead or is_invulnerable:
+		move_and_slide()  # Evitar fricción infinita si ya tiene velocidad
 		return  # no moverse ni reproducir "movement" durante la animación de daño
 		
 	velocity.x = move_toward(velocity.x, max_speed * pivot.scale.x, acceleration * delta)
@@ -44,9 +45,12 @@ func take_damage(damage: float, from_direction: Vector2) -> void:
 
 	if health_component.health > 0:
 		is_taking_damage = true
-		Debug.log("auch! pero sigo vivo")
+		Debug.log("🔥 Skeleton recibió daño:", damage)
 
-		playback.start("take_damage")  # En vez de travel()
+		# Aplica un knockback más leve que al jugador
+		velocity = from_direction.normalized() * 300.0  # Ajusta a gusto
+
+		playback.start("take_damage")
 		
 		is_invulnerable = true
 		start_invulnerability()
@@ -56,11 +60,13 @@ func take_damage(damage: float, from_direction: Vector2) -> void:
 		is_taking_damage = false
 	else:
 		is_dead = true
-		Debug.log("auch! he muerto!")
+		Debug.log("💀 Skeleton murió")
 		playback.travel("death")
 		flash_red()
 		await get_tree().create_timer(1.5).timeout
 		queue_free()
+
+
 		
 func flash_red() -> void:
 	modulate = Color(1, 0.7, 0.7)

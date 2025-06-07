@@ -27,12 +27,16 @@ var is_paused := false
 @export var attack_cooldown := 0.1
 var can_attack := true
 var facing_direction := Vector2.DOWN  # Dirección inicial por defecto
+var attack_direction := Vector2.ZERO
+
+
+
 
 # Knockback
 var knockback_vector := Vector2.ZERO
 var knockback_timer := 0.0
 @export var knockback_duration := 0.2
-@export var knockback_force := 1200.0
+@export var knockback_force := 300.0
 
 # Barra de vida
 @onready var health_bar: ProgressBar = %HealthBar
@@ -101,6 +105,7 @@ func _physics_process(delta: float) -> void:
 	
 	
 	if Input.is_action_just_pressed("attack"):
+		attack_direction = facing_direction.normalized()
 		_attack()
 	
 	if input != Vector2.ZERO:
@@ -214,6 +219,7 @@ func _attack():
 	can_attack = false
 	is_invulnerable = true 	### DEVUG ONLY
 	start_invulnerability() # DEVUG ONLY
+	attack_hitbox.direction = attack_direction
 	attack_hitbox.monitoring = true
 	attack_hitbox_shape.disabled = false
 	attack_hitbox.get_node("Sprite2D").visible = true 
