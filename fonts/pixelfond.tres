@@ -1,0 +1,7 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://dftfdeuhv8jr3"]
+
+[ext_resource type="FontFile" uid="uid://cjlgqi3jfearc" path="res://fonts/dungeonmode/dungeonmode/font/dungeon-mode.ttf" id="1_0wmad"]
+
+[resource]
+default_font = ExtResource("1_0wmad")
+default_font_size = 30
