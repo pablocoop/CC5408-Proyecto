@@ -26,7 +26,7 @@ func _physics_process(delta: float) -> void:
 		playback.travel("idle")
 		return
 		
-	if is_dead or is_invulnerable:
+	if is_dead or is_taking_damage:
 		#move_and_slide()  # Evitar fricción infinita si ya tiene velocidad
 		return  # no moverse ni reproducir "movement" durante la animación de daño
 		
