@@ -19,8 +19,8 @@ radius = 7.0
 height = 18.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_i0f3v"]
-radius = 5.0
-height = 16.0
+radius = 3.0
+height = 12.0
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_w4hcs"]
 animation = &"attack"
@@ -365,7 +365,7 @@ hframes = 9
 [node name="Hitbox" type="Area2D" parent="Pivot"]
 position = Vector2(-0.132406, 0.963301)
 collision_layer = 4
-collision_mask = 10
+collision_mask = 2
 script = ExtResource("3_haw2w")
 metadata/_custom_type_script = "uid://cpdtcih6dhwuq"
 

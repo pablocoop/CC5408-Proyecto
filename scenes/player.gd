@@ -34,9 +34,9 @@ var attack_direction := Vector2.ZERO
 
 # Knockback
 var knockback_vector := Vector2.ZERO
-var knockback_timer := 0.0
-@export var knockback_duration := 0.2
-@export var knockback_force := 300.0
+var knockback_timer := 0.5
+@export var knockback_duration := 0.5
+@export var knockback_force := 600.0
 
 # Barra de vida
 @onready var health_bar: ProgressBar = %HealthBar
@@ -79,7 +79,7 @@ func _ready() -> void:
 	stamina_bar.max_value = max_stamina
 	
 	#DEV: Borrar sprite de ataque
-	attack_hitbox.get_node("Sprite2D").visible = true 
+	attack_hitbox.get_node("Sprite2D").visible = false 
 	
 
 
@@ -112,11 +112,12 @@ func _physics_process(delta: float) -> void:
 		facing_direction = input.normalized()
 		
 	if knockback_timer > 0:
-		velocity = knockback_vector
 		knockback_timer -= delta
+		velocity += knockback_vector
+		# Puedes agregar amortiguación si quieres que el empuje disminuya gradualmente
+		# knockback_vector *= 0.9  # opcional
 	else:
-		#var direction = input.normalized()
-		velocity = direction * current_speed * real_delta / delta
+		knockback_vector = Vector2.ZERO
 		
 		
 	move_and_slide()
@@ -217,8 +218,8 @@ func _attack():
 		return
 		
 	can_attack = false
-	is_invulnerable = true 	### DEVUG ONLY
-	start_invulnerability() # DEVUG ONLY
+	#is_invulnerable = true 	### DEVUG ONLY
+	#start_invulnerability() # DEVUG ONLY
 	attack_hitbox.direction = attack_direction
 	attack_hitbox.monitoring = true
 	attack_hitbox_shape.disabled = false

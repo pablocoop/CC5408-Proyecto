@@ -1396,7 +1396,7 @@ size = Vector2(33.5, 67)
 
 [node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("animation_tree")]
 collision_layer = 2
-collision_mask = 5
+collision_mask = 13
 script = ExtResource("1_g2els")
 animation_tree = NodePath("AnimationTree")
 
@@ -1470,7 +1470,7 @@ show_percentage = false
 
 [node name="AttackHitbox" type="Area2D" parent="."]
 position = Vector2(34, 0)
-collision_layer = 2
+collision_layer = 16
 collision_mask = 8
 monitoring = false
 script = ExtResource("5_tuyoq")
