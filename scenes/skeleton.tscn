@@ -11,16 +11,16 @@
 [ext_resource type="Script" uid="uid://b4biuqxkvk28o" path="res://components/health_component.gd" id="9_i0f3v"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5uy6h"]
-radius = 7.13241
-height = 18.2648
+radius = 7.0367
+height = 18.0734
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_haw2w"]
 radius = 7.0
 height = 18.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_i0f3v"]
-radius = 3.0
-height = 10.0
+radius = 4.0
+height = 16.0
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_w4hcs"]
 animation = &"attack"

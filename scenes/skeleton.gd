@@ -27,7 +27,7 @@ func _physics_process(delta: float) -> void:
 		return
 		
 	if is_dead or is_invulnerable:
-		move_and_slide()  # Evitar fricción infinita si ya tiene velocidad
+		#move_and_slide()  # Evitar fricción infinita si ya tiene velocidad
 		return  # no moverse ni reproducir "movement" durante la animación de daño
 		
 	velocity.x = move_toward(velocity.x, max_speed * pivot.scale.x, acceleration * delta)

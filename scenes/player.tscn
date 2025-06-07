@@ -8,7 +8,8 @@
 [ext_resource type="Texture2D" uid="uid://chawd20wgsy5p" path="res://assets/2D Pixel Dungeon Asset Pack/items and trap_animation/flamethrower/flamethrower_2_2.png" id="6_fjrip"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_dqkch"]
-radius = 9.5
+radius = 7.0
+height = 24.0
 
 [sub_resource type="Animation" id="Animation_qhqgy"]
 length = 0.001
@@ -1378,6 +1379,7 @@ states/walking/position = Vector2(521, 100)
 graph_offset = Vector2(0, -190.518)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_tuyoq"]
+height = 38.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dqkch"]
 bg_color = Color(0, 0, 0, 1)
