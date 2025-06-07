@@ -24,11 +24,20 @@ func _on_area_entered(area: Area2D) -> void:
 
 		print("🎯 Hurtbox detectó hitbox:", hitbox)
 		var from_direction: Vector2
+		# Determinar dirección desde el atacante (hitbox) hacia el objetivo (hurtbox/parent_node)
 		if hitbox.has_method("get_direction"):
-			from_direction = -hitbox.get_direction().normalized()
+			from_direction = hitbox.get_direction().normalized()
 		else:
-			from_direction = (hitbox.global_position - parent_node.global_position).normalized()
+			from_direction = (parent_node.global_position - hitbox.global_position).normalized()
 
+		# Validar que no sea un vector nulo
+		if from_direction.length_squared() < 0.01:
+			# Usar la posición del atacante contra el objetivo como fallback
+			from_direction = (hitbox.get_parent().global_position - parent_node.global_position).normalized()
+
+			# Si aún así está mal, fallback final
+			if from_direction.length_squared() < 0.01:
+				from_direction = Vector2.RIGHT  # Solo como último recurso
 
 		parent_node.take_damage(hitbox.damage, from_direction)
 		hitbox.damage_dealt.emit(parent_node.global_position)

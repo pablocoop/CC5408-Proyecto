@@ -115,7 +115,7 @@ func _physics_process(delta: float) -> void:
 		knockback_timer -= delta
 		velocity += knockback_vector
 		# Puedes agregar amortiguación si quieres que el empuje disminuya gradualmente
-		# knockback_vector *= 0.9  # opcional
+		knockback_vector *= 0.9  # opcional
 	else:
 		knockback_vector = Vector2.ZERO
 		
@@ -174,6 +174,7 @@ func _input(event: InputEvent) -> void:
 
 func take_damage(damage: float, from_direction: Vector2) -> void:
 	if is_dead or is_invulnerable:
+		move_and_slide()
 		return
 
 	# Reducir la salud desde el componente
