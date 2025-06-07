@@ -75,9 +75,9 @@ func _on_area_entered(area: Area2D) -> void:
 		var impulse_strength = 1
 		var final_direction: Vector2
 		if is_attack_hitbox:
-			impulse_strength = launch_speed * 0.2  # Golpe fuerte del ataque
+			impulse_strength = launch_speed * 1  # Golpe fuerte del ataque
 		else:
-			impulse_strength = launch_speed * 2  # Rebote débil por colisión
+			impulse_strength = launch_speed * 0.5  # Rebote débil por colisión
 			
 		if hitbox.has_method("get_direction"):
 			final_direction = hitbox.get_direction()

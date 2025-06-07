@@ -117,7 +117,7 @@ func _physics_process(delta: float) -> void:
 		knockback_timer -= delta
 		velocity += knockback_vector
 		# Puedes agregar amortiguación si quieres que el empuje disminuya gradualmente
-		knockback_vector *= 0.9  # opcional
+		#knockback_vector *= 0.9  # opcional
 	else:
 		knockback_vector = Vector2.ZERO
 		
