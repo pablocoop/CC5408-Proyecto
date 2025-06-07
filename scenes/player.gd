@@ -34,7 +34,7 @@ var attack_direction := Vector2.ZERO
 
 # Knockback
 var knockback_vector := Vector2.ZERO
-var knockback_timer := 0.5
+var knockback_timer := 0.0
 @export var knockback_duration := 0.5
 @export var knockback_force := 600.0
 
@@ -228,12 +228,15 @@ func _attack():
 	attack_hitbox_shape.disabled = false
 	attack_hitbox.get_node("Sprite2D").visible = true 
 
-	await get_tree().create_timer(attack_duration).timeout
+	# <-- aquí aplicamos la compensación:
+	await get_tree().create_timer(attack_duration * Engine.time_scale).timeout
 	attack_hitbox.monitoring = false
-	attack_hitbox_shape.disabled = true  # Desactivar colisión visual
+	attack_hitbox_shape.disabled = true
 	attack_hitbox.get_node("Sprite2D").visible = false 
-	is_invulnerable = false # DEVUG ONLY
-	await get_tree().create_timer(attack_cooldown).timeout
+
+	# y lo mismo para el cooldown:
+	await get_tree().create_timer(attack_cooldown * Engine.time_scale).timeout
+
 	can_attack = true
 	
 func death() -> void:

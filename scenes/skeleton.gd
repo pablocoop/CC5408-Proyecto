@@ -7,12 +7,17 @@ var is_taking_damage = false
 var is_dead := false
 var is_invulnerable := false
 var is_paused := false
+# Guardamos la velocidad base para escalarla después
+var base_max_speed := 0.0
 
 @onready var animation_tree: AnimationTree = $AnimationTree
 @onready var playback = animation_tree.get("parameters/playback")
 @onready var pivot: Node2D = $Pivot
 @onready var ray_cast_2d: RayCast2D = $Pivot/RayCast2D
 @onready var hurtbox: Hurtbox = $Pivot/Hurtbox
+@onready var hitbox: Hitbox = $Pivot/Hitbox
+
+
 
 
 
@@ -20,6 +25,12 @@ func _ready() -> void:
 	animation_tree.active = true
 	add_to_group("enemies")
 	health_component.died.connect(death)
+	base_max_speed = max_speed
+	call_deferred("_connect_slowmo")
+	hitbox.damage_dealt.connect(_on_hitbox_damage_dealt)
+	#var balls = get_tree().get_nodes_in_group("ball")
+	#if balls.size() > 0:
+		#balls[0].ball_speed_changed.connect(_on_slowmo_factor)
 
 func _physics_process(delta: float) -> void:
 	if is_paused:
@@ -65,8 +76,6 @@ func take_damage(damage: float, from_direction: Vector2) -> void:
 		flash_red()
 		await get_tree().create_timer(1.5).timeout
 		queue_free()
-
-
 		
 func flash_red() -> void:
 	modulate = Color(1, 0.7, 0.7)
@@ -89,6 +98,23 @@ func start_invulnerability():
 	is_invulnerable = false
 	hurtbox.monitoring = true
 	
+func _connect_slowmo() -> void:
+	for b in get_tree().get_nodes_in_group("ball"):
+		b.ball_speed_changed.connect(_on_slowmo_factor)
+
+func _on_slowmo_factor(factor: float) -> void:
+	# Solo escalamos la velocidad de movimiento
+	max_speed = base_max_speed * factor
+
+	# Opcional: si quieres escalar también la animación, 
+	# y tu AnimationTree lo soporta, podrías hacer:
+	animation_tree.set("parameters/playback/speed_scale", factor)
+	# ó si usas AnimationPlayer:
+	# $AnimationPlayer.playback_speed = factor
+func _on_hitbox_damage_dealt(target_position: Vector2) -> void:
+	# target_position es la posición del jugador cuando recibió el daño
+	# Solo disparamos la animación (el daño ya se aplicó en el Hurtbox del Player)
+	playback.travel("attack")
 func pause_enemy():
 	is_paused = true
 
