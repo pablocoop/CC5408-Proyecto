@@ -199,6 +199,10 @@ func take_damage(damage: float, from_direction: Vector2) -> void:
 		is_dead = true
 		Debug.log("auch! he muerto!")
 		flash_red()
+		var cam = $Camera2D
+		cam.get_parent().remove_child(cam)
+		get_tree().get_root().add_child(cam)
+		cam.global_position = global_position
 		queue_free()
 
 		
