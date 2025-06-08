@@ -27,12 +27,16 @@ var is_paused := false
 @export var attack_cooldown := 0.1
 var can_attack := true
 var facing_direction := Vector2.DOWN  # Dirección inicial por defecto
+var attack_direction := Vector2.ZERO
+
+
+
 
 # Knockback
 var knockback_vector := Vector2.ZERO
 var knockback_timer := 0.0
-@export var knockback_duration := 0.2
-@export var knockback_force := 1200.0
+@export var knockback_duration := 0.5
+@export var knockback_force := 600.0
 
 # Barra de vida
 @onready var health_bar: ProgressBar = %HealthBar
@@ -75,7 +79,9 @@ func _ready() -> void:
 	stamina_bar.max_value = max_stamina
 	
 	#DEV: Borrar sprite de ataque
-	attack_hitbox.get_node("Sprite2D").visible = true 
+	attack_hitbox.get_node("Sprite2D").visible = false 
+	attack_hitbox.monitoring = false
+	attack_hitbox_shape.disabled = true  # Desactivar colisión visual
 	
 
 
@@ -101,17 +107,19 @@ func _physics_process(delta: float) -> void:
 	
 	
 	if Input.is_action_just_pressed("attack"):
+		attack_direction = facing_direction.normalized()
 		_attack()
 	
 	if input != Vector2.ZERO:
 		facing_direction = input.normalized()
 		
 	if knockback_timer > 0:
-		velocity = knockback_vector
 		knockback_timer -= delta
+		velocity += knockback_vector
+		# Puedes agregar amortiguación si quieres que el empuje disminuya gradualmente
+		#knockback_vector *= 0.9  # opcional
 	else:
-		#var direction = input.normalized()
-		velocity = direction * current_speed * real_delta / delta
+		knockback_vector = Vector2.ZERO
 		
 		
 	move_and_slide()
@@ -168,6 +176,7 @@ func _input(event: InputEvent) -> void:
 
 func take_damage(damage: float, from_direction: Vector2) -> void:
 	if is_dead or is_invulnerable:
+		move_and_slide()
 		return
 
 	# Reducir la salud desde el componente
@@ -190,6 +199,10 @@ func take_damage(damage: float, from_direction: Vector2) -> void:
 		is_dead = true
 		Debug.log("auch! he muerto!")
 		flash_red()
+		var cam = $Camera2D
+		cam.get_parent().remove_child(cam)
+		get_tree().get_root().add_child(cam)
+		cam.global_position = global_position
 		queue_free()
 
 		
@@ -212,18 +225,22 @@ func _attack():
 		return
 		
 	can_attack = false
-	is_invulnerable = true 	### DEVUG ONLY
-	start_invulnerability() # DEVUG ONLY
+	#is_invulnerable = true 	### DEVUG ONLY
+	#start_invulnerability() # DEVUG ONLY
+	attack_hitbox.direction = attack_direction
 	attack_hitbox.monitoring = true
 	attack_hitbox_shape.disabled = false
 	attack_hitbox.get_node("Sprite2D").visible = true 
 
-	await get_tree().create_timer(attack_duration).timeout
+	# <-- aquí aplicamos la compensación:
+	await get_tree().create_timer(attack_duration * Engine.time_scale).timeout
 	attack_hitbox.monitoring = false
-	attack_hitbox_shape.disabled = true  # Desactivar colisión visual
+	attack_hitbox_shape.disabled = true
 	attack_hitbox.get_node("Sprite2D").visible = false 
-	is_invulnerable = false # DEVUG ONLY
-	await get_tree().create_timer(attack_cooldown).timeout
+
+	# y lo mismo para el cooldown:
+	await get_tree().create_timer(attack_cooldown * Engine.time_scale).timeout
+
 	can_attack = true
 	
 func death() -> void:
