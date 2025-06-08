@@ -9,6 +9,8 @@ var is_invulnerable := false
 var is_paused := false
 # Guardamos la velocidad base para escalarla después
 var base_max_speed := 0.0
+@export var knockback_duration := 0.1
+@export var knockback_force := 200.0
 
 @onready var animation_tree: AnimationTree = $AnimationTree
 @onready var playback = animation_tree.get("parameters/playback")
@@ -59,14 +61,14 @@ func take_damage(damage: float, from_direction: Vector2) -> void:
 		Debug.log("🔥 Skeleton recibió daño:", damage)
 
 		# Aplica un knockback más leve que al jugador
-		velocity = from_direction.normalized() * 200.0  # Ajusta a gusto
-
+		velocity = from_direction.normalized() * knockback_force  # Ajusta a gusto
+		
 		playback.start("take_damage")
 		
 		is_invulnerable = true
 		start_invulnerability()
 		flash_red()
-		await get_tree().create_timer(0.5).timeout
+		await get_tree().create_timer(knockback_duration).timeout
 		velocity = Vector2.ZERO
 		is_taking_damage = false
 	else:
