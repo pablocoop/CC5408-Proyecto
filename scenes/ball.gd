@@ -21,6 +21,13 @@ var has_moved := false  # Variable que indica si la pelota ha sido lanzada
 
 func _ready():
 	hitbox.damage_dealt.connect(_on_damage_dealt)
+	# Conectar sólo al hitbox de ataque del jugador:
+	#var players = get_tree().get_nodes_in_group("player")
+	#if players.size() > 0:
+		#var p = players[0]
+		#var atk = p.get_node("AttackHitbox") as Hitbox
+		#if atk:
+			#atk.damage_dealt.connect(_on_damage_dealt)
 	add_to_group("ball")
 	linear_damp = 0.8
 	randomize()
@@ -47,7 +54,7 @@ func _launch_ball(direction: Vector2) -> void:
 func _on_damage_dealt(target_position: Vector2) -> void:
 	print("¡La pelota fue golpeada en posición ", target_position, "!")
 	var direction = global_position - target_position
-	_launch_ball(direction)
+	_launch_ball(direction) ##### OPCIONAL
 	
 # 3) Cuando te llaman con un vector de dirección:
 func take_damage(damage: float, from_direction: Vector2) -> void:
