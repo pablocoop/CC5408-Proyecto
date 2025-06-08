@@ -2,7 +2,11 @@
 
 importer="texture"
 type="CompressedTexture2D"
+<<<<<<< HEAD
 uid="uid://fhcsngf6v08e"
+=======
+uid="uid://c51pql1k803nk"
+>>>>>>> nivel_1
 path="res://.godot/imported/Knight_10_Watercan_Up.png-b7b2c9595b62b99a33edcce56e63dce5.ctex"
 metadata={
 "vram_texture": false

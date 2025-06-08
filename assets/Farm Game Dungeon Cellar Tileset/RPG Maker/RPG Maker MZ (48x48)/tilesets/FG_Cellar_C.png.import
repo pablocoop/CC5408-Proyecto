@@ -2,7 +2,11 @@
 
 importer="texture"
 type="CompressedTexture2D"
+<<<<<<< HEAD
 uid="uid://bldiv4s1wqqeq"
+=======
+uid="uid://dcp14pp5p8req"
+>>>>>>> nivel_1
 path="res://.godot/imported/FG_Cellar_C.png-ac6e6fb5242aa68542d4d33d6cb63051.ctex"
 metadata={
 "vram_texture": false
