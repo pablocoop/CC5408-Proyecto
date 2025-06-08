@@ -8,7 +8,7 @@ extends CharacterBody2D
 
 @export var speed = 400
 @export var acceleration = 900
-@export var max_health := 10
+@export var max_health := 7
 var current_health := max_health
 var is_running := false
 @export var run_multiplier := 1.5
@@ -203,6 +203,11 @@ func take_damage(damage: float, from_direction: Vector2) -> void:
 		cam.get_parent().remove_child(cam)
 		get_tree().get_root().add_child(cam)
 		cam.global_position = global_position
+		# Mostrar la pantalla de Game Over
+		var game_over_scene = preload("res://ui/game_over.tscn")
+		var game_over_instance = game_over_scene.instantiate()
+		game_over_instance.global_position = global_position
+		get_tree().get_root().add_child(game_over_instance)
 		queue_free()
 
 		

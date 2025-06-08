@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://coyjgjdlij5pq"]
+
+[ext_resource type="Script" uid="uid://delpr51r55fd0" path="res://ui/game_over_2.gd" id="1_curv6"]
+[ext_resource type="Texture2D" uid="uid://cjorcb3won1tg" path="res://assets/assets ui/Mini Pixel Pack 3/GAME_OVER (72 x 8).png" id="2_1mpnt"]
+
+[node name="GameOver2" type="Node2D"]
+position = Vector2(612, 315)
+script = ExtResource("1_curv6")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+
+[node name="mensaje" type="Sprite2D" parent="MarginContainer"]
+scale = Vector2(7, 7)
+texture = ExtResource("2_1mpnt")
+
+[node name="Fondo" type="Sprite2D" parent="MarginContainer"]
