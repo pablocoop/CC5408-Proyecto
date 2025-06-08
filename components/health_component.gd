@@ -4,7 +4,7 @@ extends Node
 signal died
 signal health_changed(value)
 
-@export var health: float = 10:
+@export var health: float = 7:
 	set(value):
 		if health == value:
 			return
@@ -12,7 +12,7 @@ signal health_changed(value)
 		health_changed.emit(health)
 		if health == 0:
 			died.emit()
-@export var max_health: float = 10
+@export var max_health: float = 7
 
 
 func take_damage(damage:float,from_direction: Vector2) -> void:
