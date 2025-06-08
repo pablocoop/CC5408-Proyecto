@@ -25,9 +25,6 @@ func _ready():
 	linear_damp = 0.8
 	randomize()
 	
-func set_player_nearby(value: bool) -> void:
-	player_nearby = value
- 
 func _physics_process(delta: float) -> void:
 	if linear_velocity.length() < 15:
 		if was_moving:
@@ -40,57 +37,23 @@ func _physics_process(delta: float) -> void:
 			
 	_emit_slow_motion_factor()
 
-
-func _on_damage_dealt(target_position: Vector2):
-	print("¡La pelota fue golpeada!")
-	var direction = global_position - target_position
-	linear_velocity = direction.normalized() * launch_speed
+func _launch_ball(direction: Vector2) -> void:
+	var dir = direction.normalized()
+	linear_velocity = dir * launch_speed
 	ball_relaunched.emit()
 	
+
+# 2) Cuando la señal damage_dealt te da la posición del atacante:
+func _on_damage_dealt(target_position: Vector2) -> void:
+	print("¡La pelota fue golpeada en posición ", target_position, "!")
+	var direction = global_position - target_position
+	_launch_ball(direction)
+	
+# 3) Cuando te llaman con un vector de dirección:
 func take_damage(damage: float, from_direction: Vector2) -> void:
-	print("¡La pelota fue golpeada con daño!")
-	_on_damage_dealt(from_direction)
+	print("¡La pelota recibió daño con dirección ", from_direction, "!")
+	_launch_ball(from_direction)
 
-func _on_area_entered(area: Area2D) -> void:
-	var hitbox = area as Hitbox
-	if hitbox:
-		var is_attack_hitbox = hitbox.name == "AttackHitbox"
-		var impulse_strength = 1
-		var final_direction: Vector2
-		if is_attack_hitbox:
-			impulse_strength = launch_speed * 1  # Golpe fuerte del ataque
-		else:
-			impulse_strength = launch_speed * 0.5  # Rebote débil por colisión
-			
-		if hitbox.has_method("get_direction"):
-			final_direction = hitbox.get_direction()
-		else:
-			# Fallback si no tiene dirección definida
-			var collision_direction = (global_position - area.global_position).normalized()
-			final_direction = collision_direction
-
-		
-		var source_node = hitbox.get_parent()
-		var movement_direction = Vector2.ZERO
-
-		# Si el nodo tiene una propiedad velocity o facing_direction, la usamos
-		if source_node.has_variable("velocity"):
-			movement_direction = source_node.velocity.normalized()
-		elif source_node.has_variable("facing_direction"):
-			movement_direction = source_node.facing_direction.normalized()
-
-		# Dirección del impulso combinada con movimiento del jugador
-		var collision_direction = (global_position - area.global_position).normalized()
-
-		linear_velocity = final_direction * impulse_strength
-
-		var mensaje = "💥 Golpe fuerte con movimiento" if is_attack_hitbox else "🐾 Golpe débil con movimiento"
-		print(mensaje)
-		ball_relaunched.emit()
-		
-		hitbox.monitoring = false
-		await get_tree().create_timer(0.1).timeout
-		hitbox.monitoring = true
 
 func _emit_slow_motion_factor():
 	var speed = linear_velocity.length()
