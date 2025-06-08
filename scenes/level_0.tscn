@@ -1,9 +1,8 @@
-[gd_scene load_steps=10 format=4 uid="uid://bjv7ltgvfcm0e"]
+[gd_scene load_steps=9 format=4 uid="uid://bjv7ltgvfcm0e"]
 
 [ext_resource type="Texture2D" uid="uid://yh5f3crpm4io" path="res://assets/2D Pixel Dungeon Asset Pack/character and tileset/Dungeon_Tileset.png" id="1_7wnc2"]
 [ext_resource type="PackedScene" uid="uid://cjo28e2ythbpe" path="res://scenes/skeleton.tscn" id="2_rerym"]
 [ext_resource type="Texture2D" uid="uid://byj4ybtuqa7bb" path="res://assets/pared.png" id="3_rerym"]
-[ext_resource type="Theme" uid="uid://dftfdeuhv8jr3" path="res://fonts/pixelfond.tres" id="4_uijja"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5uqbp"]
 texture = ExtResource("1_7wnc2")
@@ -522,10 +521,10 @@ tile_set = SubResource("TileSet_5nv5w")
 [node name="Skeleton" parent="." instance=ExtResource("2_rerym")]
 position = Vector2(1937, 246)
 scale = Vector2(4, 4)
-collision_mask = 10
+collision_mask = 11
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
-collision_mask = 10
+collision_mask = 14
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(1871, 245)
@@ -538,27 +537,22 @@ texture = ExtResource("3_rerym")
 
 [node name="Label" type="Label" parent="."]
 offset_left = 222.0
-offset_top = 46.0
-offset_right = 578.0
-offset_bottom = 69.0
-theme = ExtResource("4_uijja")
+offset_top = 56.0
+offset_right = 379.0
+offset_bottom = 79.0
 text = "Move using A, S, W, and D"
-metadata/_edit_lock_ = true
 
 [node name="Label2" type="Label" parent="."]
 offset_left = 1003.0
-offset_top = 48.0
-offset_right = 1274.0
-offset_bottom = 71.0
-theme = ExtResource("4_uijja")
+offset_top = 51.0
+offset_right = 1140.0
+offset_bottom = 74.0
 text = "Try to hit the ball"
-metadata/_edit_lock_ = true
 
 [node name="Label3" type="Label" parent="."]
-offset_left = 1597.0
+offset_left = 1718.0
 offset_top = 50.0
-offset_right = 2237.0
+offset_right = 2074.0
 offset_bottom = 99.0
-theme = ExtResource("4_uijja")
-text = "Defeat the enemy to advance to the next level"
-metadata/_edit_lock_ = true
+text = "Defeat the enemy to advance to the next level
+"

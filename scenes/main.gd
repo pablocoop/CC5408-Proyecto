@@ -30,3 +30,7 @@ func _on_ball_relaunched():
 
 func _on_ball_speed_changed(factor: float) -> void:
 	target_time_scale = factor
+	# (Opcional) Propaga también el factor a los enemigos,
+	# en caso de que quieras controlar ellos directamente:
+	for enemy in get_tree().get_nodes_in_group("enemies"):
+		enemy._on_slowmo_factor(factor)

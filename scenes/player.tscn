@@ -8,7 +8,8 @@
 [ext_resource type="Texture2D" uid="uid://chawd20wgsy5p" path="res://assets/2D Pixel Dungeon Asset Pack/items and trap_animation/flamethrower/flamethrower_2_2.png" id="6_fjrip"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_dqkch"]
-radius = 9.5
+radius = 7.0
+height = 21.0
 
 [sub_resource type="Animation" id="Animation_qhqgy"]
 length = 0.001
@@ -1378,6 +1379,7 @@ states/walking/position = Vector2(521, 100)
 graph_offset = Vector2(0, -190.518)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_tuyoq"]
+height = 38.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dqkch"]
 bg_color = Color(0, 0, 0, 1)
@@ -1396,8 +1398,10 @@ size = Vector2(33.5, 67)
 
 [node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("animation_tree")]
 collision_layer = 2
-collision_mask = 5
+collision_mask = 13
 script = ExtResource("1_g2els")
+knockback_duration = 0.2
+knockback_force = 800.0
 animation_tree = NodePath("AnimationTree")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -1470,7 +1474,7 @@ show_percentage = false
 
 [node name="AttackHitbox" type="Area2D" parent="."]
 position = Vector2(34, 0)
-collision_layer = 2
+collision_layer = 16
 collision_mask = 8
 monitoring = false
 script = ExtResource("5_tuyoq")
