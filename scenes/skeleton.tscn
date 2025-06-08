@@ -11,8 +11,8 @@
 [ext_resource type="Script" uid="uid://b4biuqxkvk28o" path="res://components/health_component.gd" id="9_i0f3v"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5uy6h"]
-radius = 7.0367
-height = 18.0734
+radius = 4.13241
+height = 14.0734
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_haw2w"]
 radius = 7.0
@@ -350,6 +350,7 @@ health_component = NodePath("../../HealthComponent")
 metadata/_custom_type_script = "uid://bo7j00nia4cku"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Pivot/Hurtbox"]
+position = Vector2(0.132406, 1.0367)
 shape = SubResource("CapsuleShape2D_5uy6h")
 
 [node name="RayCast2D" type="RayCast2D" parent="Pivot"]
