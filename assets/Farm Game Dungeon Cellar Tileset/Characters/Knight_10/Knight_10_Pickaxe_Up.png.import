@@ -2,7 +2,11 @@
 
 importer="texture"
 type="CompressedTexture2D"
+<<<<<<< HEAD
 uid="uid://disg17rs07kh4"
+=======
+uid="uid://brj0q1pe8rclx"
+>>>>>>> nivel_1
 path="res://.godot/imported/Knight_10_Pickaxe_Up.png-e246f7b69f58cd8ed61141af4f822e64.ctex"
 metadata={
 "vram_texture": false

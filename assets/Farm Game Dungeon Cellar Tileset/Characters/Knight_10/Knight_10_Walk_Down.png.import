@@ -2,7 +2,11 @@
 
 importer="texture"
 type="CompressedTexture2D"
+<<<<<<< HEAD
 uid="uid://11tnjxbwixal"
+=======
+uid="uid://hy8b8fyaouto"
+>>>>>>> nivel_1
 path="res://.godot/imported/Knight_10_Walk_Down.png-8d38d8573978131afbcb7c7ef1617488.ctex"
 metadata={
 "vram_texture": false
