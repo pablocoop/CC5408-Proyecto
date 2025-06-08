@@ -1379,7 +1379,8 @@ states/walking/position = Vector2(521, 100)
 graph_offset = Vector2(0, -190.518)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_tuyoq"]
-height = 38.0
+radius = 13.0
+height = 42.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dqkch"]
 bg_color = Color(0, 0, 0, 1)
@@ -1473,7 +1474,8 @@ theme_override_styles/fill = SubResource("StyleBoxFlat_fjrip")
 show_percentage = false
 
 [node name="AttackHitbox" type="Area2D" parent="."]
-position = Vector2(34, 0)
+position = Vector2(38, 1)
+scale = Vector2(1.32042, 1.28038)
 collision_layer = 16
 collision_mask = 8
 monitoring = false
