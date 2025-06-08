@@ -542,17 +542,18 @@ offset_top = 46.0
 offset_right = 578.0
 offset_bottom = 69.0
 theme = ExtResource("4_uijja")
-text = "Move using A, S, W, and D"
+text = "  Move using 
+A, S, W, and D"
 metadata/_edit_lock_ = true
 
 [node name="Label2" type="Label" parent="."]
-offset_left = 1003.0
-offset_top = 48.0
-offset_right = 1274.0
-offset_bottom = 71.0
+offset_left = 799.0
+offset_top = 57.0
+offset_right = 1306.0
+offset_bottom = 114.0
 theme = ExtResource("4_uijja")
-text = "Try to hit the ball"
-metadata/_edit_lock_ = true
+text = "Try to hit the ball
+     with space"
 
 [node name="Label3" type="Label" parent="."]
 offset_left = 1597.0
@@ -560,5 +561,6 @@ offset_top = 50.0
 offset_right = 2237.0
 offset_bottom = 99.0
 theme = ExtResource("4_uijja")
-text = "Defeat the enemy to advance to the next level"
+text = "Defeat the enemy to 
+advance to the next level"
 metadata/_edit_lock_ = true

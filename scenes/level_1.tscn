@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=4 uid="uid://hqlvc3uaihot"]
 
-[ext_resource type="Texture2D" uid="uid://qax2u0ff0j6p" path="res://assets/Farm Game Dungeon Cellar Tileset/RPG Maker/RPG Maker MZ (32x32)/tilesets/FG_Cellar_A5.png" id="1_014kd"]
+[ext_resource type="Texture2D" uid="uid://bw8bej2xusaa0" path="res://assets/Farm Game Dungeon Cellar Tileset/RPG Maker/RPG Maker MZ (32x32)/tilesets/FG_Cellar_A5.png" id="1_014kd"]
 [ext_resource type="PackedScene" uid="uid://b66xtdsj4jkeg" path="res://scenes/player.tscn" id="2_bswci"]
 [ext_resource type="PackedScene" uid="uid://dfau8rmohhg3e" path="res://scenes/ball.tscn" id="3_4nkto"]
 [ext_resource type="PackedScene" uid="uid://cjo28e2ythbpe" path="res://scenes/skeleton.tscn" id="4_fcfvj"]
