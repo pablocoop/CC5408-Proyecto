@@ -11,16 +11,16 @@
 [ext_resource type="Script" uid="uid://b4biuqxkvk28o" path="res://components/health_component.gd" id="9_i0f3v"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5uy6h"]
-radius = 7.13241
-height = 18.2648
+radius = 4.13241
+height = 14.0734
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_haw2w"]
 radius = 7.0
 height = 18.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_i0f3v"]
-radius = 5.0
-height = 16.0
+radius = 4.0
+height = 14.0
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_w4hcs"]
 animation = &"attack"
@@ -336,19 +336,21 @@ _data = {
 
 [node name="Skeleton" type="CharacterBody2D"]
 collision_layer = 4
-collision_mask = 11
+collision_mask = 3
 script = ExtResource("1_w4hcs")
 
 [node name="Pivot" type="Node2D" parent="."]
 
-[node name="Hurtbox" type="Area2D" parent="Pivot"]
+[node name="Hurtbox" type="Area2D" parent="Pivot" node_paths=PackedStringArray("health_component")]
 position = Vector2(-0.132406, -0.0366993)
 collision_layer = 4
-collision_mask = 11
+collision_mask = 8
 script = ExtResource("3_i0f3v")
+health_component = NodePath("../../HealthComponent")
 metadata/_custom_type_script = "uid://bo7j00nia4cku"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Pivot/Hurtbox"]
+position = Vector2(0.132406, 1.0367)
 shape = SubResource("CapsuleShape2D_5uy6h")
 
 [node name="RayCast2D" type="RayCast2D" parent="Pivot"]
@@ -364,7 +366,7 @@ hframes = 9
 [node name="Hitbox" type="Area2D" parent="Pivot"]
 position = Vector2(-0.132406, 0.963301)
 collision_layer = 4
-collision_mask = 10
+collision_mask = 2
 script = ExtResource("3_haw2w")
 metadata/_custom_type_script = "uid://cpdtcih6dhwuq"
 
@@ -374,6 +376,7 @@ shape = SubResource("CapsuleShape2D_haw2w")
 debug_color = Color(0.311415, 0.626461, 7.70092e-07, 0.42)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 1)
 shape = SubResource("CapsuleShape2D_i0f3v")
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
@@ -387,4 +390,6 @@ libraries = {
 
 [node name="HealthComponent" type="Node" parent="."]
 script = ExtResource("9_i0f3v")
+health = 3.0
+max_health = 3.0
 metadata/_custom_type_script = "uid://b4biuqxkvk28o"
