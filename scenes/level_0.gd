@@ -20,13 +20,15 @@ func _process(delta: float) -> void:
 
 func _on_ball_stopped():
 	Debug.log("ball stopped")
-	for enemy in get_tree().get_nodes_in_group("enemies"):
-		enemy.pause_enemy()
+	if get_tree():
+		for enemy in get_tree().get_nodes_in_group("enemies"):
+			enemy.pause_enemy()
 
 func _on_ball_relaunched():
 	Debug.log("ball relaunched")
-	for enemy in get_tree().get_nodes_in_group("enemies"):
-		enemy.resume_enemy()
+	if get_tree():
+		for enemy in get_tree().get_nodes_in_group("enemies"):
+			enemy.resume_enemy()
 
 func _on_ball_speed_changed(factor: float) -> void:
 	target_time_scale = factor
