@@ -199,16 +199,12 @@ func take_damage(damage: float, from_direction: Vector2) -> void:
 		is_dead = true
 		Debug.log("auch! he muerto!")
 		flash_red()
-		var cam = $Camera2D
-		cam.get_parent().remove_child(cam)
-		get_tree().get_root().add_child(cam)
-		cam.global_position = global_position
+		#var cam = $Camera2D
+		#cam.get_parent().remove_child(cam)
+		#get_tree().get_root().add_child(cam)
+		#cam.global_position = global_position
 		# Mostrar la pantalla de Game Over
-		var game_over_scene = preload("res://ui/game_over.tscn")
-		var game_over_instance = game_over_scene.instantiate()
-		game_over_instance.global_position = global_position
-		get_tree().get_root().add_child(game_over_instance)
-		queue_free()
+		get_tree().change_scene_to_file("res://ui/game_over.tscn")
 
 		
 func flash_red() -> void:

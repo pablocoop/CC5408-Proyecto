@@ -25,9 +25,8 @@ func _on_ball_stopped():
 
 func _on_ball_relaunched():
 	Debug.log("ball relaunched")
-	if (get_tree().get_nodes_in_group("enemies")):
-		for enemy in get_tree().get_nodes_in_group("enemies"):
-			enemy.resume_enemy()
+	for enemy in get_tree().get_nodes_in_group("enemies"):
+		enemy.resume_enemy()
 
 func _on_ball_speed_changed(factor: float) -> void:
 	target_time_scale = factor
