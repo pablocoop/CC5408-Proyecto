@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=4 uid="uid://bjv7ltgvfcm0e"]
+[gd_scene load_steps=15 format=4 uid="uid://bjv7ltgvfcm0e"]
 
 [ext_resource type="Texture2D" uid="uid://yh5f3crpm4io" path="res://assets/2D Pixel Dungeon Asset Pack/character and tileset/Dungeon_Tileset.png" id="1_7wnc2"]
 [ext_resource type="Script" uid="uid://cpprc3f637gwv" path="res://scenes/level_0.gd" id="1_qjcqe"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://b66xtdsj4jkeg" path="res://scenes/player.tscn" id="5_xp8tn"]
 [ext_resource type="PackedScene" uid="uid://dfau8rmohhg3e" path="res://scenes/ball.tscn" id="6_rhhhf"]
 [ext_resource type="PackedScene" uid="uid://hco1haupmfr8" path="res://ui/pause_menu.tscn" id="8_jv3i5"]
+[ext_resource type="PackedScene" uid="uid://dkvrln2mnfpao" path="res://scenes/Portal.tscn" id="9_jv3i5"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5uqbp"]
 texture = ExtResource("1_7wnc2")
@@ -561,22 +562,21 @@ text = "Try to hit the ball
      with space"
 
 [node name="Label3" type="Label" parent="."]
-offset_left = 1597.0
-offset_top = 50.0
-offset_right = 2237.0
-offset_bottom = 99.0
+offset_left = 1650.0
+offset_top = 58.0
+offset_right = 2317.0
+offset_bottom = 115.0
 theme = ExtResource("4_uijja")
 text = "Defeat the enemy to 
 advance to the next level"
-metadata/_edit_lock_ = true
 
 [node name="Player" parent="." instance=ExtResource("5_xp8tn")]
-position = Vector2(572, 255)
+position = Vector2(390, 235)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 
 [node name="Ball" parent="." instance=ExtResource("6_rhhhf")]
-position = Vector2(1312, 246)
+position = Vector2(1068, 232)
 collision_mask = 5
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
@@ -587,9 +587,12 @@ metadata/_edit_use_anchors_ = true
 [node name="StaticBody2D2" type="StaticBody2D" parent="."]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D2"]
-position = Vector2(104, -2)
+position = Vector2(-32, -41)
 polygon = PackedVector2Array(-1, -12, 2680, -31, 2665, 79, 22, 67)
 
 [node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="StaticBody2D2"]
-position = Vector2(102, 467)
+position = Vector2(-47, 441)
 polygon = PackedVector2Array(-1, -12, 2684, -1, 2665, 79, 22, 67)
+
+[node name="Portal_1" parent="." instance=ExtResource("9_jv3i5")]
+position = Vector2(2167, 246)
