@@ -19,7 +19,7 @@ var base_max_speed := 0.0
 @onready var hurtbox: Hurtbox = $Pivot/Hurtbox
 @onready var hitbox: Hitbox = $Pivot/Hitbox
 
-
+signal enemy_died
 
 
 
@@ -74,6 +74,7 @@ func take_damage(damage: float, from_direction: Vector2) -> void:
 	else:
 		is_dead = true
 		Debug.log("💀 Skeleton murió")
+		emit_signal("enemy_died")
 		playback.travel("death")
 		flash_red()
 		await get_tree().create_timer(1.5).timeout
