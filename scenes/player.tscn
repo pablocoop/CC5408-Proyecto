@@ -1,7 +1,7 @@
 [gd_scene load_steps=72 format=3 uid="uid://b66xtdsj4jkeg"]
 
 [ext_resource type="Script" uid="uid://20gqeq084edk" path="res://scenes/player.gd" id="1_g2els"]
-[ext_resource type="Texture2D" uid="uid://boodu3po37joe" path="res://assets/Cats Download/blue_3_hat.png" id="2_dqkch"]
+[ext_resource type="Texture2D" uid="uid://wdiivehslvyu" path="res://assets/Cats Download/blue_3_sprite.png" id="2_tuyoq"]
 [ext_resource type="Script" uid="uid://bo7j00nia4cku" path="res://components/hurtbox.gd" id="3_qhqgy"]
 [ext_resource type="Script" uid="uid://b4biuqxkvk28o" path="res://components/health_component.gd" id="4_dqkch"]
 [ext_resource type="Script" uid="uid://cpdtcih6dhwuq" path="res://components/hitbox.gd" id="5_tuyoq"]
@@ -23,7 +23,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("2_dqkch")]
+"values": [ExtResource("2_tuyoq")]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -64,7 +64,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("2_dqkch")]
+"values": [ExtResource("2_tuyoq")]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -105,7 +105,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("2_dqkch")]
+"values": [ExtResource("2_tuyoq")]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -146,7 +146,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("2_dqkch")]
+"values": [ExtResource("2_tuyoq")]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -187,7 +187,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("2_dqkch")]
+"values": [ExtResource("2_tuyoq")]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -228,7 +228,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("2_dqkch")]
+"values": [ExtResource("2_tuyoq")]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -269,7 +269,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("2_dqkch")]
+"values": [ExtResource("2_tuyoq")]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -310,7 +310,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("2_dqkch")]
+"values": [ExtResource("2_tuyoq")]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -351,7 +351,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("2_dqkch")]
+"values": [ExtResource("2_tuyoq")]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -393,7 +393,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("2_dqkch")]
+"values": [ExtResource("2_tuyoq")]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -435,7 +435,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("2_dqkch")]
+"values": [ExtResource("2_tuyoq")]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -489,7 +489,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("2_dqkch")]
+"values": [ExtResource("2_tuyoq")]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -519,7 +519,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("2_dqkch")]
+"values": [ExtResource("2_tuyoq")]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -585,7 +585,7 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("2_dqkch")]
+"values": [ExtResource("2_tuyoq")]
 }
 
 [sub_resource type="Animation" id="Animation_wqfne"]
@@ -603,7 +603,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("2_dqkch")]
+"values": [ExtResource("2_tuyoq")]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -645,7 +645,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("2_dqkch")]
+"values": [ExtResource("2_tuyoq")]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -687,7 +687,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("2_dqkch")]
+"values": [ExtResource("2_tuyoq")]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -753,7 +753,7 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("2_dqkch")]
+"values": [ExtResource("2_tuyoq")]
 }
 
 [sub_resource type="Animation" id="Animation_jej6c"]
@@ -783,7 +783,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("2_dqkch")]
+"values": [ExtResource("2_tuyoq")]
 }
 
 [sub_resource type="Animation" id="Animation_31cv2"]
@@ -801,7 +801,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("2_dqkch")]
+"values": [ExtResource("2_tuyoq")]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -843,7 +843,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("2_dqkch")]
+"values": [ExtResource("2_tuyoq")]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -897,7 +897,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("2_dqkch")]
+"values": [ExtResource("2_tuyoq")]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -927,7 +927,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("2_dqkch")]
+"values": [ExtResource("2_tuyoq")]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -969,7 +969,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("2_dqkch")]
+"values": [ExtResource("2_tuyoq")]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -1011,7 +1011,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("2_dqkch")]
+"values": [ExtResource("2_tuyoq")]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -1065,7 +1065,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("2_dqkch")]
+"values": [ExtResource("2_tuyoq")]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -1095,7 +1095,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("2_dqkch")]
+"values": [ExtResource("2_tuyoq")]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -1137,7 +1137,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("2_dqkch")]
+"values": [ExtResource("2_tuyoq")]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -1179,7 +1179,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("2_dqkch")]
+"values": [ExtResource("2_tuyoq")]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -1408,7 +1408,7 @@ animation_tree = NodePath("AnimationTree")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(1.4, 0)
 scale = Vector2(3, 3)
-texture = ExtResource("2_dqkch")
+texture = ExtResource("2_tuyoq")
 hframes = 32
 vframes = 17
 frame = 32
