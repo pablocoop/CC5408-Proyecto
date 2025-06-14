@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=4 uid="uid://hqlvc3uaihot"]
+[gd_scene load_steps=8 format=4 uid="uid://hqlvc3uaihot"]
 
 [ext_resource type="Texture2D" uid="uid://bw8bej2xusaa0" path="res://assets/Farm Game Dungeon Cellar Tileset/RPG Maker/RPG Maker MZ (32x32)/tilesets/FG_Cellar_A5.png" id="1_014kd"]
 [ext_resource type="PackedScene" uid="uid://b66xtdsj4jkeg" path="res://scenes/player.tscn" id="2_bswci"]
 [ext_resource type="PackedScene" uid="uid://dfau8rmohhg3e" path="res://scenes/ball.tscn" id="3_4nkto"]
 [ext_resource type="PackedScene" uid="uid://cjo28e2ythbpe" path="res://scenes/skeleton.tscn" id="4_fcfvj"]
+[ext_resource type="PackedScene" uid="uid://hco1haupmfr8" path="res://ui/pause_menu.tscn" id="5_4nkto"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_bswci"]
 texture = ExtResource("1_014kd")
@@ -695,3 +696,8 @@ scale = Vector2(4, 4)
 [node name="Skeleton5" parent="." instance=ExtResource("4_fcfvj")]
 position = Vector2(1201, 2057)
 scale = Vector2(4, 4)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("5_4nkto")]
+metadata/_edit_use_anchors_ = true

@@ -48,14 +48,14 @@ layout_mode = 2
 layout_mode = 2
 text = "Start"
 
-[node name="Quit" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer"]
+[node name="Controls" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
-text = "Quit"
+text = "Game Guide"
 
 [node name="Credits" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "Credits"
 
-[node name="Controls" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer"]
+[node name="Quit" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
-text = "Game Guide"
+text = "Quit"
