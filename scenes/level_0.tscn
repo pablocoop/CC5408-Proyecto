@@ -527,7 +527,7 @@ tile_map_data = PackedByteArray("AADn//D/AAAIAAcAAADn//H/AAAIAAcAAADn//L/AAAIAAc
 tile_set = SubResource("TileSet_5nv5w")
 
 [node name="Skeleton" parent="." instance=ExtResource("2_rerym")]
-position = Vector2(1937, 246)
+position = Vector2(1763, 238)
 scale = Vector2(4, 4)
 collision_mask = 10
 
