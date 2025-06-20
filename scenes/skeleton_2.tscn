@@ -1,6 +1,6 @@
-[gd_scene load_steps=38 format=3 uid="uid://c26uakq0r85nf"]
+[gd_scene load_steps=39 format=3 uid="uid://c26uakq0r85nf"]
 
-[ext_resource type="Script" uid="uid://ce0ollls82mlt" path="res://scenes/skeleton.gd" id="1_62e87"]
+[ext_resource type="Script" uid="uid://b4biuqxkvk28o" path="res://components/health_component.gd" id="1_62e87"]
 [ext_resource type="Texture2D" uid="uid://bem8cwrrwwma8" path="res://assets/Enemy_Animations_Set/enemies-skeleton2_attack.png" id="1_tme36"]
 [ext_resource type="Script" uid="uid://bo7j00nia4cku" path="res://components/hurtbox.gd" id="2_hnfra"]
 [ext_resource type="Texture2D" uid="uid://dhyp8fkrnubps" path="res://assets/Enemy_Animations_Set/enemies-skeleton1_death.png" id="3_62e87"]
@@ -12,6 +12,10 @@
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_yxnco"]
 height = 20.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_62e87"]
+radius = 7.0
+height = 16.0
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_olr44"]
 animation = &"attack"
@@ -394,6 +398,8 @@ hframes = 15
 target_position = Vector2(10, 0)
 
 [node name="Hurtbox" type="Area2D" parent="Pivot"]
+collision_layer = 4
+collision_mask = 8
 script = ExtResource("2_hnfra")
 metadata/_custom_type_script = "uid://bo7j00nia4cku"
 
@@ -401,10 +407,14 @@ metadata/_custom_type_script = "uid://bo7j00nia4cku"
 shape = SubResource("CapsuleShape2D_yxnco")
 
 [node name="Hitbox" type="Area2D" parent="Pivot"]
+collision_layer = 4
+collision_mask = 2
 script = ExtResource("3_baxx2")
 metadata/_custom_type_script = "uid://cpdtcih6dhwuq"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Pivot/Hitbox"]
+shape = SubResource("CapsuleShape2D_62e87")
+debug_color = Color(0.291226, 0.501466, 0.988733, 0.42)
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
 tree_root = SubResource("AnimationNodeStateMachine_561qj")
@@ -418,3 +428,7 @@ libraries = {
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -1)
 shape = SubResource("CapsuleShape2D_hnfra")
+
+[node name="HealthComponent" type="Node" parent="."]
+script = ExtResource("1_62e87")
+metadata/_custom_type_script = "uid://b4biuqxkvk28o"
