@@ -1,9 +1,12 @@
-[gd_scene load_steps=7 format=4 uid="uid://hqlvc3uaihot"]
+[gd_scene load_steps=10 format=4 uid="uid://hqlvc3uaihot"]
 
 [ext_resource type="Texture2D" uid="uid://bw8bej2xusaa0" path="res://assets/Farm Game Dungeon Cellar Tileset/RPG Maker/RPG Maker MZ (32x32)/tilesets/FG_Cellar_A5.png" id="1_014kd"]
+[ext_resource type="Script" uid="uid://bm732l3q5m45m" path="res://scenes/level_1.gd" id="1_fcfvj"]
 [ext_resource type="PackedScene" uid="uid://b66xtdsj4jkeg" path="res://scenes/player.tscn" id="2_bswci"]
 [ext_resource type="PackedScene" uid="uid://dfau8rmohhg3e" path="res://scenes/ball.tscn" id="3_4nkto"]
 [ext_resource type="PackedScene" uid="uid://cjo28e2ythbpe" path="res://scenes/skeleton.tscn" id="4_fcfvj"]
+[ext_resource type="PackedScene" uid="uid://c26uakq0r85nf" path="res://scenes/skeleton_2.tscn" id="5_4nkto"]
+[ext_resource type="PackedScene" uid="uid://c4xygk2bmorcp" path="res://scenes/wall_level_1.tscn" id="7_pa8r4"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_bswci"]
 texture = ExtResource("1_014kd")
@@ -662,6 +665,7 @@ terrain_set_0/terrain_0/color = Color(0.501961, 0.105882, 0.952941, 1)
 sources/0 = SubResource("TileSetAtlasSource_bswci")
 
 [node name="Level1" type="Node2D"]
+script = ExtResource("1_fcfvj")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 scale = Vector2(1.6, 1.6)
@@ -695,3 +699,15 @@ scale = Vector2(4, 4)
 [node name="Skeleton5" parent="." instance=ExtResource("4_fcfvj")]
 position = Vector2(1201, 2057)
 scale = Vector2(4, 4)
+
+[node name="Boss" parent="." instance=ExtResource("5_4nkto")]
+position = Vector2(4326, 2425)
+scale = Vector2(6, 6)
+
+[node name="WallLevel" parent="." instance=ExtResource("7_pa8r4")]
+position = Vector2(2168, 1990)
+scale = Vector2(1.36, 1.36)
+
+[node name="WallLevel2" parent="." instance=ExtResource("7_pa8r4")]
+position = Vector2(3771, 2452)
+scale = Vector2(1.02, 1.02)
