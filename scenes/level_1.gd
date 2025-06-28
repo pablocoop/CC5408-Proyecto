@@ -6,6 +6,8 @@ var current_time_scale := 1.0
 var target_time_scale := 1.0
 @export var smooth_transition_speed := 5.0
 #@onready var portal_1: Area2D = $Portal_1
+@onready var wall_level: Node2D = $WallLevel
+@onready var wall_level_2: Node2D = $WallLevel2
 
 var enemy_count := 0
 
@@ -18,6 +20,8 @@ func _ready():
 	# Portal oculto y no activo al inicio
 	#portal_1.hide()
 	#portal_1.ready_portal = 0
+	wall_level_2.hide()
+	wall_level_2.get_node("StaticBody2D/CollisionShape2D").set_deferred("disabled", true)
 	
 	ball.ball_stopped.connect(_on_ball_stopped)
 	ball.ball_relaunched.connect(_on_ball_relaunched)
