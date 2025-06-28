@@ -55,6 +55,6 @@ func _on_ball_speed_changed(factor: float) -> void:
 func _on_enemy_died():
 	enemy_count -= 1
 	print("☠️ Enemigo eliminado. Quedan:", enemy_count)
-	#if enemy_count <= 0:
-		#portal_1.show()
-		#portal_1.ready_portal = 1
+	if enemy_count == 1:
+		wall_level.queue_free()
+		
