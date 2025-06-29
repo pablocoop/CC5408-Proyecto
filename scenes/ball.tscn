@@ -1,10 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://dfau8rmohhg3e"]
+[gd_scene load_steps=11 format=3 uid="uid://dfau8rmohhg3e"]
 
 [ext_resource type="Script" uid="uid://cy7qoi8yfe5a0" path="res://scenes/ball.gd" id="1_4dx81"]
 [ext_resource type="Texture2D" uid="uid://csdnj5ytg5vdj" path="res://assets/BallGuy/ballguy fixed.png" id="2_f7cbr"]
 [ext_resource type="Script" uid="uid://bo7j00nia4cku" path="res://components/hurtbox.gd" id="4_4dx81"]
 [ext_resource type="Script" uid="uid://cpdtcih6dhwuq" path="res://components/hitbox.gd" id="4_eew57"]
 [ext_resource type="Script" uid="uid://b4biuqxkvk28o" path="res://components/health_component.gd" id="5_eew57"]
+[ext_resource type="Texture2D" uid="uid://c2fdntw4me3ir" path="res://assets/Arrow.png" id="7_v8l5b"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_4dx81"]
 friction = 0.0
@@ -61,3 +62,10 @@ shape = SubResource("RectangleShape2D_4dx81")
 [node name="HealthComponent" type="Node" parent="."]
 script = ExtResource("5_eew57")
 metadata/_custom_type_script = "uid://b4biuqxkvk28o"
+
+[node name="HitDirectionIndicator" type="Node2D" parent="."]
+
+[node name="ArrowSprite" type="Sprite2D" parent="HitDirectionIndicator"]
+position = Vector2(-5, 0)
+scale = Vector2(2, 2)
+texture = ExtResource("7_v8l5b")
