@@ -14,22 +14,29 @@ var was_moving := false
 var player_nearby := false
 
 @onready var hitbox: Hitbox = $Hitbox
-var has_moved := false  # Variable que indica si la pelota ha sido lanzada
-
 @onready var hurtbox: Area2D = $Hurtbox
+@onready var indicator: Node2D = $HitDirectionIndicator
+@onready var arrow_sprite: Sprite2D = indicator.get_node("ArrowSprite")
+
+var has_moved := false  # Variable que indica si la pelota ha sido lanzada
+var show_duration := 0.6
+var show_timer := 0.0
 
 
 func _ready():
 	hitbox.damage_dealt.connect(_on_damage_dealt)
-	# Conectar sólo al hitbox de ataque del jugador:
-	#var players = get_tree().get_nodes_in_group("player")
-	#if players.size() > 0:
-		#var p = players[0]
-		#var atk = p.get_node("AttackHitbox") as Hitbox
-		#if atk:
-			#atk.damage_dealt.connect(_on_damage_dealt)
+	
 	add_to_group("ball")
 	linear_damp = 0.8
+	arrow_sprite.visible = false
+	arrow_sprite.rotation = 0
+	# Conectar también el AttackHitbox del jugador
+	var players = get_tree().get_nodes_in_group("player")
+	if players.size() > 0:
+		var p = players[0]
+		var atk = p.get_node("AttackHitbox") as Hitbox
+		if atk:
+			atk.damage_dealt.connect(_on_damage_dealt)
 	randomize()
 	
 func _physics_process(delta: float) -> void:
@@ -42,7 +49,17 @@ func _physics_process(delta: float) -> void:
 			was_moving = true
 			ball_relaunched.emit()
 			
+	if show_timer > 0.0:
+		show_timer -= delta
+		if show_timer <= 0.0:
+			arrow_sprite.visible = false
+			
 	_emit_slow_motion_factor()
+	#if Input.is_action_just_pressed("attack"):  # o cualquier tecla para test
+		#var test_dir = Vector2.RIGHT.rotated(randf() * TAU)
+		#indicator.rotation = test_dir.angle()
+		#indicator.visible = true
+		#print("Flecha rotada hacia:", test_dir.angle())
 
 func _launch_ball(direction: Vector2) -> void:
 	var dir = direction.normalized()
@@ -56,10 +73,28 @@ func _on_damage_dealt(target_position: Vector2) -> void:
 	var direction = global_position - target_position
 	_launch_ball(direction) ##### OPCIONAL
 	
+	
 # 3) Cuando te llaman con un vector de dirección:
 func take_damage(damage: float, from_direction: Vector2) -> void:
 	print("¡La pelota recibió daño con dirección ", from_direction, "!")
 	_launch_ball(from_direction)
+	
+	# Calcular la distancia de offset teniendo en cuenta el scale aplicado
+	var offset_distance := arrow_sprite.texture.get_width() * 0.5 * arrow_sprite.scale.x
+	var offset := from_direction.normalized() * offset_distance
+
+	
+	# Posicionar la flecha desde el centro de la pelota
+	indicator.position = Vector2.ZERO
+	arrow_sprite.position = offset
+	arrow_sprite.rotation = from_direction.angle()
+	arrow_sprite.visible = true
+	arrow_sprite.z_index = 10
+	
+	# Mostrar flecha solo por feedback visual
+	if from_direction.length() > 0:
+		show_timer = show_duration
+
 
 
 func _emit_slow_motion_factor():
