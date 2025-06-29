@@ -72,29 +72,43 @@ func _on_damage_dealt(target_position: Vector2) -> void:
 	print("¡La pelota fue golpeada en posición ", target_position, "!")
 	var direction = global_position - target_position
 	_launch_ball(direction) ##### OPCIONAL
+	_show_hit_indicator(direction)
 	
 	
 # 3) Cuando te llaman con un vector de dirección:
 func take_damage(damage: float, from_direction: Vector2) -> void:
 	print("¡La pelota recibió daño con dirección ", from_direction, "!")
 	_launch_ball(from_direction)
+	_show_hit_indicator(from_direction)
 	
 	# Calcular la distancia de offset teniendo en cuenta el scale aplicado
+	#var offset_distance := arrow_sprite.texture.get_width() * 0.5 * arrow_sprite.scale.x
+	#var offset := from_direction.normalized() * offset_distance
+#
+	#
+	## Posicionar la flecha desde el centro de la pelota
+	#indicator.position = Vector2.ZERO
+	#arrow_sprite.position = offset
+	#arrow_sprite.rotation = from_direction.angle()
+	#arrow_sprite.visible = true
+	#arrow_sprite.z_index = 10
+	#
+	## Mostrar flecha solo por feedback visual
+	#if from_direction.length() > 0:
+		#show_timer = show_duration
+		#
+func _show_hit_indicator(from_direction: Vector2) -> void:
+	if from_direction.length() == 0:
+		return
 	var offset_distance := arrow_sprite.texture.get_width() * 0.5 * arrow_sprite.scale.x
 	var offset := from_direction.normalized() * offset_distance
 
-	
-	# Posicionar la flecha desde el centro de la pelota
 	indicator.position = Vector2.ZERO
 	arrow_sprite.position = offset
 	arrow_sprite.rotation = from_direction.angle()
 	arrow_sprite.visible = true
 	arrow_sprite.z_index = 10
-	
-	# Mostrar flecha solo por feedback visual
-	if from_direction.length() > 0:
-		show_timer = show_duration
-
+	show_timer = show_duration
 
 
 func _emit_slow_motion_factor():
