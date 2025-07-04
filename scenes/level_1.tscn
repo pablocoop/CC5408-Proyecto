@@ -704,10 +704,19 @@ scale = Vector2(4, 4)
 position = Vector2(4326, 2425)
 scale = Vector2(6, 6)
 
-[node name="WallLevel" parent="." instance=ExtResource("7_pa8r4")]
-position = Vector2(2168, 1990)
+[node name="WallLevel1" parent="." instance=ExtResource("7_pa8r4")]
+position = Vector2(2171, 1990)
 scale = Vector2(1.36, 1.36)
 
 [node name="WallLevel2" parent="." instance=ExtResource("7_pa8r4")]
 position = Vector2(3771, 2452)
 scale = Vector2(1.02, 1.02)
+
+[node name="WallLevel3" parent="." instance=ExtResource("7_pa8r4")]
+position = Vector2(1634, 605)
+scale = Vector2(1.15, 1.15)
+
+[node name="WallLevel4" parent="." instance=ExtResource("7_pa8r4")]
+position = Vector2(1998, 1787)
+rotation = 1.5708
+scale = Vector2(1.08, 1.08)
