@@ -6,8 +6,10 @@ var current_time_scale := 1.0
 var target_time_scale := 1.0
 @export var smooth_transition_speed := 5.0
 #@onready var portal_1: Area2D = $Portal_1
-@onready var wall_level: Node2D = $WallLevel
+@onready var wall_level: Node2D = $WallLevel1
 @onready var wall_level_2: Node2D = $WallLevel2
+@onready var wall_level_3: Node2D = $WallLevel3
+@onready var wall_level_4: Node2D = $WallLevel4
 
 var enemy_count := 0
 
@@ -22,7 +24,10 @@ func _ready():
 	#portal_1.ready_portal = 0
 	wall_level_2.hide()
 	wall_level_2.get_node("StaticBody2D/CollisionShape2D").set_deferred("disabled", true)
-	
+
+	wall_level_3.hide()
+	wall_level_3.get_node("StaticBody2D/CollisionShape2D").set_deferred("disabled", true)
+		
 	ball.ball_stopped.connect(_on_ball_stopped)
 	ball.ball_relaunched.connect(_on_ball_relaunched)
 	ball.ball_speed_changed.connect(_on_ball_speed_changed)  # Nueva conexión
@@ -55,6 +60,9 @@ func _on_ball_speed_changed(factor: float) -> void:
 func _on_enemy_died():
 	enemy_count -= 1
 	print("☠️ Enemigo eliminado. Quedan:", enemy_count)
-	if enemy_count == 1:
+	if enemy_count == 0:
 		wall_level.queue_free()
+	elif enemy_count == 2:
+		wall_level_4.queue_free()
+		
 		
