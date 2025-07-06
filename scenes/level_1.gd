@@ -5,11 +5,11 @@ extends Node2D
 var current_time_scale := 1.0
 var target_time_scale := 1.0
 @export var smooth_transition_speed := 5.0
-#@onready var portal_1: Area2D = $Portal_1
 @onready var wall_level: Node2D = $WallLevel1
 @onready var wall_level_2: Node2D = $WallLevel2
 @onready var wall_level_3: Node2D = $WallLevel3
 @onready var wall_level_4: Node2D = $WallLevel4
+@onready var portal_1: Area2D = $Portal2
 
 var enemy_count := 0
 
@@ -20,8 +20,8 @@ func _ready():
 		enemy.enemy_died.connect(_on_enemy_died)
 
 	# Portal oculto y no activo al inicio
-	#portal_1.hide()
-	#portal_1.ready_portal = 0
+	portal_1.hide()
+	portal_1.ready_portal = 0
 	wall_level_2.hide()
 	wall_level_2.get_node("StaticBody2D/CollisionShape2D").set_deferred("disabled", true)
 
@@ -65,5 +65,7 @@ func _on_enemy_died():
 	if enemy_count == 3:
 		wall_level_4.hide()
 		wall_level_4.get_node("StaticBody2D/CollisionShape2D").set_deferred("disabled", true)
-		
+	if enemy_count == 0:
+		portal_1.show()
+		portal_1.ready_portal = 1
 		
