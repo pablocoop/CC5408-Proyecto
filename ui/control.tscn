@@ -51,7 +51,9 @@ text = "[shake]
 
 > Open Pause Menu with [color=green]ESC[/color]
 
-[color=pink]{If you die, press ESC to open the Pause Menu and restart the game.}[/color]
+> Attack with [color=green]SPACE[/color] or [color=green]Left Mouse Button[/color]
+
+[color=pink]{Watch out! Colliding with the yarn ball can hurt you too! Only hit it using ATTACK, and keep your magical weapon in sight to fight your enemies!}[/color]
 
 
 
