@@ -594,19 +594,19 @@ metadata/_edit_use_anchors_ = true
 [node name="StaticBody2D2" type="StaticBody2D" parent="."]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D2"]
-position = Vector2(-32, -41)
-polygon = PackedVector2Array(-1, -12, 2680, -31, 2665, 79, 22, 67)
+position = Vector2(-32, -40)
+polygon = PackedVector2Array(-1, -12, 2680, -31, 2664, 74, 21, 73)
 
 [node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="StaticBody2D2"]
-position = Vector2(-39, 456)
-polygon = PackedVector2Array(-1, -12, 2684, -1, 2665, 79, 22, 67)
+position = Vector2(-41, 453)
+polygon = PackedVector2Array(-1, -8, 2668, -7, 2665, 79, 22, 67)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
 position = Vector2(-82, 219)
 shape = SubResource("RectangleShape2D_ll25s")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D2"]
-position = Vector2(2466, 221)
+position = Vector2(2465, 221)
 shape = SubResource("RectangleShape2D_sk60w")
 
 [node name="Portal_1" parent="." instance=ExtResource("9_jv3i5")]
