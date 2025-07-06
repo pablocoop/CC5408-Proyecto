@@ -1,24 +1,24 @@
-[gd_scene load_steps=3 format=3 uid="uid://c0lbrqopnttbr"]
+[gd_scene load_steps=3 format=3 uid="uid://bydi74a3wpev1"]
 
-[ext_resource type="Theme" uid="uid://dftfdeuhv8jr3" path="res://fonts/pixelfond.tres" id="1_wk0pr"]
-[ext_resource type="Script" uid="uid://dhjbis6s56kg8" path="res://ui/main_menu.gd" id="2_0dkrt"]
+[ext_resource type="Theme" uid="uid://dftfdeuhv8jr3" path="res://fonts/pixelfond.tres" id="1_d2ox4"]
+[ext_resource type="Script" uid="uid://dxyw61p7sebmj" path="res://ui/levels.gd" id="2_pcspx"]
 
-[node name="MainMenu" type="MarginContainer"]
+[node name="Levels" type="MarginContainer"]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -240.0
-offset_top = -91.5
-offset_right = 240.0
-offset_bottom = 91.5
+offset_left = -176.0
+offset_top = -107.5
+offset_right = 176.0
+offset_bottom = 107.5
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-theme = ExtResource("1_wk0pr")
-script = ExtResource("2_0dkrt")
+theme = ExtResource("1_d2ox4")
+script = ExtResource("2_pcspx")
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
 layout_mode = 2
@@ -38,24 +38,24 @@ layout_mode = 2
 
 [node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
-text = "Purrrcatory Escape"
+text = "Select a Floor!"
 horizontal_alignment = 1
 
 [node name="Label2" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
+text = "Where will your paws...
+ take you today?"
+horizontal_alignment = 1
 
-[node name="Start" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer"]
+[node name="Tutorial" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
-text = "Start"
+text = "Tutorial"
 
-[node name="Controls" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer"]
+[node name="Level1" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
-text = "Game Guide"
+text = "Level 1"
 
-[node name="Credits" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer"]
+[node name="Back" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer"]
+modulate = Color(0.753984, 0.753984, 0.753984, 1)
 layout_mode = 2
-text = "Credits"
-
-[node name="Quit" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer"]
-layout_mode = 2
-text = "Quit"
+text = "Back"
