@@ -8,7 +8,7 @@ extends CharacterBody2D
 
 @export var speed = 400
 @export var acceleration = 900
-@export var max_health := 7
+@export var max_health := 12
 var current_health := max_health
 var is_running := false
 @export var run_multiplier := 1.5
