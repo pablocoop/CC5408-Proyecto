@@ -43,8 +43,8 @@ var knockback_timer := 0.0
 @onready var health_component: HealthComponent = $HealthComponent
 
 # Barra de stamina
-var stamina = 4
-var max_stamina = 4
+var stamina = 3
+var max_stamina = 3
 @onready var stamina_bar: TextureProgressBar = %StaminaBar
 @export var stamina_decrease_interval := 0.5  # cada 0.5s se descuenta 1
 @export var stamina_recover_interval := 0.2  # cada 0.2s se recupera 1
