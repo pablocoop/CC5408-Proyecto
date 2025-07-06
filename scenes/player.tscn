@@ -1,11 +1,14 @@
-[gd_scene load_steps=72 format=3 uid="uid://b66xtdsj4jkeg"]
+[gd_scene load_steps=71 format=3 uid="uid://b66xtdsj4jkeg"]
 
 [ext_resource type="Script" uid="uid://20gqeq084edk" path="res://scenes/player.gd" id="1_g2els"]
 [ext_resource type="Texture2D" uid="uid://wdiivehslvyu" path="res://assets/Cats Download/blue_3_sprite.png" id="2_tuyoq"]
 [ext_resource type="Script" uid="uid://bo7j00nia4cku" path="res://components/hurtbox.gd" id="3_qhqgy"]
 [ext_resource type="Script" uid="uid://b4biuqxkvk28o" path="res://components/health_component.gd" id="4_dqkch"]
 [ext_resource type="Script" uid="uid://cpdtcih6dhwuq" path="res://components/hitbox.gd" id="5_tuyoq"]
+[ext_resource type="Texture2D" uid="uid://dcvkfpupmh1" path="res://assets/UI BARS/empty_bar_edited.png" id="5_ur7pv"]
 [ext_resource type="Texture2D" uid="uid://chawd20wgsy5p" path="res://assets/2D Pixel Dungeon Asset Pack/items and trap_animation/flamethrower/flamethrower_2_2.png" id="6_fjrip"]
+[ext_resource type="Texture2D" uid="uid://b5lnl5nwa1ib8" path="res://assets/UI BARS/health_bar_edited.png" id="6_y4r1p"]
+[ext_resource type="Texture2D" uid="uid://b6foxrtuueyfl" path="res://assets/UI BARS/shield_bar_edited.png" id="7_d2wvv"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_dqkch"]
 radius = 7.0
@@ -1382,18 +1385,6 @@ graph_offset = Vector2(0, -190.518)
 radius = 13.0
 height = 42.0
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dqkch"]
-bg_color = Color(0, 0, 0, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qlg0r"]
-bg_color = Color(0.67952, 0.200027, 0.240616, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tuyoq"]
-bg_color = Color(0, 0, 0, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fjrip"]
-bg_color = Color(0, 0.425659, 0.846315, 1)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_smehm"]
 size = Vector2(33.5, 67)
 
@@ -1455,23 +1446,22 @@ theme_override_constants/margin_top = 16
 theme_override_constants/margin_right = 16
 theme_override_constants/margin_bottom = 16
 
-[node name="HealthBar" type="ProgressBar" parent="CanvasLayer/MarginContainer"]
+[node name="HealthBar" type="TextureProgressBar" parent="CanvasLayer/MarginContainer"]
 unique_name_in_owner = true
 layout_mode = 2
-size_flags_vertical = 1
-theme_override_styles/background = SubResource("StyleBoxFlat_dqkch")
-theme_override_styles/fill = SubResource("StyleBoxFlat_qlg0r")
-show_percentage = false
+nine_patch_stretch = true
+texture_under = ExtResource("5_ur7pv")
+texture_progress = ExtResource("6_y4r1p")
 
-[node name="StaminaBar" type="ProgressBar" parent="CanvasLayer"]
+[node name="StaminaBar" type="TextureProgressBar" parent="CanvasLayer"]
 unique_name_in_owner = true
 offset_left = 16.0
 offset_top = 43.0
 offset_right = 253.0
 offset_bottom = 70.0
-theme_override_styles/background = SubResource("StyleBoxFlat_tuyoq")
-theme_override_styles/fill = SubResource("StyleBoxFlat_fjrip")
-show_percentage = false
+nine_patch_stretch = true
+texture_under = ExtResource("5_ur7pv")
+texture_progress = ExtResource("7_d2wvv")
 
 [node name="AttackHitbox" type="Area2D" parent="."]
 position = Vector2(38, 1)
