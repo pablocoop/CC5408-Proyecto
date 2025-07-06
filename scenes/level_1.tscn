@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=4 uid="uid://hqlvc3uaihot"]
+[gd_scene load_steps=12 format=4 uid="uid://hqlvc3uaihot"]
 
 [ext_resource type="Texture2D" uid="uid://bw8bej2xusaa0" path="res://assets/Farm Game Dungeon Cellar Tileset/RPG Maker/RPG Maker MZ (32x32)/tilesets/FG_Cellar_A5.png" id="1_014kd"]
 [ext_resource type="Script" uid="uid://bm732l3q5m45m" path="res://scenes/level_1.gd" id="1_fcfvj"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://cjo28e2ythbpe" path="res://scenes/skeleton.tscn" id="4_fcfvj"]
 [ext_resource type="PackedScene" uid="uid://c26uakq0r85nf" path="res://scenes/skeleton_2.tscn" id="5_4nkto"]
 [ext_resource type="PackedScene" uid="uid://c4xygk2bmorcp" path="res://scenes/wall_level_1.tscn" id="7_pa8r4"]
+[ext_resource type="Script" uid="uid://blmbeyvkoex1e" path="res://scenes/boss_move.gd" id="8_15mv3"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_bswci"]
 texture = ExtResource("1_014kd")
@@ -664,6 +665,9 @@ terrain_set_0/terrain_0/name = "Terrain 0"
 terrain_set_0/terrain_0/color = Color(0.501961, 0.105882, 0.952941, 1)
 sources/0 = SubResource("TileSetAtlasSource_bswci")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pa8r4"]
+size = Vector2(7.60002, 31.7)
+
 [node name="Level1" type="Node2D"]
 script = ExtResource("1_fcfvj")
 
@@ -673,7 +677,7 @@ tile_map_data = PackedByteArray("AAAMAA4AAAAGAAkAAAANAA4AAAAGAAkAAAAOAA4AAAAGAAk
 tile_set = SubResource("TileSet_gkh53")
 
 [node name="Player" parent="." instance=ExtResource("2_bswci")]
-position = Vector2(691, 611)
+position = Vector2(688, 607)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 
@@ -720,3 +724,13 @@ scale = Vector2(1.15, 1.15)
 position = Vector2(1998, 1787)
 rotation = 1.5708
 scale = Vector2(1.08, 1.08)
+
+[node name="Boss_move" type="Area2D" parent="."]
+collision_mask = 10
+script = ExtResource("8_15mv3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boss_move"]
+position = Vector2(3833, 2407.5)
+scale = Vector2(10, 10)
+shape = SubResource("RectangleShape2D_pa8r4")
+debug_color = Color(0.901985, 0.000158061, 0.757747, 0.42)
