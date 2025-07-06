@@ -60,9 +60,9 @@ func _on_ball_speed_changed(factor: float) -> void:
 func _on_enemy_died():
 	enemy_count -= 1
 	print("☠️ Enemigo eliminado. Quedan:", enemy_count)
-	if enemy_count == 0:
+	if enemy_count == 1:
 		wall_level.queue_free()
-	elif enemy_count == 2:
+	if enemy_count == 3:
 		wall_level_4.hide()
 		wall_level_4.get_node("StaticBody2D/CollisionShape2D").set_deferred("disabled", true)
 		
