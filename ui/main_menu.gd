@@ -15,7 +15,7 @@ func _ready() -> void:
 func _on_start_pressed() -> void:
 	#Game.life = 7  # Reinicia las vidas
 	# modificar a un selector niveles ! o al level 0 (main)
-	get_tree().change_scene_to_file("res://scenes/level_0.tscn")
+	get_tree().change_scene_to_file("res://ui/levels.tscn")
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
