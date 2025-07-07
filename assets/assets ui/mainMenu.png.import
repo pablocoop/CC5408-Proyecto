@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d2f5sfac2rval"
-path="res://.godot/imported/1. The Magician.png-9062464dbf584b1e3e05e0e069f6768d.ctex"
+uid="uid://cpr387eajj4ks"
+path="res://.godot/imported/mainMenu.png-8f07b8df56d98abe261893740cfddc6b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Tarot Cats/1. The Magician.png"
-dest_files=["res://.godot/imported/1. The Magician.png-9062464dbf584b1e3e05e0e069f6768d.ctex"]
+source_file="res://assets/assets ui/mainMenu.png"
+dest_files=["res://.godot/imported/mainMenu.png-8f07b8df56d98abe261893740cfddc6b.ctex"]
 
 [params]
 

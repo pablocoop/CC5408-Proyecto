@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d12els5jmd1ty"
-path="res://.godot/imported/10. Wheel of Fortune.png-26ca22330be54fb2ae523b72f090a02e.ctex"
+uid="uid://dmfdgfnlm772n"
+path="res://.godot/imported/gorrito.png-b1e313dfad956053e1ae428c77d3e3dc.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Tarot Cats/10. Wheel of Fortune.png"
-dest_files=["res://.godot/imported/10. Wheel of Fortune.png-26ca22330be54fb2ae523b72f090a02e.ctex"]
+source_file="res://assets/assets ui/gorrito.png"
+dest_files=["res://.godot/imported/gorrito.png-b1e313dfad956053e1ae428c77d3e3dc.ctex"]
 
 [params]
 

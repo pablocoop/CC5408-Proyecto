@@ -3,7 +3,6 @@ extends PanelContainer
 @onready var retry: Button = $MarginContainer/VBoxContainer/Retry
 @onready var menu: Button = $MarginContainer/VBoxContainer/Menu
 @onready var quit: Button = $MarginContainer/VBoxContainer/Quit
-@onready var controls: Button = $MarginContainer/VBoxContainer/Controls
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -11,7 +10,6 @@ func _ready() -> void:
 	retry.pressed.connect(_on_retry_pressed)
 	quit.pressed.connect(func(): get_tree().quit())
 	menu.pressed.connect(_on_menu_pressed)
-	controls.pressed.connect(_on_control_pressed)
 	hide()
 
 func _input(event: InputEvent) -> void:
@@ -30,10 +28,6 @@ func _on_retry_pressed() -> void:
 func _on_menu_pressed() -> void:
 	get_tree().paused = false
 	get_tree().change_scene_to_file("res://ui/main_menu.tscn")
-
-func _on_control_pressed() -> void:
-	get_tree().paused = false
-	get_tree().change_scene_to_file("res://ui/control.tscn")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
