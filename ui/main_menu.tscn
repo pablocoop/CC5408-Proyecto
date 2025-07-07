@@ -5,6 +5,21 @@
 [ext_resource type="Texture2D" uid="uid://dmfdgfnlm772n" path="res://assets/assets ui/gorrito.png" id="3_rmr83"]
 [ext_resource type="Texture2D" uid="uid://cpr387eajj4ks" path="res://assets/assets ui/mainMenu.png" id="3_wk0pr"]
 
+[sub_resource type="Animation" id="Animation_8uxxo"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("gorrito:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(249, 171)]
+}
+
 [sub_resource type="Animation" id="Animation_rmr83"]
 resource_name = "gorrito"
 length = 0.5
@@ -21,21 +36,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector2(249, 150), Vector2(249, 152.5)]
-}
-
-[sub_resource type="Animation" id="Animation_8uxxo"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("gorrito:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(249, 171)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ei257"]
