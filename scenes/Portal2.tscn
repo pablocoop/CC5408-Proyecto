@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://cw0stq82yvu2s"]
+
+[ext_resource type="Script" uid="uid://gwl65l4u5otr" path="res://scenes/portal_2.gd" id="1_ra3ee"]
+[ext_resource type="Texture2D" uid="uid://ddr4g3vn428j5" path="res://assets/portalXD.png" id="2_qy7cn"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3h7uj"]
+radius = 81.3019
+
+[node name="Portal2" type="Area2D"]
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("1_ra3ee")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_3h7uj")
+debug_color = Color(0.940373, 8.66354e-06, 0.615292, 0.42)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0.770259, 0.392201, 0.0210106, 1)
+texture = ExtResource("2_qy7cn")

@@ -8,7 +8,7 @@ extends CharacterBody2D
 
 @export var speed = 400
 @export var acceleration = 900
-@export var max_health := 7
+@export var max_health := 12
 var current_health := max_health
 var is_running := false
 @export var run_multiplier := 1.5
@@ -39,13 +39,13 @@ var knockback_timer := 0.0
 @export var knockback_force := 600.0
 
 # Barra de vida
-@onready var health_bar: ProgressBar = %HealthBar
+@onready var health_bar: TextureProgressBar = %HealthBar
 @onready var health_component: HealthComponent = $HealthComponent
 
 # Barra de stamina
-var stamina = 4
-var max_stamina = 4
-@onready var stamina_bar: ProgressBar = %StaminaBar
+var stamina = 3
+var max_stamina = 3
+@onready var stamina_bar: TextureProgressBar = %StaminaBar
 @export var stamina_decrease_interval := 0.5  # cada 0.5s se descuenta 1
 @export var stamina_recover_interval := 0.2  # cada 0.2s se recupera 1
 @export var stamina_recover_delay := 1.0     # espera 1s tras dejar de correr

@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=4 uid="uid://bjv7ltgvfcm0e"]
+[gd_scene load_steps=20 format=4 uid="uid://bjv7ltgvfcm0e"]
 
 [ext_resource type="Texture2D" uid="uid://yh5f3crpm4io" path="res://assets/2D Pixel Dungeon Asset Pack/character and tileset/Dungeon_Tileset.png" id="1_7wnc2"]
 [ext_resource type="Script" uid="uid://cpprc3f637gwv" path="res://scenes/level_0.gd" id="1_qjcqe"]
@@ -513,6 +513,18 @@ sources/0 = SubResource("TileSetAtlasSource_uijja")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5nv5w"]
 size = Vector2(51, 84)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ll25s"]
+size = Vector2(169, 475)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sk60w"]
+size = Vector2(262, 525.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_om4r1"]
+size = Vector2(2366, 44)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_171oe"]
+size = Vector2(236.3, 10.6)
+
 [node name="Level0" type="Node2D"]
 script = ExtResource("1_qjcqe")
 
@@ -587,13 +599,22 @@ metadata/_edit_use_anchors_ = true
 
 [node name="StaticBody2D2" type="StaticBody2D" parent="."]
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D2"]
-position = Vector2(-32, -41)
-polygon = PackedVector2Array(-1, -12, 2680, -31, 2665, 79, 22, 67)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+position = Vector2(-82, 219)
+shape = SubResource("RectangleShape2D_ll25s")
 
-[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="StaticBody2D2"]
-position = Vector2(-47, 441)
-polygon = PackedVector2Array(-1, -12, 2684, -1, 2665, 79, 22, 67)
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D2"]
+position = Vector2(2465, 221)
+shape = SubResource("RectangleShape2D_sk60w")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D2"]
+position = Vector2(1173, 12)
+shape = SubResource("RectangleShape2D_om4r1")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D2"]
+position = Vector2(1173.5, 499)
+scale = Vector2(10, 10)
+shape = SubResource("RectangleShape2D_171oe")
 
 [node name="Portal_1" parent="." instance=ExtResource("9_jv3i5")]
 position = Vector2(2167, 246)
