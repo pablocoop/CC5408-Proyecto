@@ -539,7 +539,7 @@ tile_map_data = PackedByteArray("AADn//D/AAAIAAcAAADn//H/AAAIAAcAAADn//L/AAAIAAc
 tile_set = SubResource("TileSet_5nv5w")
 
 [node name="Skeleton" parent="." instance=ExtResource("2_rerym")]
-position = Vector2(1763, 238)
+position = Vector2(1902, 239)
 scale = Vector2(4, 4)
 collision_mask = 10
 
@@ -547,11 +547,11 @@ collision_mask = 10
 collision_mask = 10
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(1871, 245)
+position = Vector2(1829, 235)
 shape = SubResource("RectangleShape2D_5nv5w")
 
 [node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
-position = Vector2(1871.25, 245.5)
+position = Vector2(1830, 235)
 scale = Vector2(3.02942, 1.19718)
 texture = ExtResource("3_rerym")
 
@@ -562,8 +562,8 @@ offset_right = 578.0
 offset_bottom = 69.0
 theme = ExtResource("4_uijja")
 text = "  Move using 
-A, S, W, and D"
-metadata/_edit_lock_ = true
+A, S, W, and D
+Run with Shift"
 
 [node name="Label2" type="Label" parent="."]
 offset_left = 799.0
@@ -617,7 +617,8 @@ scale = Vector2(10, 10)
 shape = SubResource("RectangleShape2D_171oe")
 
 [node name="Portal_1" parent="." instance=ExtResource("9_jv3i5")]
-position = Vector2(2167, 246)
+position = Vector2(2166, 239)
+scale = Vector2(1.6, 1.6)
 
 [node name="StaticBody2D3" type="StaticBody2D" parent="."]
 script = ExtResource("10_ll25s")
