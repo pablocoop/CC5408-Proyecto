@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b1d0saktjpie3"
-path="res://.godot/imported/5. The Hierophant.png-b2cc1469b657d9a78808c6c0b98bed4a.ctex"
+uid="uid://dd3lv2nmc55ld"
+path="res://.godot/imported/death_enemy2.png-c9d460aafd0be2e25200482a71b56345.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Tarot Cats/5. The Hierophant.png"
-dest_files=["res://.godot/imported/5. The Hierophant.png-b2cc1469b657d9a78808c6c0b98bed4a.ctex"]
+source_file="res://assets/assets ui/death_enemy2.png"
+dest_files=["res://.godot/imported/death_enemy2.png-c9d460aafd0be2e25200482a71b56345.ctex"]
 
 [params]
 

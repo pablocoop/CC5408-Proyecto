@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b177xpcwaf7ov"
-path="res://.godot/imported/13. Death.png-62f8e9370ad2fc04dfda5c3d3e0d1e99.ctex"
+uid="uid://cr3ail03cdd5y"
+path="res://.godot/imported/death_enemy1.png-bc0777c9dae6a287b64147f88fd5dbf4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Tarot Cats/13. Death.png"
-dest_files=["res://.godot/imported/13. Death.png-62f8e9370ad2fc04dfda5c3d3e0d1e99.ctex"]
+source_file="res://assets/assets ui/death_enemy1.png"
+dest_files=["res://.godot/imported/death_enemy1.png-bc0777c9dae6a287b64147f88fd5dbf4.ctex"]
 
 [params]
 
