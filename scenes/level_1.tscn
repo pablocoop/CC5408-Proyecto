@@ -394,4 +394,4 @@ debug_color = Color(0.901985, 0.000158061, 0.757747, 0.42)
 
 [node name="Portal2" parent="." instance=ExtResource("9_e3sih")]
 position = Vector2(4325, 2424)
-scale = Vector2(0.6, 0.6)
+scale = Vector2(1.6, 1.6)
