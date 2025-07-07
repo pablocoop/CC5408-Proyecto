@@ -393,7 +393,7 @@ size = Vector2(40, 20.4)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hjqri"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hg84p"]
-size = Vector2(43.6667, 22.1667)
+size = Vector2(43.3334, 22.1667)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1aans"]
 size = Vector2(52.6, 37)
@@ -437,7 +437,7 @@ position = Vector2(549, 1828)
 scale = Vector2(4, 4)
 
 [node name="Skeleton5" parent="." instance=ExtResource("4_fcfvj")]
-position = Vector2(1201, 2057)
+position = Vector2(1156, 2042)
 scale = Vector2(4, 4)
 
 [node name="Boss" parent="." instance=ExtResource("5_4nkto")]
@@ -621,7 +621,7 @@ scale = Vector2(8, 8)
 shape = SubResource("RectangleShape2D_hjqri")
 
 [node name="CollisionShape2D25" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(1458, 2062.5)
+position = Vector2(1459, 2064)
 scale = Vector2(6, 6)
 shape = SubResource("RectangleShape2D_hg84p")
 
@@ -637,7 +637,7 @@ scale = Vector2(8, 8)
 shape = SubResource("RectangleShape2D_q0ron")
 
 [node name="CollisionShape2D28" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(1314.06, 2102.77)
+position = Vector2(1322, 2107)
 rotation = -0.767945
 scale = Vector2(200, 200)
 shape = SubResource("RectangleShape2D_tdlki")
