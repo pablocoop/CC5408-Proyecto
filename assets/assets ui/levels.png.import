@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dhxtl417wnnoj"
-path="res://.godot/imported/19. The Sun.png-def04c4a57b7a92a56c6e1b72b21b83d.ctex"
+uid="uid://q4n3y0g83nfs"
+path="res://.godot/imported/levels.png-3d11609274769dfc999b97c42b420e5d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Tarot Cats/19. The Sun.png"
-dest_files=["res://.godot/imported/19. The Sun.png-def04c4a57b7a92a56c6e1b72b21b83d.ctex"]
+source_file="res://assets/assets ui/levels.png"
+dest_files=["res://.godot/imported/levels.png-3d11609274769dfc999b97c42b420e5d.ctex"]
 
 [params]
 

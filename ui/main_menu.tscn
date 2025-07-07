@@ -1,7 +1,48 @@
-[gd_scene load_steps=3 format=3 uid="uid://c0lbrqopnttbr"]
+[gd_scene load_steps=8 format=3 uid="uid://c0lbrqopnttbr"]
 
 [ext_resource type="Theme" uid="uid://dftfdeuhv8jr3" path="res://fonts/pixelfond.tres" id="1_wk0pr"]
 [ext_resource type="Script" uid="uid://dhjbis6s56kg8" path="res://ui/main_menu.gd" id="2_0dkrt"]
+[ext_resource type="Texture2D" uid="uid://dmfdgfnlm772n" path="res://assets/assets ui/gorrito.png" id="3_rmr83"]
+[ext_resource type="Texture2D" uid="uid://cpr387eajj4ks" path="res://assets/assets ui/mainMenu.png" id="3_wk0pr"]
+
+[sub_resource type="Animation" id="Animation_8uxxo"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("gorrito:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(249, 171)]
+}
+
+[sub_resource type="Animation" id="Animation_rmr83"]
+resource_name = "gorrito"
+length = 0.5
+loop_mode = 1
+step = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("gorrito:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.101519),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(249, 150), Vector2(249, 152.5)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ei257"]
+_data = {
+&"RESET": SubResource("Animation_8uxxo"),
+&"gorrito": SubResource("Animation_rmr83")
+}
 
 [node name="MainMenu" type="MarginContainer"]
 anchors_preset = 8
@@ -37,8 +78,11 @@ process_mode = 3
 layout_mode = 2
 
 [node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer"]
+modulate = Color(0.924069, 0.463076, 0.505605, 1)
 layout_mode = 2
-text = "Purrrcatory Escape"
+theme_override_font_sizes/font_size = 31
+text = " Purrrcatory 
+Escape"
 horizontal_alignment = 1
 
 [node name="Label2" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer"]
@@ -59,3 +103,21 @@ text = "Credits"
 [node name="Quit" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "Quit"
+
+[node name="gorrito" type="Sprite2D" parent="."]
+position = Vector2(249, 171)
+rotation = 4.72112
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("3_rmr83")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+show_behind_parent = true
+position = Vector2(252, 140)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("3_wk0pr")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_ei257")
+}
+autoplay = "gorrito"

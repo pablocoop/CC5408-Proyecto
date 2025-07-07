@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cto1hfqa5s4ay"
-path="res://.godot/imported/4. The Emperor.png-2b1b5f0378c0dd1d0f81fc29c4b8cf0d.ctex"
+uid="uid://bf0wca7x0ywx1"
+path="res://.godot/imported/enemies-skeleton2_death2.png-b00576531599b030f843c84e048e36f6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Tarot Cats/4. The Emperor.png"
-dest_files=["res://.godot/imported/4. The Emperor.png-2b1b5f0378c0dd1d0f81fc29c4b8cf0d.ctex"]
+source_file="res://assets/assets ui/enemies-skeleton2_death2.png"
+dest_files=["res://.godot/imported/enemies-skeleton2_death2.png-b00576531599b030f843c84e048e36f6.ctex"]
 
 [params]
 
