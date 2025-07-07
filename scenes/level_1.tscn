@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=4 uid="uid://hqlvc3uaihot"]
+[gd_scene load_steps=14 format=4 uid="uid://hqlvc3uaihot"]
 
 [ext_resource type="Texture2D" uid="uid://bw8bej2xusaa0" path="res://assets/Farm Game Dungeon Cellar Tileset/RPG Maker/RPG Maker MZ (32x32)/tilesets/FG_Cellar_A5.png" id="1_014kd"]
 [ext_resource type="Script" uid="uid://bm732l3q5m45m" path="res://scenes/level_1.gd" id="1_fcfvj"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://c4xygk2bmorcp" path="res://scenes/wall_level_1.tscn" id="7_pa8r4"]
 [ext_resource type="Script" uid="uid://blmbeyvkoex1e" path="res://scenes/boss_move.gd" id="8_15mv3"]
 [ext_resource type="PackedScene" uid="uid://cw0stq82yvu2s" path="res://scenes/Portal2.tscn" id="9_e3sih"]
+[ext_resource type="PackedScene" uid="uid://hco1haupmfr8" path="res://ui/pause_menu.tscn" id="10_2y5yt"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_bswci"]
 texture = ExtResource("1_014kd")
@@ -395,3 +396,8 @@ debug_color = Color(0.901985, 0.000158061, 0.757747, 0.42)
 [node name="Portal2" parent="." instance=ExtResource("9_e3sih")]
 position = Vector2(4325, 2424)
 scale = Vector2(0.6, 0.6)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("10_2y5yt")]
+metadata/_edit_use_anchors_ = true

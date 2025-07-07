@@ -53,7 +53,3 @@ text = "Menu"
 [node name="Quit" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "Quit"
-
-[node name="Controls" type="Button" parent="MarginContainer/VBoxContainer"]
-layout_mode = 2
-text = "Game Guide"
