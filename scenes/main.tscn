@@ -7,4 +7,4 @@
 script = ExtResource("1_tbgi4")
 
 [node name="Level0" parent="." instance=ExtResource("2_tbgi4")]
-position = Vector2(248, 22)
+position = Vector2(380, 3)

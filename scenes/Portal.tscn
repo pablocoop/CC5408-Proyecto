@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://dkvrln2mnfpao"]
+[gd_scene load_steps=6 format=3 uid="uid://dkvrln2mnfpao"]
 
 [ext_resource type="Script" uid="uid://c377pe3264cbh" path="res://scenes/portal.gd" id="1_k0w37"]
 [ext_resource type="Texture2D" uid="uid://ddr4g3vn428j5" path="res://assets/portalXD.png" id="2_k0w37"]
@@ -6,16 +6,51 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_bqy53"]
 radius = 26.0
 
+[sub_resource type="Curve" id="Curve_k0w37"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.296296, 0.842697), 0.0, 0.0, 0, 0, Vector2(0.423868, 0.662921), 0.0, 0.0, 0, 0, Vector2(0.555556, 0.539326), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="Gradient" id="Gradient_7bfae"]
+offsets = PackedFloat32Array(0.046083, 0.359447, 1)
+colors = PackedColorArray(0, 0.96, 0.912, 1, 0, 0.48, 0.96, 1, 0, 0.96, 0.272, 1)
+
 [node name="Portal_1" type="Area2D"]
 collision_layer = 4
 collision_mask = 2
 script = ExtResource("1_k0w37")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 shape = SubResource("CircleShape2D_bqy53")
 debug_color = Color(0.700006, 0.331466, 0.910953, 0.42)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0.1, 0.55, 6.08, 0.58)
+self_modulate = Color(0.2, 0.12549, 1, 1)
 position = Vector2(-0.5, -0.5)
 scale = Vector2(0.320652, 0.318436)
 texture = ExtResource("2_k0w37")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+amount = 338
+lifetime = 0.59
+preprocess = 1.02
+speed_scale = 1.02
+lifetime_randomness = 0.58
+emission_shape = 2
+emission_sphere_radius = 27.16
+spread = 0.0
+gravity = Vector2(0, 0)
+initial_velocity_max = 7.58
+angular_velocity_min = 54.55
+angular_velocity_max = 54.55
+orbit_velocity_max = 0.75
+radial_accel_min = -100.0
+radial_accel_max = -100.0
+angle_min = -76.4
+angle_max = 720.0
+scale_amount_min = 2.15
+scale_amount_max = 2.15
+scale_amount_curve = SubResource("Curve_k0w37")
+color = Color(0.931206, 0.956117, 1, 1)
+color_ramp = SubResource("Gradient_7bfae")
