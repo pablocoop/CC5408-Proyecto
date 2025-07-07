@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bt8ur25nue535"
-path="res://.godot/imported/15. The Devil.png-b98d0e299b0f6ed61113d6107ba01f71.ctex"
+uid="uid://cpr387eajj4ks"
+path="res://.godot/imported/mainMenu.png-8f07b8df56d98abe261893740cfddc6b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Tarot Cats/15. The Devil.png"
-dest_files=["res://.godot/imported/15. The Devil.png-b98d0e299b0f6ed61113d6107ba01f71.ctex"]
+source_file="res://assets/assets ui/mainMenu.png"
+dest_files=["res://.godot/imported/mainMenu.png-8f07b8df56d98abe261893740cfddc6b.ctex"]
 
 [params]
 

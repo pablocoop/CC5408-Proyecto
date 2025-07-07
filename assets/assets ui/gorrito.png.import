@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c5o8oqym7ldc3"
-path="res://.godot/imported/12. The Hanged Man.png-c2aea0ce80b84fc0a3ac95c5f1fb8291.ctex"
+uid="uid://dmfdgfnlm772n"
+path="res://.godot/imported/gorrito.png-b1e313dfad956053e1ae428c77d3e3dc.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Tarot Cats/12. The Hanged Man.png"
-dest_files=["res://.godot/imported/12. The Hanged Man.png-c2aea0ce80b84fc0a3ac95c5f1fb8291.ctex"]
+source_file="res://assets/assets ui/gorrito.png"
+dest_files=["res://.godot/imported/gorrito.png-b1e313dfad956053e1ae428c77d3e3dc.ctex"]
 
 [params]
 

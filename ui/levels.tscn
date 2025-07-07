@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://bydi74a3wpev1"]
+[gd_scene load_steps=4 format=3 uid="uid://bydi74a3wpev1"]
 
 [ext_resource type="Theme" uid="uid://dftfdeuhv8jr3" path="res://fonts/pixelfond.tres" id="1_d2ox4"]
 [ext_resource type="Script" uid="uid://dxyw61p7sebmj" path="res://ui/levels.gd" id="2_pcspx"]
+[ext_resource type="Texture2D" uid="uid://q4n3y0g83nfs" path="res://assets/assets ui/levels.png" id="3_pcspx"]
 
 [node name="Levels" type="MarginContainer"]
 anchors_preset = 8
@@ -43,7 +44,7 @@ horizontal_alignment = 1
 
 [node name="Label2" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
-text = "Where will your paws...
+text = "Where will  your paws...
  take you today?"
 horizontal_alignment = 1
 
@@ -59,3 +60,10 @@ text = "Level 1"
 modulate = Color(0.753984, 0.753984, 0.753984, 1)
 layout_mode = 2
 text = "Back"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+show_behind_parent = true
+position = Vector2(363, 117.5)
+rotation = 4.71239
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("3_pcspx")

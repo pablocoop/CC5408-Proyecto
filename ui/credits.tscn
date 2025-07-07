@@ -1,8 +1,12 @@
-[gd_scene load_steps=4 format=3 uid="uid://b87myl15pkqgh"]
+[gd_scene load_steps=8 format=3 uid="uid://b87myl15pkqgh"]
 
 [ext_resource type="Theme" uid="uid://dftfdeuhv8jr3" path="res://fonts/pixelfond.tres" id="1_ed0b0"]
 [ext_resource type="Script" uid="uid://dvgrtfsje7ma8" path="res://ui/credits.gd" id="2_74u3g"]
 [ext_resource type="Script" uid="uid://crupvnjonxyo6" path="res://ui/rich_text_label.gd" id="2_orljq"]
+[ext_resource type="Texture2D" uid="uid://b54rk4ulmvms7" path="res://assets/assets ui/credits.png" id="4_1bagf"]
+[ext_resource type="Texture2D" uid="uid://cr3ail03cdd5y" path="res://assets/assets ui/death_enemy1.png" id="5_d0gn6"]
+[ext_resource type="Texture2D" uid="uid://dd3lv2nmc55ld" path="res://assets/assets ui/death_enemy2.png" id="6_dyfqb"]
+[ext_resource type="Texture2D" uid="uid://cbrkwtuod6jk6" path="res://assets/assets ui/death_enemy3.png" id="7_swjq5"]
 
 [node name="credits" type="Control"]
 layout_mode = 3
@@ -132,6 +136,72 @@ fit_content = true
 scroll_active = false
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="catfeets" type="TextureRect" parent="."]
+modulate = Color(1, 1, 1, 0.658824)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_1bagf")
+expand_mode = 5
+stretch_mode = 5
+
+[node name="enemy1" type="TextureRect" parent="."]
+layout_direction = 4
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -420.0
+offset_top = 1149.0
+offset_right = 732.0
+offset_bottom = 1149.0
+grow_horizontal = 0
+grow_vertical = 2
+rotation = -0.263545
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("5_d0gn6")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="enemy2" type="TextureRect" parent="."]
+layout_direction = 4
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -574.0
+offset_top = -44.0
+offset_right = 578.0
+offset_bottom = -44.0
+grow_horizontal = 0
+grow_vertical = 2
+rotation = -0.235619
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("6_dyfqb")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="enemy3" type="TextureRect" parent="."]
+layout_direction = 4
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_left = 32.0
+offset_top = 505.0
+offset_right = 721.807
+offset_bottom = 505.0
+grow_vertical = 2
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("7_swjq5")
+expand_mode = 3
+stretch_mode = 5
+flip_h = true
 
 [node name="Back" type="Button" parent="."]
 layout_mode = 0
