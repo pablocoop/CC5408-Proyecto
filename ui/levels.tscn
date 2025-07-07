@@ -63,7 +63,7 @@ text = "Back"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 show_behind_parent = true
-position = Vector2(353, 124.5)
+position = Vector2(363, 117.5)
 rotation = 4.71239
 scale = Vector2(1.5, 1.5)
 texture = ExtResource("3_pcspx")
