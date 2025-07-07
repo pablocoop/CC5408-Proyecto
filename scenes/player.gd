@@ -226,9 +226,14 @@ func _attack():
 		return
 		
 	can_attack = false
+	#attack_hitbox.direction = velocity.normalized()
+	attack_hitbox.direction = (
+		velocity.normalized() if velocity.length_squared() > 0.01 else facing_direction
+	)
+	#attack_hitbox.direction = (attack_hitbox.global_position - global_position).normalized()
 	#is_invulnerable = true 	### DEVUG ONLY
 	#start_invulnerability() # DEVUG ONLY
-	attack_hitbox.direction = attack_direction
+	#attack_hitbox.direction = attack_direction
 	attack_hitbox.monitoring = true
 	attack_hitbox_shape.disabled = false
 	attack_hitbox.get_node("Sprite2D").visible = true 
