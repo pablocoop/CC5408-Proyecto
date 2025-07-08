@@ -11,12 +11,12 @@
 [ext_resource type="Script" uid="uid://b4biuqxkvk28o" path="res://components/health_component.gd" id="9_i0f3v"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5uy6h"]
-radius = 4.13241
-height = 14.0734
+radius = 5.0
+height = 16.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_haw2w"]
-radius = 8.0
-height = 22.0
+radius = 7.0
+height = 20.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_i0f3v"]
 radius = 4.0
@@ -354,7 +354,7 @@ position = Vector2(0.132406, 1.0367)
 shape = SubResource("CapsuleShape2D_5uy6h")
 
 [node name="RayCast2D" type="RayCast2D" parent="Pivot"]
-position = Vector2(-0.037, 3)
+position = Vector2(-0.037, 2.5)
 target_position = Vector2(17.037, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="Pivot"]
@@ -371,7 +371,7 @@ script = ExtResource("3_haw2w")
 metadata/_custom_type_script = "uid://cpdtcih6dhwuq"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Pivot/Hitbox"]
-position = Vector2(0.132406, -0.963301)
+position = Vector2(0.132406, 0.036699)
 shape = SubResource("CapsuleShape2D_haw2w")
 debug_color = Color(0.311415, 0.626461, 7.70092e-07, 0.42)
 
