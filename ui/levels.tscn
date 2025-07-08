@@ -22,6 +22,7 @@ theme = ExtResource("1_d2ox4")
 script = ExtResource("2_pcspx")
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
+self_modulate = Color(1, 0, 1, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
@@ -38,12 +39,18 @@ process_mode = 3
 layout_mode = 2
 
 [node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer"]
+modulate = Color(0.92549, 0.462745, 0.505882, 1)
 layout_mode = 2
+theme_override_colors/font_outline_color = Color(0.427451, 0.427451, 0.427451, 1)
+theme_override_constants/outline_size = 20
+theme_override_font_sizes/font_size = 40
 text = "Select a Floor!"
 horizontal_alignment = 1
 
 [node name="Label2" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer"]
+modulate = Color(0.633757, 0.633757, 0.633757, 1)
 layout_mode = 2
+theme_override_constants/outline_size = 5
 text = "Where will  your paws...
  take you today?"
 horizontal_alignment = 1
