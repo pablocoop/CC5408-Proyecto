@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://b87myl15pkqgh"]
+[gd_scene load_steps=9 format=3 uid="uid://b87myl15pkqgh"]
 
 [ext_resource type="Theme" uid="uid://dftfdeuhv8jr3" path="res://fonts/pixelfond.tres" id="1_ed0b0"]
 [ext_resource type="Script" uid="uid://dvgrtfsje7ma8" path="res://ui/credits.gd" id="2_74u3g"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://cr3ail03cdd5y" path="res://assets/assets ui/death_enemy1.png" id="5_d0gn6"]
 [ext_resource type="Texture2D" uid="uid://dd3lv2nmc55ld" path="res://assets/assets ui/death_enemy2.png" id="6_dyfqb"]
 [ext_resource type="Texture2D" uid="uid://cbrkwtuod6jk6" path="res://assets/assets ui/death_enemy3.png" id="7_swjq5"]
+[ext_resource type="Texture2D" uid="uid://bl8ppddihlma6" path="res://assets/assets ui/background.png" id="8_dyfqb"]
 
 [node name="credits" type="Control"]
 layout_mode = 3
@@ -27,6 +28,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+metadata/_edit_lock_ = true
 
 [node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer"]
 layout_mode = 2
@@ -148,6 +150,7 @@ grow_vertical = 2
 texture = ExtResource("4_1bagf")
 expand_mode = 5
 stretch_mode = 5
+metadata/_edit_lock_ = true
 
 [node name="enemy1" type="TextureRect" parent="."]
 layout_direction = 4
@@ -167,41 +170,41 @@ scale = Vector2(0.4, 0.4)
 texture = ExtResource("5_d0gn6")
 expand_mode = 3
 stretch_mode = 5
+metadata/_edit_lock_ = true
 
 [node name="enemy2" type="TextureRect" parent="."]
 layout_direction = 4
 layout_mode = 1
-anchors_preset = 11
-anchor_left = 1.0
-anchor_right = 1.0
+anchors_preset = 9
 anchor_bottom = 1.0
-offset_left = -574.0
-offset_top = -44.0
-offset_right = 578.0
-offset_bottom = -44.0
-grow_horizontal = 0
+offset_left = -47.0
+offset_top = 295.0
+offset_right = 479.5
+offset_bottom = 295.0
 grow_vertical = 2
 rotation = -0.235619
 scale = Vector2(0.4, 0.4)
 texture = ExtResource("6_dyfqb")
 expand_mode = 3
 stretch_mode = 5
+metadata/_edit_lock_ = true
 
 [node name="enemy3" type="TextureRect" parent="."]
 layout_direction = 4
 layout_mode = 1
 anchors_preset = 9
 anchor_bottom = 1.0
-offset_left = 32.0
-offset_top = 505.0
-offset_right = 721.807
-offset_bottom = 505.0
+offset_left = -16.0
+offset_top = 736.0
+offset_right = 673.807
+offset_bottom = 736.0
 grow_vertical = 2
 scale = Vector2(0.4, 0.4)
 texture = ExtResource("7_swjq5")
 expand_mode = 3
 stretch_mode = 5
 flip_h = true
+metadata/_edit_lock_ = true
 
 [node name="Back" type="Button" parent="."]
 layout_mode = 0
@@ -211,3 +214,17 @@ offset_right = 169.0
 offset_bottom = 65.0
 theme_override_font_sizes/font_size = 40
 text = "Back"
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+show_behind_parent = true
+position = Vector2(570, 731)
+scale = Vector2(2, 2)
+texture = ExtResource("8_dyfqb")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+show_behind_parent = true
+position = Vector2(1701, 729)
+scale = Vector2(2, 2)
+texture = ExtResource("8_dyfqb")
+flip_h = true
