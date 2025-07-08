@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://kqufjwvqcixd"]
+
+[ext_resource type="Texture2D" uid="uid://gnln2p1mx3uj" path="res://assets/assets ui/pointerball.png" id="1_enh31"]
+[ext_resource type="Script" uid="uid://bfjw8r67bluix" path="res://scenes/off_screen_marker.gd" id="1_oqyvr"]
+
+[node name="OffScreenMarker" type="Node2D"]
+script = ExtResource("1_oqyvr")
+
+[node name="sprite_pointer" type="Sprite2D" parent="."]
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("1_enh31")
