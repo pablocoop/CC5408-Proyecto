@@ -17,6 +17,7 @@ var is_taking_damage = false
 var is_dead := false
 var is_invulnerable := false
 var is_paused := false
+var is_attacking = false
 @onready var hurtbox: Hurtbox = $Hurtbox
 
 # Golpear la pelota
@@ -226,6 +227,9 @@ func _attack():
 		return
 		
 	can_attack = false
+	is_attacking = true
+	#playback.travel("attack")
+	#animation_tree["parameters/attack/blend_position"] = facing_direction
 	#attack_hitbox.direction = velocity.normalized()
 	attack_hitbox.direction = (
 		velocity.normalized() if velocity.length_squared() > 0.01 else facing_direction
