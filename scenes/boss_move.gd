@@ -17,5 +17,6 @@ func _on_body_entered(body):
 		
 
 	if ball_entered and player_entered:
+		await get_tree().create_timer(0.5).timeout
 		boss.start_moving()
 		queue_free()
