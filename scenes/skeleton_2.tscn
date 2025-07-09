@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=3 uid="uid://c26uakq0r85nf"]
+[gd_scene load_steps=44 format=3 uid="uid://c26uakq0r85nf"]
 
 [ext_resource type="Script" uid="uid://b4biuqxkvk28o" path="res://components/health_component.gd" id="1_62e87"]
 [ext_resource type="Script" uid="uid://cbjy5so12p4rv" path="res://scenes/skeleton_2.gd" id="1_baxx2"]
@@ -10,6 +10,8 @@
 [ext_resource type="Texture2D" uid="uid://h8b2h7b28yxe" path="res://assets/Enemy_Animations_Set/enemies-skeleton2_idle.png" id="5_6vt1m"]
 [ext_resource type="Texture2D" uid="uid://g7asd0ah3vhf" path="res://assets/Enemy_Animations_Set/enemies-skeleton2_movemen.png" id="6_xq0h4"]
 [ext_resource type="Texture2D" uid="uid://dbfsmal5ylna4" path="res://assets/Enemy_Animations_Set/enemies-skeleton2_take_damage.png" id="7_wq54b"]
+[ext_resource type="AudioStream" uid="uid://bbq6ihwdiuv6q" path="res://music/An Rpg Makers Kit 1 - Free Rpg SoundsMusic/Monster death (Rpg).wav" id="11_xq0h4"]
+[ext_resource type="AudioStream" uid="uid://cie5qxiiw4rai" path="res://music/An Rpg Makers Kit 1 - Free Rpg SoundsMusic/Armor break.wav" id="12_wq54b"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_yxnco"]
 radius = 6.0
@@ -440,8 +442,8 @@ shape = SubResource("CapsuleShape2D_hnfra")
 
 [node name="HealthComponent" type="Node" parent="."]
 script = ExtResource("1_62e87")
-health = 2.0
-max_health = 2.0
+health = 3.0
+max_health = 3.0
 metadata/_custom_type_script = "uid://b4biuqxkvk28o"
 
 [node name="Pivot_y" type="Node2D" parent="."]
@@ -464,3 +466,9 @@ theme_override_styles/background = SubResource("StyleBoxFlat_baxx2")
 theme_override_styles/fill = SubResource("StyleBoxFlat_6vt1m")
 max_value = 10.0
 show_percentage = false
+
+[node name="auch" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_xq0h4")
+
+[node name="die" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("12_wq54b")

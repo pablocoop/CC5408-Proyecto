@@ -3,6 +3,7 @@ extends MarginContainer
 @onready var quit: Button = $PanelContainer/MarginContainer/VBoxContainer/Quit
 @onready var credits: Button = $PanelContainer/MarginContainer/VBoxContainer/Credits
 @onready var controls: Button = $PanelContainer/MarginContainer/VBoxContainer/Controls
+@onready var click: AudioStreamPlayer = $click
 
 
 # Called when the node enters the scene tree for the first time.

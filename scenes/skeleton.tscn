@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://cjo28e2ythbpe"]
+[gd_scene load_steps=38 format=3 uid="uid://cjo28e2ythbpe"]
 
 [ext_resource type="Script" uid="uid://ce0ollls82mlt" path="res://scenes/skeleton.gd" id="1_w4hcs"]
 [ext_resource type="Texture2D" uid="uid://csjtti0yis826" path="res://assets/Enemy_Animations_Set/enemies-skeleton1_idle.png" id="2_haw2w"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://ev4hsvmt4rtq" path="res://assets/Enemy_Animations_Set/enemies-skeleton1_movement.png" id="6_rjsi3"]
 [ext_resource type="Texture2D" uid="uid://3cvdtc3uobq3" path="res://assets/Enemy_Animations_Set/enemies-skeleton1_take_damage.png" id="7_3nhjk"]
 [ext_resource type="Script" uid="uid://b4biuqxkvk28o" path="res://components/health_component.gd" id="9_i0f3v"]
+[ext_resource type="AudioStream" uid="uid://dvnvae6c6sf4k" path="res://music/sound_effects/Hit damage 1.wav" id="10_xrus2"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5uy6h"]
 radius = 5.0
@@ -393,3 +394,6 @@ script = ExtResource("9_i0f3v")
 health = 1.0
 max_health = 3.0
 metadata/_custom_type_script = "uid://b4biuqxkvk28o"
+
+[node name="die" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_xrus2")
