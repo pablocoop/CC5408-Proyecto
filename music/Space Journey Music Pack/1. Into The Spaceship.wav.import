@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dkjmfbf46u51y"
+path="res://.godot/imported/1. Into The Spaceship.wav-15c8aea5bf1f8297bf9535259890164f.sample"
+
+[deps]
+
+source_file="res://music/Space Journey Music Pack/1. Into The Spaceship.wav"
+dest_files=["res://.godot/imported/1. Into The Spaceship.wav-15c8aea5bf1f8297bf9535259890164f.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=2
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

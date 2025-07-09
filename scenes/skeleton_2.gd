@@ -26,6 +26,9 @@ var base_max_speed := 0.0
 var can_move := false
 
 signal enemy_died
+@onready var auch: AudioStreamPlayer = $auch
+@onready var die: AudioStreamPlayer = $die
+
 
 func _ready() -> void:
 	animation_tree.active = true
@@ -70,6 +73,7 @@ func take_damage(damage: float, from_direction: Vector2) -> void:
 	health_component.health -= damage
 	progress_bar.value = health_component.health
 	if health_component.health > 0:
+		auch.play()
 		is_taking_damage = true
 		Debug.log("🔥 Skeleton recibió daño:", damage)
 
@@ -85,6 +89,7 @@ func take_damage(damage: float, from_direction: Vector2) -> void:
 		velocity = Vector2.ZERO
 		is_taking_damage = false
 	else:
+		die.play()
 		is_dead = true
 		Debug.log("💀 Skeleton murió")
 		emit_signal("enemy_died")

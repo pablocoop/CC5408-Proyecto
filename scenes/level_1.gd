@@ -12,8 +12,12 @@ var target_time_scale := 1.0
 @onready var portal_1: Area2D = $Portal2
 
 var enemy_count := 0
+@onready var music_level_1: AudioStreamPlayer = $music_level1
+@onready var boss_area: Area2D = $BossArea
+
 
 func _ready():
+	boss_area.body_entered.connect(_on_boss_area_entered)
 	# Busca enemigos al iniciar
 	for enemy in get_tree().get_nodes_in_group("enemies"):
 		enemy_count += 1
@@ -68,4 +72,16 @@ func _on_enemy_died():
 	if enemy_count == 0:
 		portal_1.show()
 		portal_1.ready_portal = 1
+		
+func _on_boss_area_entered(body):
+	print("👣 Entró al área:", body)
+	if body.name == "Player":
+		print("🎵 Cambiando música")
+		var new_stream = load("res://music/xDeviruchi - 8-bit Fantasy  & Adventure Music (2021)/xDeviruchi - Prepare for Battle! .wav")
+		if new_stream:
+			music_level_1.stream = new_stream
+			music_level_1.volume_db = -18
+			music_level_1.play()
+		else:
+			print("⚠️ No se pudo cargar la música")
 		
