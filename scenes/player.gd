@@ -256,10 +256,10 @@ func _attack():
 	attack_hitbox.monitoring = false
 	attack_hitbox_shape.disabled = true
 	attack_hitbox.get_node("Sprite2D").visible = false 
+	is_attacking = false
 
 	# y lo mismo para el cooldown:
 	await get_tree().create_timer(attack_cooldown * Engine.time_scale).timeout
-	is_attacking = false
 	can_attack = true
 	
 func death() -> void:

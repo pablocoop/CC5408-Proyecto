@@ -1,6 +1,4 @@
-
-[gd_scene load_steps=101 format=3 uid="uid://b66xtdsj4jkeg"]
-
+[gd_scene load_steps=103 format=3 uid="uid://b66xtdsj4jkeg"]
 
 [ext_resource type="Script" uid="uid://20gqeq084edk" path="res://scenes/player.gd" id="1_g2els"]
 [ext_resource type="Texture2D" uid="uid://wdiivehslvyu" path="res://assets/Cats Download/blue_3_sprite.png" id="2_tuyoq"]
@@ -1642,19 +1640,19 @@ animation = &"attack/attack_diag_down_left"
 blend_point_0/node = SubResource("AnimationNodeAnimation_y4r1p")
 blend_point_0/pos = Vector2(0, 1)
 blend_point_1/node = SubResource("AnimationNodeAnimation_4r5pv")
-blend_point_1/pos = Vector2(1, 1)
+blend_point_1/pos = Vector2(0.6, 0.7)
 blend_point_2/node = SubResource("AnimationNodeAnimation_pf23h")
 blend_point_2/pos = Vector2(1, 0)
 blend_point_3/node = SubResource("AnimationNodeAnimation_dt7fs")
-blend_point_3/pos = Vector2(1, -1)
+blend_point_3/pos = Vector2(0.6, -0.7)
 blend_point_4/node = SubResource("AnimationNodeAnimation_wqfne")
 blend_point_4/pos = Vector2(0, -1)
 blend_point_5/node = SubResource("AnimationNodeAnimation_wnwbv")
-blend_point_5/pos = Vector2(-1, -1)
+blend_point_5/pos = Vector2(-0.6, -0.7)
 blend_point_6/node = SubResource("AnimationNodeAnimation_gl8cc")
 blend_point_6/pos = Vector2(-1, 0)
 blend_point_7/node = SubResource("AnimationNodeAnimation_487ah")
-blend_point_7/pos = Vector2(-1, 1)
+blend_point_7/pos = Vector2(-0.6, 0.7)
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_g2els"]
 animation = &"idle"
