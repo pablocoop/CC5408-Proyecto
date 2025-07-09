@@ -17,6 +17,7 @@ var is_taking_damage = false
 var is_dead := false
 var is_invulnerable := false
 var is_paused := false
+var is_attacking = false
 @onready var hurtbox: Hurtbox = $Hurtbox
 
 # Golpear la pelota
@@ -159,7 +160,9 @@ func _physics_process(delta: float) -> void:
 			stamina_bar.value = stamina
 
 func _select_animation() -> void:
-	if velocity == Vector2.ZERO:
+	if is_attacking:
+		playback.travel("attack")
+	elif velocity == Vector2.ZERO:
 		playback.travel("idle")
 	elif is_running:
 		playback.travel("running")	
@@ -172,6 +175,7 @@ func _update_animation_parameters() -> void:
 	animation_tree["parameters/idle/blend_position"] = input
 	animation_tree["parameters/walking/blend_position"] = input
 	animation_tree["parameters/running/blend_position"] = input
+	animation_tree["parameters/attack/blend_position"] = facing_direction
 
 func _input(event: InputEvent) -> void:
 	pass
@@ -232,6 +236,9 @@ func _attack():
 		return
 		
 	can_attack = false
+	is_attacking = true
+	#playback.travel("attack")
+	#animation_tree["parameters/attack/blend_position"] = facing_direction
 	#attack_hitbox.direction = velocity.normalized()
 	attack_hitbox.direction = (
 		velocity.normalized() if velocity.length_squared() > 0.01 else facing_direction
@@ -252,7 +259,7 @@ func _attack():
 
 	# y lo mismo para el cooldown:
 	await get_tree().create_timer(attack_cooldown * Engine.time_scale).timeout
-
+	is_attacking = false
 	can_attack = true
 	
 func death() -> void:
