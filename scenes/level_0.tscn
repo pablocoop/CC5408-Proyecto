@@ -405,7 +405,7 @@ terrain_set_0/terrain_0/name = "Map"
 terrain_set_0/terrain_0/color = Color(0, 0.657045, 0.347474, 1)
 sources/0 = SubResource("TileSetAtlasSource_5uqbp")
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ll25s"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_sk60w"]
 texture = ExtResource("1_7wnc2")
 0:0/0 = 0
 1:0/0 = 0
@@ -509,7 +509,7 @@ texture = ExtResource("1_7wnc2")
 9:9/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_5nv5w"]
-sources/0 = SubResource("TileSetAtlasSource_ll25s")
+sources/0 = SubResource("TileSetAtlasSource_sk60w")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5nv5w"]
 size = Vector2(51, 84)
