@@ -20,8 +20,8 @@ radius = 7.0
 height = 20.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_i0f3v"]
-radius = 4.0
-height = 14.0
+radius = 5.0
+height = 16.0
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_w4hcs"]
 animation = &"attack"
