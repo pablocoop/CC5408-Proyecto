@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=4 uid="uid://hqlvc3uaihot"]
+[gd_scene load_steps=44 format=4 uid="uid://hqlvc3uaihot"]
 
 [ext_resource type="Texture2D" uid="uid://bw8bej2xusaa0" path="res://assets/Farm Game Dungeon Cellar Tileset/RPG Maker/RPG Maker MZ (32x32)/tilesets/FG_Cellar_A5.png" id="1_014kd"]
 [ext_resource type="Script" uid="uid://bm732l3q5m45m" path="res://scenes/level_1.gd" id="1_fcfvj"]
@@ -10,6 +10,7 @@
 [ext_resource type="Script" uid="uid://blmbeyvkoex1e" path="res://scenes/boss_move.gd" id="8_15mv3"]
 [ext_resource type="PackedScene" uid="uid://cw0stq82yvu2s" path="res://scenes/Portal2.tscn" id="9_e3sih"]
 [ext_resource type="PackedScene" uid="uid://hco1haupmfr8" path="res://ui/pause_menu.tscn" id="10_2y5yt"]
+[ext_resource type="AudioStream" uid="uid://dbnyto0ayqjeb" path="res://music/xDeviruchi - 8-bit Fantasy  & Adventure Music (2021)/xDeviruchi - Mysterious Dungeon.wav" id="11_2os1m"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_bswci"]
 texture = ExtResource("1_014kd")
@@ -404,6 +405,9 @@ size = Vector2(29.3435, 20)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tdlki"]
 size = Vector2(0.835049, 0.664028)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v8pws"]
+size = Vector2(137, 138.875)
+
 [node name="Level1" type="Node2D"]
 script = ExtResource("1_fcfvj")
 
@@ -466,7 +470,7 @@ collision_mask = 10
 script = ExtResource("8_15mv3")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Boss_move"]
-position = Vector2(3833, 2407.5)
+position = Vector2(3832, 2407)
 scale = Vector2(10, 10)
 shape = SubResource("RectangleShape2D_pa8r4")
 debug_color = Color(0.901985, 0.000158061, 0.757747, 0.42)
@@ -641,3 +645,17 @@ position = Vector2(1322, 2107)
 rotation = -0.767945
 scale = Vector2(200, 200)
 shape = SubResource("RectangleShape2D_tdlki")
+
+[node name="music_level1" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_2os1m")
+volume_db = -18.0
+autoplay = true
+
+[node name="BossArea" type="Area2D" parent="."]
+position = Vector2(3727, 2424)
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BossArea"]
+position = Vector2(-46.5, 8.5625)
+shape = SubResource("RectangleShape2D_v8pws")
+debug_color = Color(0.427966, 0.113368, 0.854667, 0.42)

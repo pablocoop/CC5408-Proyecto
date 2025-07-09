@@ -20,6 +20,7 @@ var base_max_speed := 0.0
 @onready var hitbox: Hitbox = $Pivot/Hitbox
 
 signal enemy_died
+@onready var die: AudioStreamPlayer = $die
 
 
 
@@ -51,6 +52,8 @@ func _physics_process(delta: float) -> void:
 		pivot.scale.x *= -1
 
 func take_damage(damage: float, from_direction: Vector2) -> void:
+	die.play()
+	
 	if is_dead or is_invulnerable:
 		return
 

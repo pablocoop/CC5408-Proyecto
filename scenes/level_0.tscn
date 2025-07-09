@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=4 uid="uid://bjv7ltgvfcm0e"]
+[gd_scene load_steps=21 format=4 uid="uid://bjv7ltgvfcm0e"]
 
 [ext_resource type="Texture2D" uid="uid://yh5f3crpm4io" path="res://assets/2D Pixel Dungeon Asset Pack/character and tileset/Dungeon_Tileset.png" id="1_7wnc2"]
 [ext_resource type="Script" uid="uid://cpprc3f637gwv" path="res://scenes/level_0.gd" id="1_qjcqe"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://hco1haupmfr8" path="res://ui/pause_menu.tscn" id="8_jv3i5"]
 [ext_resource type="PackedScene" uid="uid://dkvrln2mnfpao" path="res://scenes/Portal.tscn" id="9_jv3i5"]
 [ext_resource type="Script" uid="uid://d28xsbpp0ote5" path="res://scenes/TilemapCollisionBaker.gd" id="10_ll25s"]
+[ext_resource type="AudioStream" uid="uid://by05apnp3cctd" path="res://music/xDeviruchi - 8-bit Fantasy  & Adventure Music (2021)/xDeviruchi - The Final of The Fantasy.wav" id="11_sk60w"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5uqbp"]
 texture = ExtResource("1_7wnc2")
@@ -556,32 +557,48 @@ scale = Vector2(3.02942, 1.19718)
 texture = ExtResource("3_rerym")
 
 [node name="Label" type="Label" parent="."]
-offset_left = 222.0
+offset_left = 71.0
 offset_top = 46.0
-offset_right = 578.0
-offset_bottom = 69.0
+offset_right = 524.0
+offset_bottom = 133.0
 theme = ExtResource("4_uijja")
-text = "  Move using 
-A, S, W, and D
-Run with Shift"
+text = "Move using 
+A, S, W, D
+or the Arrow Keys"
+horizontal_alignment = 1
 
 [node name="Label2" type="Label" parent="."]
-offset_left = 799.0
+offset_left = 1021.0
 offset_top = 57.0
-offset_right = 1306.0
-offset_bottom = 114.0
+offset_right = 1528.0
+offset_bottom = 144.0
 theme = ExtResource("4_uijja")
 text = "Try to hit the ball
-     with space"
+with Space or 
+Left Mouse Button"
+horizontal_alignment = 1
 
 [node name="Label3" type="Label" parent="."]
-offset_left = 1650.0
-offset_top = 58.0
-offset_right = 2317.0
-offset_bottom = 115.0
+offset_left = 1680.0
+offset_top = 56.0
+offset_right = 2347.0
+offset_bottom = 143.0
 theme = ExtResource("4_uijja")
 text = "Defeat the enemy to 
-advance to the next level"
+advance 
+to the next level"
+horizontal_alignment = 1
+
+[node name="Label4" type="Label" parent="."]
+offset_left = 533.0
+offset_top = 329.0
+offset_right = 1040.0
+offset_bottom = 416.0
+theme = ExtResource("4_uijja")
+text = "Hold Shift  or 
+Right Mouse Button 
+to run"
+horizontal_alignment = 1
 
 [node name="Player" parent="." instance=ExtResource("5_xp8tn")]
 position = Vector2(390, 235)
@@ -622,3 +639,8 @@ scale = Vector2(1.6, 1.6)
 
 [node name="StaticBody2D3" type="StaticBody2D" parent="."]
 script = ExtResource("10_ll25s")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_sk60w")
+volume_db = -18.0
+autoplay = true
