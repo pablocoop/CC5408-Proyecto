@@ -513,7 +513,7 @@ size = Vector2(29.3435, 20)
 size = Vector2(0.835049, 0.664028)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v8pws"]
-size = Vector2(137, 138.875)
+size = Vector2(10.5, 144.438)
 
 [node name="Level1" type="Node2D"]
 script = ExtResource("1_fcfvj")
@@ -768,6 +768,6 @@ position = Vector2(3727, 2424)
 collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BossArea"]
-position = Vector2(-46.5, 8.5625)
+position = Vector2(38, 6)
 shape = SubResource("RectangleShape2D_v8pws")
 debug_color = Color(0.427966, 0.113368, 0.854667, 0.42)
