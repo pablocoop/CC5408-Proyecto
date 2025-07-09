@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://b4j3niifdcwi1"
+path="res://.godot/imported/xDeviruchi - Prepare for Battle! .wav-30d078108a00ec3533edfe1c1e152e35.sample"
+
+[deps]
+
+source_file="res://music/xDeviruchi - 8-bit Fantasy  & Adventure Music (2021)/xDeviruchi - Prepare for Battle! .wav"
+dest_files=["res://.godot/imported/xDeviruchi - Prepare for Battle! .wav-30d078108a00ec3533edfe1c1e152e35.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=2
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://b87myl15pkqgh"]
+[gd_scene load_steps=10 format=3 uid="uid://b87myl15pkqgh"]
 
 [ext_resource type="Theme" uid="uid://dftfdeuhv8jr3" path="res://fonts/pixelfond.tres" id="1_ed0b0"]
 [ext_resource type="Script" uid="uid://dvgrtfsje7ma8" path="res://ui/credits.gd" id="2_74u3g"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://dd3lv2nmc55ld" path="res://assets/assets ui/death_enemy2.png" id="6_dyfqb"]
 [ext_resource type="Texture2D" uid="uid://cbrkwtuod6jk6" path="res://assets/assets ui/death_enemy3.png" id="7_swjq5"]
 [ext_resource type="Texture2D" uid="uid://bl8ppddihlma6" path="res://assets/assets ui/background.png" id="8_dyfqb"]
+[ext_resource type="AudioStream" uid="uid://dkjmfbf46u51y" path="res://music/Space Journey Music Pack/1. Into The Spaceship.wav" id="9_swjq5"]
 
 [node name="credits" type="Control"]
 layout_mode = 3
@@ -41,6 +42,35 @@ theme_override_font_sizes/bold_font_size = 50
 bbcode_enabled = true
 text = "[center]
 [wave amp=50]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -116,15 +146,18 @@ text = "[center]
 
 
 [font_size=35]
-cats-pixel-asset-pack
+cats-pixel
+-asset-pack
 by Pop Shop Packs
 
 dungeon-assetpuck 
 by Pixel_Poem
 
-cellar-tileset-16x16-pixelart
+cellar-tileset-16x16
+-pixelart
 by ELV Games
 
+opengameart.org/content/
 bouncing-ball-guy
 by deiphiz
 
@@ -133,6 +166,41 @@ by datagoblin
 
 UI BARS
 by guilemus
+
+- Music -
+
+> Into The Spaceship 
+> Goodbye Sweet Alien
+by lowenergygirl
+
+8-bit Fantasy & 
+Adventure Music (2021)
+> The Final of The Fantasy
+> Mysterious Dungeon
+> Prepare for the Battle!
+by xDeviruchi
+
+An Rpg Makers Kit 1 
+- Free Rpg Sounds/Music
+by TheAmbientFort
+
+8-bit / 16-bit 
+Sound Effects (x25) Pack
+by jdwasabi
+
+opengameart.org/content/
+meow
+by IgnasD
+
+opengameart.org/content/
+game_over_bad_chest
+by Oiboo
+
+opengameart.org/content/
+playerhit
+by GreyFrogGames
+
+
 [/font_size]"
 fit_content = true
 scroll_active = false
@@ -177,10 +245,10 @@ layout_direction = 4
 layout_mode = 1
 anchors_preset = 9
 anchor_bottom = 1.0
-offset_left = -47.0
-offset_top = 295.0
-offset_right = 479.5
-offset_bottom = 295.0
+offset_left = -61.0
+offset_top = 327.0
+offset_right = 465.5
+offset_bottom = 327.0
 grow_vertical = 2
 rotation = -0.235619
 scale = Vector2(0.4, 0.4)
@@ -192,12 +260,15 @@ metadata/_edit_lock_ = true
 [node name="enemy3" type="TextureRect" parent="."]
 layout_direction = 4
 layout_mode = 1
-anchors_preset = 9
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -16.0
-offset_top = 736.0
-offset_right = 673.807
-offset_bottom = 736.0
+offset_left = -156.0
+offset_top = 2563.0
+offset_right = 533.807
+offset_bottom = 2563.0
+grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.4, 0.4)
 texture = ExtResource("7_swjq5")
@@ -228,3 +299,8 @@ position = Vector2(1701, 729)
 scale = Vector2(2, 2)
 texture = ExtResource("8_dyfqb")
 flip_h = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_swjq5")
+volume_db = -8.588
+autoplay = true

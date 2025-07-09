@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bdcom8d1olx14"
+path="res://.godot/imported/Basic Rpg Intro Track (RPG).wav-16f4cad6466f6ea0b865f2c357b503a2.sample"
+
+[deps]
+
+source_file="res://music/An Rpg Makers Kit 1 - Free Rpg SoundsMusic/Basic Rpg Intro Track (RPG).wav"
+dest_files=["res://.godot/imported/Basic Rpg Intro Track (RPG).wav-16f4cad6466f6ea0b865f2c357b503a2.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=2
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

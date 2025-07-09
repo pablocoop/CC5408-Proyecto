@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cie5qxiiw4rai"
+path="res://.godot/imported/Armor break.wav-762d0b2eb952e8a48515982bb6aaf06f.sample"
+
+[deps]
+
+source_file="res://music/An Rpg Makers Kit 1 - Free Rpg SoundsMusic/Armor break.wav"
+dest_files=["res://.godot/imported/Armor break.wav-762d0b2eb952e8a48515982bb6aaf06f.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2
