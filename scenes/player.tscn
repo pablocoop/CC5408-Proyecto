@@ -1,4 +1,4 @@
-[gd_scene load_steps=72 format=3 uid="uid://b66xtdsj4jkeg"]
+[gd_scene load_steps=73 format=3 uid="uid://b66xtdsj4jkeg"]
 
 [ext_resource type="Script" uid="uid://20gqeq084edk" path="res://scenes/player.gd" id="1_g2els"]
 [ext_resource type="Texture2D" uid="uid://wdiivehslvyu" path="res://assets/Cats Download/blue_3_sprite.png" id="2_tuyoq"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://b5lnl5nwa1ib8" path="res://assets/UI BARS/health_bar_edited.png" id="6_y4r1p"]
 [ext_resource type="Texture2D" uid="uid://ck3foxx5tfqiq" path="res://assets/UI BARS/empty_bar 3.png" id="7_y4r1p"]
 [ext_resource type="Texture2D" uid="uid://bvrqumk0ovcrm" path="res://assets/UI BARS/shield_bar 3.png" id="8_d2wvv"]
+[ext_resource type="PackedScene" uid="uid://cd3bemblg18x4" path="res://scenes/magic_attack.tscn" id="10_d2wvv"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_dqkch"]
 radius = 7.0
@@ -1471,6 +1472,9 @@ collision_layer = 16
 collision_mask = 8
 monitoring = false
 script = ExtResource("5_tuyoq")
+
+[node name="MagicAttack" parent="AttackHitbox" instance=ExtResource("10_d2wvv")]
+position = Vector2(-28.7787, -0.781018)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackHitbox"]
 position = Vector2(0.112659, -0.373043)

@@ -1,0 +1,44 @@
+[gd_scene load_steps=5 format=3 uid="uid://cd3bemblg18x4"]
+
+[ext_resource type="Texture2D" uid="uid://cd67i2iljw6lq" path="res://scenes/image-removebg-preview (4).png" id="1_q6a0n"]
+
+[sub_resource type="Curve" id="Curve_hawuk"]
+_limits = [-200.0, 200.0, 0.0, 1.0]
+_data = [Vector2(0.00823046, -101.124), 0.0, 0.0, 0, 0, Vector2(0.271605, -60.6741), 0.0, 0.0, 0, 0, Vector2(0.407407, 182.022), 0.0, 0.0, 0, 0, Vector2(0.526749, 15.7303), 0.0, 0.0, 0, 0, Vector2(0.835391, -173.034), -4532.36, -4532.36, 0, 0, Vector2(0.983539, -159.551), 0.0, 0.0, 0, 0]
+point_count = 6
+
+[sub_resource type="Curve" id="Curve_g0lbv"]
+_data = [Vector2(0.0164609, 1), 0.0, 0.0, 0, 0, Vector2(0.234568, 0.94382), 0.0, 0.0, 0, 0, Vector2(0.567901, 0.820225), 0.0, 0.0, 0, 0, Vector2(0.740741, 0.41573), 0.0, 0.0, 0, 0, Vector2(0.90535, 0.011236), -15.0168, 0.0, 0, 0]
+point_count = 5
+
+[sub_resource type="Gradient" id="Gradient_h14hl"]
+offsets = PackedFloat32Array(0, 0.225806, 0.806452, 1)
+colors = PackedColorArray(0.396078, 0.172549, 0.988235, 1, 0.960784, 0.494118, 0.87451, 1, 0.475609, 0.242869, 1, 1, 0.960784, 0.494118, 0.87451, 0.105882)
+
+[node name="MagicAttack" type="Node2D"]
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+position = Vector2(0, -1)
+scale = Vector2(0.98939, 0.943581)
+emitting = false
+amount = 1133
+texture = ExtResource("1_q6a0n")
+lifetime = 0.41
+one_shot = true
+speed_scale = 1.15
+explosiveness = 1.0
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 28.73
+initial_velocity_max = 63.23
+angular_velocity_min = 720.0
+angular_velocity_max = 720.0
+linear_accel_min = -65.67
+linear_accel_max = -46.52
+linear_accel_curve = SubResource("Curve_hawuk")
+angle_min = -414.5
+angle_max = 469.1
+scale_amount_min = 0.0
+scale_amount_max = 0.07
+scale_amount_curve = SubResource("Curve_g0lbv")
+color_ramp = SubResource("Gradient_h14hl")
