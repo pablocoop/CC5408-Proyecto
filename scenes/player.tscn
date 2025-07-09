@@ -1,4 +1,6 @@
+
 [gd_scene load_steps=101 format=3 uid="uid://b66xtdsj4jkeg"]
+
 
 [ext_resource type="Script" uid="uid://20gqeq084edk" path="res://scenes/player.gd" id="1_g2els"]
 [ext_resource type="Texture2D" uid="uid://wdiivehslvyu" path="res://assets/Cats Download/blue_3_sprite.png" id="2_tuyoq"]
@@ -10,6 +12,8 @@
 [ext_resource type="Texture2D" uid="uid://b5lnl5nwa1ib8" path="res://assets/UI BARS/health_bar_edited.png" id="6_y4r1p"]
 [ext_resource type="Texture2D" uid="uid://ck3foxx5tfqiq" path="res://assets/UI BARS/empty_bar 3.png" id="7_y4r1p"]
 [ext_resource type="Texture2D" uid="uid://bvrqumk0ovcrm" path="res://assets/UI BARS/shield_bar 3.png" id="8_d2wvv"]
+[ext_resource type="AudioStream" uid="uid://bhkof1dfcjyjk" path="res://music/Meow.ogg" id="11_d2wvv"]
+[ext_resource type="AudioStream" uid="uid://dbeu8uqx1qbaj" path="res://music/playerhit.mp3" id="12_3v2ag"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_dqkch"]
 radius = 7.0
@@ -1921,3 +1925,10 @@ position = Vector2(-0.137333, -4.73444)
 rotation = -1.57079
 scale = Vector2(2.3916, 1.98282)
 texture = ExtResource("6_fjrip")
+
+[node name="meow" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_d2wvv")
+volume_db = -5.0
+
+[node name="auch" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("12_3v2ag")

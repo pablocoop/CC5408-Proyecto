@@ -1,9 +1,11 @@
 extends Control
 
+@onready var gameover: AudioStreamPlayer = $gameover
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	await get_tree().create_timer(1.5).timeout  # Muestra GAME OVER 2.5s
+	await get_tree().create_timer(6).timeout  # Muestra GAME OVER 2.5s
+	gameover.play()
 	get_tree().change_scene_to_file("res://ui/main_menu.tscn") 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

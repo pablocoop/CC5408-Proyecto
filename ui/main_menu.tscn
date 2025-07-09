@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://c0lbrqopnttbr"]
+[gd_scene load_steps=9 format=3 uid="uid://c0lbrqopnttbr"]
 
 [ext_resource type="Theme" uid="uid://dftfdeuhv8jr3" path="res://fonts/pixelfond.tres" id="1_wk0pr"]
 [ext_resource type="Script" uid="uid://dhjbis6s56kg8" path="res://ui/main_menu.gd" id="2_0dkrt"]
 [ext_resource type="Texture2D" uid="uid://dmfdgfnlm772n" path="res://assets/assets ui/gorrito.png" id="3_rmr83"]
 [ext_resource type="Texture2D" uid="uid://cpr387eajj4ks" path="res://assets/assets ui/mainMenu.png" id="3_wk0pr"]
+[ext_resource type="AudioStream" uid="uid://bdcom8d1olx14" path="res://music/An Rpg Makers Kit 1 - Free Rpg SoundsMusic/Basic Rpg Intro Track (RPG).wav" id="5_8uxxo"]
 
 [sub_resource type="Animation" id="Animation_8uxxo"]
 length = 0.001
@@ -124,3 +125,8 @@ libraries = {
 &"": SubResource("AnimationLibrary_ei257")
 }
 autoplay = "gorrito"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_8uxxo")
+volume_db = 5.0
+autoplay = true

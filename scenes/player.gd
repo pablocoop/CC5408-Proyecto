@@ -62,6 +62,9 @@ var playback: AnimationNodeStateMachinePlayback
 
 @export var animation_tree: AnimationTree
 
+#Sound Effect
+@onready var meow: AudioStreamPlayer = $meow
+@onready var auch: AudioStreamPlayer = $auch
 
 
 func _ready() -> void:
@@ -110,6 +113,7 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("attack"):
 		attack_direction = facing_direction.normalized()
 		_attack()
+		meow.play()
 	
 	if input != Vector2.ZERO:
 		facing_direction = input.normalized()
@@ -179,6 +183,7 @@ func _input(event: InputEvent) -> void:
 	
 
 func take_damage(damage: float, from_direction: Vector2) -> void:
+	
 	if is_dead or is_invulnerable:
 		move_and_slide()
 		return
@@ -187,6 +192,7 @@ func take_damage(damage: float, from_direction: Vector2) -> void:
 	health_component.health -= damage
 
 	if health_component.health > 0:
+		auch.play()
 		is_taking_damage = true
 		Debug.log("auch! pero sigo vivo")
 
