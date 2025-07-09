@@ -120,7 +120,8 @@ func _on_slowmo_factor(factor: float) -> void:
 func _on_hitbox_damage_dealt(target_position: Vector2) -> void:
 	# target_position es la posición del jugador cuando recibió el daño
 	# Solo disparamos la animación (el daño ya se aplicó en el Hurtbox del Player)
-	playback.travel("attack")
+	#playback.travel("attack")
+	pass
 func pause_enemy():
 	is_paused = true
 
