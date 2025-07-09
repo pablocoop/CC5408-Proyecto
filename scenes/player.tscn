@@ -1,4 +1,4 @@
-[gd_scene load_steps=103 format=3 uid="uid://b66xtdsj4jkeg"]
+[gd_scene load_steps=115 format=3 uid="uid://b66xtdsj4jkeg"]
 
 [ext_resource type="Script" uid="uid://20gqeq084edk" path="res://scenes/player.gd" id="1_g2els"]
 [ext_resource type="Texture2D" uid="uid://wdiivehslvyu" path="res://assets/Cats Download/blue_3_sprite.png" id="2_tuyoq"]
@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://ck3foxx5tfqiq" path="res://assets/UI BARS/empty_bar 3.png" id="7_y4r1p"]
 [ext_resource type="Texture2D" uid="uid://bvrqumk0ovcrm" path="res://assets/UI BARS/shield_bar 3.png" id="8_d2wvv"]
 [ext_resource type="AudioStream" uid="uid://bhkof1dfcjyjk" path="res://music/Meow.ogg" id="11_d2wvv"]
+[ext_resource type="Texture2D" uid="uid://sovogwhoirv0" path="res://assets/Fire_animation.png" id="11_jej6c"]
 [ext_resource type="AudioStream" uid="uid://dbeu8uqx1qbaj" path="res://music/playerhit.mp3" id="12_3v2ag"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_dqkch"]
@@ -1827,7 +1828,85 @@ radius = 13.0
 height = 42.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_smehm"]
-size = Vector2(33.5, 67)
+size = Vector2(45.4161, 67)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jej6c"]
+atlas = ExtResource("11_jej6c")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f1ej7"]
+atlas = ExtResource("11_jej6c")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oprun"]
+atlas = ExtResource("11_jej6c")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a8ls1"]
+atlas = ExtResource("11_jej6c")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qfm1y"]
+atlas = ExtResource("11_jej6c")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fulsm"]
+atlas = ExtResource("11_jej6c")
+region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4r5pv"]
+atlas = ExtResource("11_jej6c")
+region = Rect2(384, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_60mlk"]
+atlas = ExtResource("11_jej6c")
+region = Rect2(448, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i4ail"]
+atlas = ExtResource("11_jej6c")
+region = Rect2(512, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a38lo"]
+atlas = ExtResource("11_jej6c")
+region = Rect2(576, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3v2ag"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jej6c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f1ej7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oprun")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a8ls1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qfm1y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fulsm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4r5pv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_60mlk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i4ail")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a38lo")
+}],
+"loop": false,
+"name": &"fire",
+"speed": 10.0
+}]
 
 [node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("animation_tree")]
 collision_layer = 2
@@ -1880,6 +1959,7 @@ debug_color = Color(0.952061, 0.153469, 0.402488, 0.42)
 script = ExtResource("4_dqkch")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+visible = false
 
 [node name="MarginContainer" type="MarginContainer" parent="CanvasLayer"]
 offset_right = 269.0
@@ -1915,14 +1995,23 @@ monitoring = false
 script = ExtResource("5_tuyoq")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackHitbox"]
-position = Vector2(0.112659, -0.373043)
+position = Vector2(6.07069, -0.373043)
 shape = SubResource("RectangleShape2D_smehm")
 
 [node name="Sprite2D" type="Sprite2D" parent="AttackHitbox"]
+visible = false
 position = Vector2(-0.137333, -4.73444)
 rotation = -1.57079
 scale = Vector2(2.3916, 1.98282)
 texture = ExtResource("6_fjrip")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="AttackHitbox"]
+position = Vector2(0.112659, -0.373043)
+scale = Vector2(1.35474, 1.67316)
+sprite_frames = SubResource("SpriteFrames_3v2ag")
+animation = &"fire"
+frame = 9
+frame_progress = 1.0
 
 [node name="meow" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("11_d2wvv")
@@ -1930,3 +2019,5 @@ volume_db = -5.0
 
 [node name="auch" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("12_3v2ag")
+
+[node name="AttackAnimTimer" type="Timer" parent="."]

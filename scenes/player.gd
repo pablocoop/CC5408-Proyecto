@@ -23,6 +23,8 @@ var is_attacking = false
 # Golpear la pelota
 @onready var attack_hitbox: Hitbox = $AttackHitbox
 @onready var attack_hitbox_shape: CollisionShape2D = $AttackHitbox/CollisionShape2D
+@onready var attack_sprite: AnimatedSprite2D = $AttackHitbox/AnimatedSprite2D
+
 
 @export var attack_duration := 0.1
 @export var attack_cooldown := 0.1
@@ -66,6 +68,17 @@ var playback: AnimationNodeStateMachinePlayback
 @onready var meow: AudioStreamPlayer = $meow
 @onready var auch: AudioStreamPlayer = $auch
 
+# Animación manual fuego
+@onready var animated_sprite_2d: AnimatedSprite2D = $AttackHitbox/AnimatedSprite2D
+var fire_anim_time := 0.0
+var fire_anim_frame := 0
+var fire_anim_fps := 20 # Cambia si quieres más rápido/lento
+var fire_anim_playing := false
+@onready var attack_anim_timer: Timer = $AttackAnimTimer
+var attack_anim_total_time := 0.6 # segundos
+var attack_anim_frames := 10 # o los que tenga tu animación
+var attack_anim_index := 0
+
 
 func _ready() -> void:
 	playback = animation_tree["parameters/playback"]
@@ -97,8 +110,25 @@ func _process(delta: float) -> void:
 	attack_hitbox.global_position = global_position + facing_direction * 32
 
 	# Rotar visualmente el sprite del ataque
-	var angle = facing_direction.angle()
-	attack_hitbox.get_node("Sprite2D").rotation = angle
+	#var angle = facing_direction.angle()
+	#attack_hitbox.get_node("Sprite2D").rotation = angle
+	#attack_sprite.rotation = facing_direction.angle()
+	attack_sprite.rotation = facing_direction.angle() + PI / 2  # O prueba -PI/2, PI, según corresponda
+
+	# Avance manual de la animación si está jugando
+	if fire_anim_playing and attack_sprite.visible:
+		fire_anim_time += delta
+		var frame_time = 1.0 / fire_anim_fps
+		if fire_anim_time >= frame_time:
+			fire_anim_time -= frame_time
+			fire_anim_frame += 1
+			if fire_anim_frame >= attack_sprite.sprite_frames.get_frame_count("fire"):
+				# Cuando termina la animación, ocultar sprite y resetear todo
+				attack_sprite.visible = false
+				fire_anim_playing = false
+				fire_anim_frame = 0
+			else:
+				attack_sprite.frame = fire_anim_frame
 	
 func _physics_process(delta: float) -> void:
 	var real_delta = delta / Engine.time_scale
@@ -113,7 +143,7 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("attack"):
 		attack_direction = facing_direction.normalized()
 		_attack()
-		meow.play()
+		
 	
 	if input != Vector2.ZERO:
 		facing_direction = input.normalized()
@@ -237,25 +267,44 @@ func _attack():
 		
 	can_attack = false
 	is_attacking = true
+	meow.play() # Sound effect
 	#playback.travel("attack")
 	#animation_tree["parameters/attack/blend_position"] = facing_direction
 	#attack_hitbox.direction = velocity.normalized()
 	attack_hitbox.direction = (
 		velocity.normalized() if velocity.length_squared() > 0.01 else facing_direction
 	)
-	#attack_hitbox.direction = (attack_hitbox.global_position - global_position).normalized()
-	#is_invulnerable = true 	### DEVUG ONLY
-	#start_invulnerability() # DEVUG ONLY
-	#attack_hitbox.direction = attack_direction
 	attack_hitbox.monitoring = true
 	attack_hitbox_shape.disabled = false
-	attack_hitbox.get_node("Sprite2D").visible = true 
+	
+	# ACTIVA animación del ataque
+	#attack_sprite.visible = true
+	# --- Animación manual por Timer, inmune a time_scale ---
+	attack_sprite.visible = true
+	attack_sprite.animation = "fire" # ¡Usa el nombre correcto aquí!
+	attack_sprite.frame = 0
+	fire_anim_playing = true
+	attack_anim_index = 0
+	attack_anim_frames = attack_sprite.sprite_frames.get_frame_count("fire")
+	var frame_time = attack_anim_total_time / float(attack_anim_frames)
+	attack_anim_timer.wait_time = frame_time
+	attack_anim_timer.one_shot = false
+	attack_anim_timer.ignore_time_scale = true
+	attack_anim_timer.start()
+	# --- fin animación manual ---
+
+	#attack_sprite.play("fire")  # Asegúrate de usar el nombre de tu animación
+	await get_tree().create_timer(attack_duration, false, true).timeout
+	
+	#attack_hitbox.get_node("Sprite2D").visible = true 
 
 	# <-- aquí aplicamos la compensación:
-	await get_tree().create_timer(attack_duration * Engine.time_scale).timeout
+	#await get_tree().create_timer(attack_duration, false, true).timeout
+	#await get_tree().create_timer(attack_duration * Engine.time_scale).timeout
 	attack_hitbox.monitoring = false
 	attack_hitbox_shape.disabled = true
-	attack_hitbox.get_node("Sprite2D").visible = false 
+	#attack_hitbox.get_node("Sprite2D").visible = false 
+	
 	is_attacking = false
 
 	# y lo mismo para el cooldown:
@@ -264,4 +313,14 @@ func _attack():
 	
 func death() -> void:
 	queue_free()
-	
+
+func _on_AttackAnimTimer_timeout():
+	if fire_anim_playing:
+		attack_anim_index += 1
+		if attack_anim_index >= attack_anim_frames:
+			attack_sprite.visible = false
+			fire_anim_playing = false
+			attack_anim_timer.stop()
+			attack_sprite.frame = 0
+		else:
+			attack_sprite.frame = attack_anim_index
