@@ -1,4 +1,4 @@
-[gd_scene load_steps=90 format=3 uid="uid://b66xtdsj4jkeg"]
+[gd_scene load_steps=101 format=3 uid="uid://b66xtdsj4jkeg"]
 
 [ext_resource type="Script" uid="uid://20gqeq084edk" path="res://scenes/player.gd" id="1_g2els"]
 [ext_resource type="Texture2D" uid="uid://wdiivehslvyu" path="res://assets/Cats Download/blue_3_sprite.png" id="2_tuyoq"]
@@ -1781,17 +1781,43 @@ blend_point_7/node = SubResource("AnimationNodeAnimation_31cv2")
 blend_point_7/pos = Vector2(-0.6, -0.7)
 blend_mode = 1
 
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_y4r1p"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_d2wvv"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_3v2ag"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_jej6c"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_oprun"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_a8ls1"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_qfm1y"]
+switch_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_fulsm"]
+switch_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_4r5pv"]
+switch_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_60mlk"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_f1ej7"]
+
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_y4r1p"]
 states/End/position = Vector2(1126, -14)
-states/Start/position = Vector2(153, -14)
+states/Start/position = Vector2(155, -26)
 states/attack/node = SubResource("AnimationNodeBlendSpace2D_md1ol")
 states/attack/position = Vector2(518, -106.518)
 states/idle/node = SubResource("AnimationNodeBlendSpace2D_y4r1p")
-states/idle/position = Vector2(313, -14)
+states/idle/position = Vector2(329, -26)
 states/running/node = SubResource("AnimationNodeBlendSpace2D_4r5pv")
-states/running/position = Vector2(796, -14)
+states/running/position = Vector2(749, -26)
 states/walking/node = SubResource("AnimationNodeBlendSpace2D_pf23h")
-states/walking/position = Vector2(518, -14)
+states/walking/position = Vector2(518, 46)
+transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_y4r1p"), "idle", "walking", SubResource("AnimationNodeStateMachineTransition_d2wvv"), "walking", "running", SubResource("AnimationNodeStateMachineTransition_3v2ag"), "walking", "attack", SubResource("AnimationNodeStateMachineTransition_jej6c"), "idle", "attack", SubResource("AnimationNodeStateMachineTransition_oprun"), "running", "attack", SubResource("AnimationNodeStateMachineTransition_a8ls1"), "attack", "idle", SubResource("AnimationNodeStateMachineTransition_qfm1y"), "attack", "running", SubResource("AnimationNodeStateMachineTransition_fulsm"), "attack", "walking", SubResource("AnimationNodeStateMachineTransition_4r5pv"), "running", "walking", SubResource("AnimationNodeStateMachineTransition_60mlk"), "walking", "idle", SubResource("AnimationNodeStateMachineTransition_f1ej7")]
 graph_offset = Vector2(0, -190.518)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_tuyoq"]
