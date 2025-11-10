@@ -1,4 +1,5 @@
-# CC5408-Proyecto
+# Purrrcatory Escape (Proyecto CC5408 2025-1)
+Link juego en itch.io: https://valgguk.itch.io/purrrcatoryescape
 Repositorio con proyecto del curso CC5408 - Taller de Diseño  de Videojuegos.
 Integrantes:
  - Aldo Luna
